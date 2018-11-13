@@ -8,12 +8,15 @@ install:
 script:
     - npm run build
 cache: npm
+branches:
+  only:
+  - master
 notifications:
     email: false
 deploy:
     provider: pages
     skip-cleanup: true
-    local_dir: /dist
+    local-dir: dist
     github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
     repo: Bitti09/vue-wf
     keep-history: true
