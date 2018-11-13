@@ -9,11 +9,11 @@ Vue.use(VueApollo)
 const AUTH_TOKEN = 'apollo-token'
 
 // Http endpoint
-const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:4000/graphql'
+const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://mybitti.de/graphql'
 // Files URL root
-export const filesRoot = process.env.VUE_APP_FILES_ROOT || httpEndpoint.substr(0, httpEndpoint.indexOf('/graphql'))
+//export const filesRoot = process.env.VUE_APP_FILES_ROOT || httpEndpoint.substr(0, httpEndpoint.indexOf('/graphql'))
 
-Vue.prototype.$filesRoot = filesRoot
+//Vue.prototype.$filesRoot = filesRoot
 
 // Config
 const defaultOptions = {
@@ -21,7 +21,7 @@ const defaultOptions = {
   httpEndpoint,
   // You can use `wss` for secure connection (recommended in production)
   // Use `null` to disable subscriptions
-  wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || 'ws://localhost:4000/graphql',
+  wsEndpoint: null,
   // LocalStorage token
   tokenName: AUTH_TOKEN,
   // Enable Automatic Query persisting with Apollo Engine
@@ -31,6 +31,8 @@ const defaultOptions = {
   websocketsOnly: false,
   // Is being rendered on the server?
   ssr: false,
+
+  addTypename: false,
 
   // Override default apollo link
   // note: don't override httpLink here, specify httpLink options in the
@@ -56,6 +58,7 @@ export function createProvider (options = {}) {
   const { apolloClient, wsClient } = createApolloClient({
     ...defaultOptions,
     ...options,
+    addTypename: false,
   })
   apolloClient.wsClient = wsClient
 
