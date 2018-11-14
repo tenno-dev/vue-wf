@@ -15,7 +15,7 @@
           <span>{{this.platformname}}</span>
         </v-toolbar-title>
         <v-list>
-          <v-list-tile :v-model="platform" @click="changeplatform('PC')">
+          <v-list-tile :v-model="platform" @click="changeplatform('pc')">
             <v-list-tile-title>Pc</v-list-tile-title>
           </v-list-tile>
           <v-list-tile @click="changeplatform('ps4')">
@@ -87,14 +87,14 @@ export default {
   methods: {
     changeplatform: function(plat) {
       // console.log(plat)
-      if (plat == "PC") {
-        this.platform = plat;
+      if (plat == "pc") {
+        this.platform = "pc";
         this.platformname = "PC";
-      } else if (plat == "PS4") {
-        this.platform = plat;
+      } else if (plat == "ps4") {
+        this.platform = "ps4";
         this.platformname = "PS 4";
       } else {
-        this.platform = plat;
+        this.platform = "xb1";
         this.platformname = "Xbox";
       }
     }

@@ -23,7 +23,7 @@
                         on
                         {{node(alert.MissionLocation)}}({{planet(alert.MissionLocation)}})&nbsp;
                         <br>
-                        {{alert.eta}} remaining
+                        {{formattime(alert.Expiry)}} remaining
                     </div>
                     <div>
                         <v-list dense class="text-xs-center">
