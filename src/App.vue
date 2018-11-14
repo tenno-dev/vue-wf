@@ -60,7 +60,7 @@ export default {
       clipped: true,
       drawer: false,
       fixed: false,
-      dark: false,
+      dark: true,
       items1: null,
       items: [
         {
