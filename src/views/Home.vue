@@ -55,7 +55,8 @@ export default {
           platform: this.test
         };
       },
-      fetchPolicy: "network-only",
+      fetchPolicy: "network-first",
+
       // Variables: deep object watch
       deep: false,
       result({ data }) {

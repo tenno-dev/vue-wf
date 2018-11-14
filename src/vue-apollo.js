@@ -1,15 +1,16 @@
-import Vue from 'vue'
-import VueApollo from 'vue-apollo'
-import { createApolloClient } from 'vue-cli-plugin-apollo/graphql-client'
+import Vue from "vue";
+import VueApollo from "vue-apollo";
+import { createApolloClient } from "vue-cli-plugin-apollo/graphql-client";
 
 // Install the vue plugin
-Vue.use(VueApollo)
+Vue.use(VueApollo);
 
 // Name of the localStorage item
-const AUTH_TOKEN = 'apollo-token'
+const AUTH_TOKEN = "apollo-token";
 
 // Http endpoint
-const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://mybitti.de/graphql'
+const httpEndpoint =
+  process.env.VUE_APP_GRAPHQL_HTTP || "https://mybitti.de/graphql";
 // Files URL root
 //export const filesRoot = process.env.VUE_APP_FILES_ROOT || httpEndpoint.substr(0, httpEndpoint.indexOf('/graphql'))
 
@@ -32,7 +33,7 @@ const defaultOptions = {
   // Is being rendered on the server?
   ssr: false,
 
-  addTypename: false,
+  addTypename: false
 
   // Override default apollo link
   // note: don't override httpLink here, specify httpLink options in the
@@ -50,30 +51,34 @@ const defaultOptions = {
 
   // Client local data (see apollo-link-state)
   // clientState: { resolvers: { ... }, defaults: { ... } }
-}
+};
 
 // Call this in the Vue app file
-export function createProvider (options = {}) {
+export function createProvider(options = {}) {
   // Create apollo client
   const { apolloClient } = createApolloClient({
     ...defaultOptions,
     ...options,
-    addTypename: false,
-  })
+    addTypename: false
+  });
 
   // Create vue apollo provider
   const apolloProvider = new VueApollo({
     defaultClient: apolloClient,
     defaultOptions: {
       $query: {
-        // fetchPolicy: 'cache-and-network',
-      },
+        fetchPolicy: "network-only"
+      }
     },
-    errorHandler (error) {
+    errorHandler(error) {
       // eslint-disable-next-line no-console
-      console.log('%cError', 'background: red; color: white; padding: 2px 4px; border-radius: 3px; font-weight: bold;', error.message)
-    },
-  })
+      console.log(
+        "%cError",
+        "background: red; color: white; padding: 2px 4px; border-radius: 3px; font-weight: bold;",
+        error.message
+      );
+    }
+  });
 
-  return apolloProvider
+  return apolloProvider;
 }
