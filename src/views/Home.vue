@@ -61,6 +61,7 @@ export default {
       result({ data }) {
         this.Alerts = data.Alerts;
       },
+      pollInterval: 60000,
       // We use a custom update callback because
       // the field names don't match
       // By default, the 'pingMessage' attribute
