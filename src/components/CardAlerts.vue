@@ -240,7 +240,6 @@ export default {
       return x;
     },
     timecheck: function(prop) {
-      console.log(moment(prop).isBefore());
       return moment(prop).isBefore();
     },
     formattime: function(prop) {
