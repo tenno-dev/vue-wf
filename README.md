@@ -5,3 +5,5 @@
 Version for :  
 api.warframestat.us Source: Use the "**old**" Branch  
 Graphql  Source: Use  the **master** Branch (**heavy WIP!!!**)
+
+**Data Source won't get updated automatically during development**
