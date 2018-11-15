@@ -17,7 +17,7 @@
         </div>
       </v-flex>
       <v-flex xs12 md5 lg3>
-        <div>
+        <div v-if="!$apollo.queries.dayNightCycle.loading">
           <CardDayNight :cylces="this.Cycles" :dark="this.$props.dark1"/>
         </div>
       </v-flex>
@@ -74,6 +74,8 @@ export default {
   },
   mounted() {
     this.time1 = moment().unix();
+    //this.$apollo.queries.News.refresh();
+    //this.$apollo.queries.dayNightCycle.refresh();
     this.interval = setInterval(
       function() {
         this.time1 = moment().unix();
@@ -157,6 +159,8 @@ export default {
       result({ data }) {
         this.News = data.News;
       },
+      fetchPolicy: "network-first",
+      pollInterval: 3600000,
       // We use a custom update callback because
       // the field names don't match
       // By default, the 'pingMessage' attribute
@@ -210,7 +214,6 @@ export default {
         this.test2.length = 0;
         for (var i = 0; i < v1.length; i++) {
           var t = v1[i];
-          console.log(this.SyndicateMissions[t][0]["jobs"]);
           if (this.SyndicateMissions[t][0]["jobs"].length > 0) {
             this.test2.push(v1[i]);
           } else {
@@ -219,7 +222,6 @@ export default {
           }
         }
         this.synload = true;
-        console.log(this.test2);
       },
       // We use a custom update callback because
       // the field names don't match
@@ -261,6 +263,8 @@ export default {
       result({ data }) {
         this.Cycles = data.dayNightCycle[0];
       },
+      fetchPolicy: "network-first",
+      pollInterval: 60000,
       // We use a custom update callback because
       // the field names don't match
       // By default, the 'pingMessage' attribute
