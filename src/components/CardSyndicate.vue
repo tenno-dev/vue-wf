@@ -1,5 +1,5 @@
 <template>
-    <v-card style="width:450px;" v-if="syndics.length > 0">
+    <v-card style="width: 100%;">
         <v-responsive>
             <hr style="height:10px; visibility:hidden;">
             <p
