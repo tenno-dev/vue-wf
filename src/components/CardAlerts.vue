@@ -62,7 +62,7 @@
                                             <v-avatar>
                                                 <v-icon class="black darken-2">mdi-clock-outline</v-icon>
                                             </v-avatar>
-                                            <countdown :time="formattime(alert.Expiry)">
+                                            <countdown :time="formattime(alert.Expiry)||0">
                                                 <template
                                                     slot-scope="props"
                                                 >{{ props.hours }}h {{ props.minutes }}m {{ props.seconds }}s</template>
