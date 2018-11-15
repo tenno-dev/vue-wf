@@ -21,9 +21,13 @@
                             :style="{color : getcolourfaction(alert.MissionFaction)}"
                         >{{alert.MissionFaction}}</span>
                         on
-                        {{node(alert.MissionLocation)}}({{planet(alert.MissionLocation)}})&nbsp;
+                        {{node(alert.MissionLocation)}}({{planet(alert.MissionLocation)}})
                         <br>
-                        {{formattime(alert.Expiry)}} remaining
+                        <countdown :time="formattime(alert.Expiry)">
+                            <template
+                                slot-scope="props"
+                            >{{ props.hours }}h {{ props.minutes }}m {{ props.seconds }}s left</template>
+                        </countdown>
                     </div>
                     <div>
                         <v-list dense class="text-xs-center">
@@ -58,7 +62,11 @@
                                             <v-avatar>
                                                 <v-icon class="black darken-2">mdi-clock-outline</v-icon>
                                             </v-avatar>
-                                            <span>{{formattime(alert.Expiry)}}</span>
+                                            <countdown :time="formattime(alert.Expiry)">
+                                                <template
+                                                    slot-scope="props"
+                                                >{{ props.hours }}h {{ props.minutes }}m {{ props.seconds }}s</template>
+                                            </countdown>
                                         </v-chip>
                                         <br>
                                     </v-list-tile-action-text>
@@ -243,7 +251,10 @@ export default {
       return moment(prop).isBefore();
     },
     formattime: function(prop) {
-      return moment(moment.unix(prop).diff(moment())).format("HH:mm:ss");
+      return moment(moment.unix(prop).diff(moment())).valueOf();
+    },
+    formattime2: function(prop) {
+      return moment(prop).valueOf();
     },
     itemlink(prop) {
       return "/Item/" + prop;

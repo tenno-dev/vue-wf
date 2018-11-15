@@ -45,8 +45,18 @@ export default {
       tstamp: "0",
       Alerts: {},
       News: {},
+      time1: 0,
       error: 0
     };
+  },
+  mounted() {
+    this.time1 = moment().unix();
+    this.interval = setInterval(
+      function() {
+        this.time1 = moment().unix();
+      }.bind(this),
+      60000 // 60sec 
+    );
   },
   apollo: {
     // Advanced query with parameters
@@ -74,7 +84,7 @@ export default {
       variables() {
         // Use vue reactive properties here
         return {
-          Expiry_gte: moment().unix(),
+          Expiry_gte: this.time1,
           platform: this.test
         };
       },
@@ -85,7 +95,7 @@ export default {
       result({ data }) {
         this.Alerts = data.Alerts;
       },
-      pollInterval: 60000,
+      pollInterval: 0,
       // We use a custom update callback because
       // the field names don't match
       // By default, the 'pingMessage' attribute
