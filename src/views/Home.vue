@@ -18,7 +18,7 @@
       </v-flex>
       <v-flex xs12 md5 lg3>
         <div v-if="!$apollo.queries.dayNightCycle.loading">
-          <CardDayNight :cylces="this.Cycles" :dark="this.$props.dark1"/>
+          <CardDayNight :cylces="this.Cycles" :platform="this.test" :dark="this.$props.dark1"/>
         </div>
       </v-flex>
       <br>

@@ -155,7 +155,7 @@
                     </div>
                 </v-card>
                 <!-- Vallis -->
-                <v-card>
+                <v-card v-if="platform =='pc'">
                     <div>
                         <p
                             class="headline mb-0 text-xs-center"
@@ -237,7 +237,7 @@
 import moment from "moment";
 
 export default {
-  props: ["cylces"],
+  props: ["cylces", "platform"],
   methods: {
     formattime: function(prop) {
       return moment(moment.unix(prop).diff(moment())).valueOf();
