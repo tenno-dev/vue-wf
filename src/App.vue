@@ -70,8 +70,8 @@ export default {
         },
         {
           icon: "mdi-chart-bubble",
-          title: "Warframe",
-          link: "/warframe"
+          title: "Patchelogs",
+          link: "/Patches"
         }
       ],
       miniVariant: false,

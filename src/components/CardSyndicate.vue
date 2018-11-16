@@ -5,7 +5,7 @@
             <p
                 class="headline mb-0 text-xs-center"
                 style="text-align: center!important"
-            >Ostron / Solaris Bounty Cycle</p>
+            >Bounty Cycle</p>
             <v-tabs v-model="select" :dark="dark" slider-color="cyan">
                 <v-tab v-for="n in this.syndics" :key="n" ripple>{{ n }}</v-tab>
                 <v-tab-item v-for="n in this.syndics" :key="n">
@@ -34,71 +34,64 @@
                             </v-list-tile-action>
                         </v-list-tile>
                     </v-list>
-                    <v-expansion-panel v-if="bounties[n][0].jobs !== 'none'">
-                        <v-expansion-panel-content>
-                            <div slot="header">Bounties</div>
-                            <v-container fluid grid-list-xs>
-                                <v-layout column wrap="">
-                                    <v-flex
-                                        d-flex
-                                        xs12
-                                        v-for="(item,i) in bounties[n][0].jobs"
-                                        :key="i"
+                    <p
+                        class="headline mb-0 text-xs-center"
+                        style="text-align: center!important"
+                    >Bounties</p>
+                    <div v-if="bounties[n][0].jobs !== 'none'">
+                        <v-expansion-panel v-for="(item,i) in bounties[n][0].jobs" :key="i">
+                            <v-expansion-panel-content>
+                                <div slot="header">
+                                    {{item.type}}
+                                    <br>Level Range:
+                                    <v-chip
+                                        style="right: 0px;left: 0px;"
+                                        small
+                                        color="green"
+                                        text-color="white"
                                     >
-                                        <v-card>
-                                            <div>
-                                                Type:
+                                        {{item.enemyLevels[0]}} -
+                                        {{item.enemyLevels[1]}}
+                                    </v-chip>
+                                </div>
+                                <v-card>
+                                    <v-card-title>
+                                        <div>
+                                            Type:
+                                            <v-chip
+                                                style="right: 0px;"
+                                                small
+                                                color="grey"
+                                                text-color="white"
+                                            >{{item.type}}</v-chip>
+                                            <br>Standings:
+                                            <span
+                                                v-for="(item,i) in item.standingStages"
+                                                :key="i"
+                                            >
                                                 <v-chip
-                                                    style="right: 0px;"
+                                                    style="right: 0px;left: 0px;"
                                                     small
                                                     color="grey"
                                                     text-color="white"
-                                                >{{item.type}}</v-chip>
-                                                <br>Standings:
-                                                <span
-                                                    v-for="(item,i) in item.standingStages"
-                                                    :key="i"
-                                                >
-                                                    <v-chip
-                                                        style="right: 0px;left: 0px;"
-                                                        small
-                                                        color="grey"
-                                                        text-color="white"
-                                                    >{{Number(item)}}</v-chip>
-                                                </span>
-                                                <br>Level Range:
+                                                >{{Number(item)}}</v-chip>
+                                            </span>
+                                            <br>Items:
+                                            <span v-for="item in item.rewardPool" :key="item">
                                                 <v-chip
                                                     style="right: 0px;left: 0px;"
                                                     small
                                                     color="green"
                                                     text-color="white"
-                                                >{{item.enemyLevels[0]}}</v-chip>-
-                                                <v-chip
-                                                    style="right: 0px;left: 0px;"
-                                                    small
-                                                    color="green"
-                                                    text-color="white"
-                                                >{{item.enemyLevels[1]}}</v-chip>
-                                                <br>Items:
-                                                <span
-                                                    v-for="item in item.rewardPool"
-                                                    :key="item"
-                                                >
-                                                    <v-chip
-                                                        style="right: 0px;left: 0px;"
-                                                        small
-                                                        color="green"
-                                                        text-color="white"
-                                                    >{{item}}</v-chip>
-                                                </span>
-                                                <hr style="height:10px; visibility:hidden;">
-                                            </div>
-                                        </v-card>
-                                    </v-flex>
-                                </v-layout>
-                            </v-container>
-                        </v-expansion-panel-content>
-                    </v-expansion-panel>
+                                                >{{item}}</v-chip>
+                                            </span>
+                                            <hr style="height:10px; visibility:hidden;">
+                                        </div>
+                                    </v-card-title>
+                                </v-card>
+                            </v-expansion-panel-content>
+                        </v-expansion-panel>
+                    </div>
                 </v-tab-item>
             </v-tabs>
         </v-responsive>
