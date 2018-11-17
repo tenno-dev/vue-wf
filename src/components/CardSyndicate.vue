@@ -57,14 +57,7 @@
                                 <v-card>
                                     <v-card-title>
                                         <div>
-                                            Type:
-                                            <v-chip
-                                                style="right: 0px;"
-                                                small
-                                                color="grey"
-                                                text-color="white"
-                                            >{{item.type}}</v-chip>
-                                            <br>Standings:
+                                            Standings:
                                             <span
                                                 v-for="(item,i) in item.standingStages"
                                                 :key="i"
