@@ -11,6 +11,7 @@
     "@babel/polyfill": "^7.0.0-rc.1",
     "@chenfengyuan/vue-countdown": "^1.0.1",
     "@mdi/font": "^2.6.95",
+    "graphql": "^14.0.2",
     "lodash": "^4.17.11",
     "lodash.groupby": "^4.6.0",
     "moment": "^2.22.2",
