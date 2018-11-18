@@ -77,7 +77,6 @@ export default {
       return x;
     },
     formatttext2: function(prop, prop2) {
-      console.log(prop2);
       if (prop2) {
         var x = prop.replace(prop2, "<ul><li>");
         x = x.replace(/\n/g, "</li><li>");

@@ -45,7 +45,7 @@
       <router-view :test="this.platform" :dark1="this.dark" :items1="this.items1"/>
     </v-content>
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
+      <span>&copy; 2018</span>
     </v-footer>
   </v-app>
 </template>
@@ -86,7 +86,6 @@ export default {
   },
   methods: {
     changeplatform: function(plat) {
-      // console.log(plat)
       if (plat == "pc") {
         this.platform = "pc";
         this.platformname = "PC";

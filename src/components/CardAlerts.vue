@@ -226,6 +226,9 @@ import moment from "moment";
 export default {
   props: ["alerts"],
   methods: {
+    formattime: function(prop) {
+      return moment(moment.unix(prop).diff(moment())).valueOf();
+    },
     getcolourfaction(prop, icon) {
       var x = null;
       if (prop == "Grineer") {
@@ -249,9 +252,6 @@ export default {
     },
     timecheck: function(prop) {
       return moment(prop).isBefore();
-    },
-    formattime: function(prop) {
-      return moment(moment.unix(prop).diff(moment())).valueOf();
     },
     formattime2: function(prop) {
       return moment(prop).valueOf();

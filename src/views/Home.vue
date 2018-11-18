@@ -14,6 +14,9 @@
       <v-flex xs12 md5 lg3>
         <div>
           <CardDailyReset :dark="this.$props.dark1"/>
+        </div><br>
+        <div>
+          <CardDarvoDeals :deals="this.DailyDeals" :dark="this.$props.dark1"/>
         </div>
       </v-flex>
       <v-flex xs12 md5 lg3>
@@ -44,6 +47,7 @@ import CardNews from "@/components/CardNews.vue";
 import CardSyndicate from "@/components/CardSyndicate.vue";
 import CardDailyReset from "@/components/CardDailyReset.vue";
 import CardDayNight from "@/components/CardDayNight.vue";
+import CardDarvoDeals from "@/components/CardDarvoDeals.vue";
 
 var _ = require("lodash");
 
@@ -57,7 +61,8 @@ export default {
     CardNews,
     CardSyndicate,
     CardDailyReset,
-    CardDayNight
+    CardDayNight,
+    CardDarvoDeals
   },
   data() {
     return {
@@ -222,6 +227,56 @@ export default {
           }
         }
         this.synload = true;
+      },
+      // We use a custom update callback because
+      // the field names don't match
+      // By default, the 'pingMessage' attribute
+      // would be used on the 'data' result object
+      // Here we know the result is in the 'ping' attribute
+      // considering the way the apollo server works
+      // Optional result hook
+      // Error handling
+      error(error) {
+        // eslint-disable-next-line
+        console.error("We've got an error!", error);
+        this.error = 1;
+      },
+      // Loading state
+      // loadingKey is the name of the data property
+      // that will be incremented when the query is loading
+      // and decremented when it no longer is.
+      loadingKey: "loadingQueriesCount"
+      // watchLoading will be called whenever the loading state changes
+    },
+    DailyDeals: {
+      query: gql`
+        query DailyDeals($platform: String) {
+          DailyDeals(where: { platform: $platform }) {
+            Dealid
+            platform
+            item
+            expiry
+            originalPrice
+            salePrice
+            total
+            sold
+            discount
+          }
+        }
+      `,
+      // Reactive parameters
+      variables() {
+        // Use vue reactive properties here
+        return {
+          platform: this.test
+        };
+      },
+      fetchPolicy: "network-first",
+      pollInterval: 60000,
+      // Variables: deep object watch
+      deep: true,
+      result({ data }) {
+        this.DailyDeals = data.DailyDeals;
       },
       // We use a custom update callback because
       // the field names don't match

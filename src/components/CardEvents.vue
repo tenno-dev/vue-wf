@@ -188,7 +188,6 @@ export default {
         this.timeremain = this.formattime(moment().countdown(this.ev.expiry))
       }
       if (this.$props.platform == 'XB1') {
-        //console.log('platform is xbox')
         this.faction = this.ev.faction
         this.description = this.ev.asString.split(" : ")[1].split(" (")[0]
         this.node = this.nodename(this.ev.node)[0]
