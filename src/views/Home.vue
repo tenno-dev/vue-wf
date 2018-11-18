@@ -269,7 +269,7 @@ export default {
       variables() {
         // Use vue reactive properties here
         return {
-          Expiry_gte: this.time1,
+          expiry_gte: this.time1,
           platform: this.test
         };
       },
