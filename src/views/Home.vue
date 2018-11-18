@@ -14,7 +14,8 @@
       <v-flex xs12 md5 lg3>
         <div>
           <CardDailyReset :dark="this.$props.dark1"/>
-        </div><br>
+        </div>
+        <br>
         <div>
           <CardDarvoDeals :deals="this.DailyDeals" :dark="this.$props.dark1"/>
         </div>
@@ -250,8 +251,8 @@ export default {
     },
     DailyDeals: {
       query: gql`
-        query DailyDeals($platform: String) {
-          DailyDeals(where: { platform: $platform }) {
+        query DailyDeals($Expiry_gte: Int, $platform: String) {
+          DailyDeals(where: { Expiry_gte: $Expiry_gte, platform: $platform }) {
             Dealid
             platform
             item
@@ -268,11 +269,10 @@ export default {
       variables() {
         // Use vue reactive properties here
         return {
+          Expiry_gte: this.time1,
           platform: this.test
         };
       },
-      fetchPolicy: "network-first",
-      pollInterval: 60000,
       // Variables: deep object watch
       deep: true,
       result({ data }) {
