@@ -251,8 +251,8 @@ export default {
     },
     DailyDeals: {
       query: gql`
-        query DailyDeals($Expiry_gte: Int, $platform: String) {
-          DailyDeals(where: { Expiry_gte: $Expiry_gte, platform: $platform }) {
+        query DailyDeals($expiry_gte: Int, $platform: String) {
+          DailyDeals(where: { expiry_gte: $expiry_gte, platform: $platform }) {
             Dealid
             platform
             item
