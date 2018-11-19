@@ -24,6 +24,9 @@
           <v-list-tile @click="changeplatform('xb1')">
             <v-list-tile-title>Xbox</v-list-tile-title>
           </v-list-tile>
+          <v-list-tile @click="changeplatform('swi')">
+            <v-list-tile-title>Switch</v-list-tile-title>
+          </v-list-tile>
         </v-list>
       </v-menu>
     </v-toolbar>
@@ -92,6 +95,9 @@ export default {
       } else if (plat == "ps4") {
         this.platform = "ps4";
         this.platformname = "PS 4";
+      } else if (plat == "swi") {
+        this.platform = "swi";
+        this.platformname = "Switch";
       } else {
         this.platform = "xb1";
         this.platformname = "Xbox";
