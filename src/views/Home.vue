@@ -16,7 +16,7 @@
           <CardDailyReset :dark="this.$props.dark1"/>
         </div>
         <br>
-        <div>
+        <div v-if="!$apollo.queries.DailyDeals.loading">
           <CardDarvoDeals :deals="this.DailyDeals" :dark="this.$props.dark1"/>
         </div>
       </v-flex>
@@ -41,6 +41,15 @@
           <CardSortie :sortie="this.Sortie[0]" :platform="this.test" :dark="this.$props.dark1"/>
         </div>
       </v-flex>
+      <v-flex xs12 md5 lg3>
+        <div v-if="!$apollo.queries.Fissures.loading">
+          <CardVoidFissures
+            :fissures="this.Fissures"
+            :platform="this.test"
+            :dark="this.$props.dark1"
+          />
+        </div>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -55,6 +64,7 @@ import CardDailyReset from "@/components/CardDailyReset.vue";
 import CardDayNight from "@/components/CardDayNight.vue";
 import CardDarvoDeals from "@/components/CardDarvoDeals.vue";
 import CardSortie from "@/components/CardSortie.vue";
+import CardVoidFissures from "@/components/CardVoidFissures.vue";
 
 var _ = require("lodash");
 
@@ -70,7 +80,8 @@ export default {
     CardDailyReset,
     CardDayNight,
     CardDarvoDeals,
-    CardSortie
+    CardSortie,
+    CardVoidFissures
   },
   data() {
     return {
@@ -196,9 +207,18 @@ export default {
     },
     SyndicateMissions: {
       query: gql`
-        query SyndicateMissions($Expiry_gte: Int, $platform: String) {
+        query SyndicateMissions(
+          $expiry_gte: Int
+          $platform: String
+          $syndicate: String
+          $syndicate2: String
+        ) {
           SyndicateMissions(
-            where: { expiry_gte: $Expiry_gte, platform: $platform }
+            where: {
+              expiry_gte: $expiry_gte
+              platform: $platform
+              OR: [{ syndicate: $syndicate }, { syndicate: $syndicate2 }]
+            }
           ) {
             missionid
             platform
@@ -214,8 +234,10 @@ export default {
       variables() {
         // Use vue reactive properties here
         return {
-          Expiry_gte: this.time1,
-          platform: this.test
+          expiry_gte: this.time1,
+          platform: this.test,
+          syndicate: "Ostrons",
+          syndicate2: "Solaris United"
         };
       },
       // Variables: deep object watch
@@ -223,16 +245,10 @@ export default {
       result({ data }) {
         this.synload = false;
         this.SyndicateMissions = _.groupBy(data.SyndicateMissions, "syndicate");
-        var v1 = Object.keys(this.SyndicateMissions);
         this.test2.length = 0;
+        var v1 = Object.keys(this.SyndicateMissions);
         for (var i = 0; i < v1.length; i++) {
-          var t = v1[i];
-          if (this.SyndicateMissions[t][0]["jobs"].length > 0) {
-            this.test2.push(v1[i]);
-          } else {
-            this.SyndicateMissions[t] = null;
-            delete this.SyndicateMissions[t];
-          }
+          this.test2.push(v1[i]);
         }
         this.synload = true;
       },
@@ -283,7 +299,7 @@ export default {
       // Variables: deep object watch
       deep: true,
       result({ data }) {
-        this.DailyDeals = data.DailyDeals;
+        this.DailyDeals = data.DailyDeals[0];
       },
       // We use a custom update callback because
       // the field names don't match
@@ -331,6 +347,55 @@ export default {
       deep: true,
       result({ data }) {
         this.Sortie = data.Sortie;
+      },
+      // We use a custom update callback because
+      // the field names don't match
+      // By default, the 'pingMessage' attribute
+      // would be used on the 'data' result object
+      // Here we know the result is in the 'ping' attribute
+      // considering the way the apollo server works
+      // Optional result hook
+      // Error handling
+      error(error) {
+        // eslint-disable-next-line
+        console.error("We've got an error!", error);
+        this.error = 1;
+      },
+      // Loading state
+      // loadingKey is the name of the data property
+      // that will be incremented when the query is loading
+      // and decremented when it no longer is.
+      loadingKey: "loadingQueriesCount"
+      // watchLoading will be called whenever the loading state changes
+    },
+    Fissures: {
+      query: gql`
+        query Fissures($expiry_gte: Int, $platform: String) {
+          Fissures(where: { expiry_gte: $expiry_gte, platform: $platform }) {
+            FissureId
+            platform
+            activation
+            expiry
+            node
+            missionType
+            enemy
+            tier
+            tierNum
+          }
+        }
+      `,
+      // Reactive parameters
+      variables() {
+        // Use vue reactive properties here
+        return {
+          expiry_gte: this.time1,
+          platform: this.test
+        };
+      },
+      // Variables: deep object watch
+      deep: true,
+      result({ data }) {
+        this.Fissures = data.Fissures;
       },
       // We use a custom update callback because
       // the field names don't match

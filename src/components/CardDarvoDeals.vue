@@ -21,7 +21,7 @@
                                             small
                                             color="grey"
                                             text-color="white"
-                                        >{{deals[0].item}}</v-chip>
+                                        >{{deals.item}}</v-chip>
                                         <br>
                                     </v-list-tile-action-text>
                                 </v-list-tile-action>
@@ -41,7 +41,7 @@
                                             <v-avatar>
                                                 <v-icon class="black darken-2">mdi-clock-outline</v-icon>
                                             </v-avatar>
-                                            <countdown :time="formattime(deals[0].expiry)||0">
+                                            <countdown :time="formattime(deals.expiry)||0">
                                                 <template
                                                     slot-scope="props"
                                                 >{{ props.hours }}h {{ props.minutes }}m {{ props.seconds }}s</template>
@@ -69,7 +69,7 @@
                                                     src="https://hub.warframestat.us/img/general/plat.png"
                                                 >
                                             </v-avatar>
-                                            <s>{{deals[0].originalPrice}}</s>
+                                            <s>{{deals.originalPrice}}</s>
                                         </v-chip>
                                     </v-list-tile-action-text>
                                 </v-list-tile-action>
@@ -92,7 +92,7 @@
                                                     src="https://hub.warframestat.us/img/general/plat.png"
                                                 >
                                             </v-avatar>
-                                            {{deals[0].salePrice}}
+                                            {{deals.salePrice}}
                                         </v-chip>
                                     </v-list-tile-action-text>
                                 </v-list-tile-action>
@@ -103,13 +103,13 @@
                                 </v-list-tile-content>
                                 <v-list-tile-action>
                                     <v-list-tile-action-text>
-                                        <span v-if="deals[0].sold !== deals[0].total">
+                                        <span v-if="deals.sold !== deals.total">
                                             <v-chip
                                                 style="right: 0px;"
                                                 small
-                                                :color="getcolour(deals[0].total)"
+                                                :color="getcolour(deals.total)"
                                                 text-color="white"
-                                            >{{deals[0].total - deals[0].sold }} of {{deals[0].total}} left</v-chip>
+                                            >{{deals.total - deals.sold }} of {{deals.total}} left</v-chip>
                                         </span>
                                         <span v-else>
                                             <v-chip

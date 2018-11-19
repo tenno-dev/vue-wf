@@ -102,7 +102,7 @@
 <script>
 import moment from "moment";
 export default {
-  props: ["bounty", "bounties", "syndics", "dark"],
+  props: ["bounties", "syndics", "dark"],
   data() {
     return {
       timeremain: null,
