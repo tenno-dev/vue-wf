@@ -31,7 +31,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-beta.4",
     "graphql-tag": "^2.9.0",
-    "lint-staged": "^7.2.2",
+    "lint-staged": "^8.0.5",
     "vue-cli-plugin-apollo": "^0.18.0",
     "vue-cli-plugin-vuetify": "^0.4.6",
     "vue-template-compiler": "^2.5.17"
