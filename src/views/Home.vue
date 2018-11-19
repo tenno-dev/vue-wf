@@ -50,6 +50,15 @@
           />
         </div>
       </v-flex>
+            <v-flex xs12 md5 lg3>
+        <div v-if="!$apollo.queries.Invasions.loading">
+          <CardInvasions
+            :invasions="this.Invasions"
+            :platform="this.test"
+            :dark="this.$props.dark1"
+          />
+        </div>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -65,6 +74,7 @@ import CardDayNight from "@/components/CardDayNight.vue";
 import CardDarvoDeals from "@/components/CardDarvoDeals.vue";
 import CardSortie from "@/components/CardSortie.vue";
 import CardVoidFissures from "@/components/CardVoidFissures.vue";
+import CardInvasions from "@/components/CardInvasions.vue";
 
 var _ = require("lodash");
 
@@ -81,7 +91,8 @@ export default {
     CardDayNight,
     CardDarvoDeals,
     CardSortie,
-    CardVoidFissures
+    CardVoidFissures,
+    CardInvasions
   },
   data() {
     return {
@@ -396,6 +407,66 @@ export default {
       deep: true,
       result({ data }) {
         this.Fissures = data.Fissures;
+      },
+      // We use a custom update callback because
+      // the field names don't match
+      // By default, the 'pingMessage' attribute
+      // would be used on the 'data' result object
+      // Here we know the result is in the 'ping' attribute
+      // considering the way the apollo server works
+      // Optional result hook
+      // Error handling
+      error(error) {
+        // eslint-disable-next-line
+        console.error("We've got an error!", error);
+        this.error = 1;
+      },
+      // Loading state
+      // loadingKey is the name of the data property
+      // that will be incremented when the query is loading
+      // and decremented when it no longer is.
+      loadingKey: "loadingQueriesCount"
+      // watchLoading will be called whenever the loading state changes
+    },
+    Invasions: {
+      query: gql`
+        query Invasions($completed: Boolean, $platform: String) {
+          Invasions(where: { completed: $completed, platform: $platform }) {
+            InvasionId
+            platform
+            activation
+            node
+            desc
+            attackerRewardItem
+            attackerRewardCount
+            attackerRewardThumb
+            attackerRewardCredits
+            attackingFaction
+            defenderRewardItem
+            defenderRewardCount
+            defenderRewardThumb
+            defenderRewardCredits
+            defendingFaction
+            vsInfestation
+            completion
+            completed
+          }
+        }
+      `,
+      fetchPolicy: "network-first",
+      pollInterval: 60000,
+      // Reactive parameters
+      variables() {
+        // Use vue reactive properties here
+        return {
+          completed: false,
+          platform: this.test
+        };
+      },
+      // Variables: deep object watch
+      deep: true,
+      result({ data }) {
+        this.Invasions = data.Invasions;
       },
       // We use a custom update callback because
       // the field names don't match
