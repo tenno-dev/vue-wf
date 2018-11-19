@@ -8,4 +8,4 @@ Graphql Source: Use the **master** Branch (**WIP!!!**)
 
 For more Information about the new Datasource see my other repo: [warframe-worldstate-graphql](https://github.com/Bitti09/warframe-worldstate-graphql)
 
-**Data Source will sometimes get resetted during development (means only current Data is available and no historical Data after the reset)**
+**Data Source for the LAST added part will sometimes get resetted during development (means only current Data is available and no historical Data after the reset.)**
