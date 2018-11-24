@@ -18,7 +18,7 @@
                             <template
                                 slot-scope="props"
                             >{{ props.hours }}h {{ props.minutes }}m {{ props.seconds }}s</template>
-                        </countdown> remaining
+                        </countdown>remaining
                     </div>
                     <div>
                         <v-list dense class="text-xs-center">

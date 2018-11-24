@@ -23,10 +23,11 @@
                                         color="red"
                                         text-color="white"
                                     >
-                                        <countdown :time="formattime(bounties[n][0].expiry)||0">
-                                            <template
-                                                slot-scope="props"
-                                            >{{ props.hours }}h {{ props.minutes }}m {{ props.seconds }}s</template>
+                                        <countdown :time="formattime(bounties[n][0].expiry) || 0">
+                                            <template slot-scope="props">
+                                                {{ props.hours }}h {{ props.minutes }}m
+                                                {{ props.seconds }}s
+                                            </template>
                                         </countdown>
                                     </v-chip>
                                     <hr style="height:10px; visibility:hidden;">
@@ -39,27 +40,24 @@
                         style="text-align: center!important"
                     >Bounties</p>
                     <div v-if="bounties[n][0].jobs !== 'none'">
-                        <v-expansion-panel v-for="(item,i) in bounties[n][0].jobs" :key="i">
+                        <v-expansion-panel v-for="(item, i) in bounties[n][0].jobs" :key="i">
                             <v-expansion-panel-content>
                                 <div slot="header">
-                                    {{item.type}}
+                                    {{ item.type }}
                                     <br>Level Range:
                                     <v-chip
                                         style="right: 0px;left: 0px;"
                                         small
                                         color="green"
                                         text-color="white"
-                                    >
-                                        {{item.enemyLevels[0]}} -
-                                        {{item.enemyLevels[1]}}
-                                    </v-chip>
+                                    >{{ item.enemyLevels[0] }} - {{ item.enemyLevels[1] }}</v-chip>
                                 </div>
                                 <v-card>
                                     <v-card-title>
                                         <div>
                                             Standings:
                                             <span
-                                                v-for="(item,i) in item.standingStages"
+                                                v-for="(item, i) in item.standingStages"
                                                 :key="i"
                                             >
                                                 <v-chip
@@ -67,7 +65,7 @@
                                                     small
                                                     color="grey"
                                                     text-color="white"
-                                                >{{Number(item)}}</v-chip>
+                                                >{{ Number(item) }}</v-chip>
                                             </span>
                                             <br>Items:
                                             <span v-for="item in item.rewardPool" :key="item">
@@ -76,7 +74,7 @@
                                                     small
                                                     color="green"
                                                     text-color="white"
-                                                >{{item}}</v-chip>
+                                                >{{ item }}</v-chip>
                                             </span>
                                             <hr style="height:10px; visibility:hidden;">
                                         </div>
