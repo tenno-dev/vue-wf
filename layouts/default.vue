@@ -14,7 +14,6 @@
         <v-toolbar-title slot="activator">
           <v-select
             flat
-            dark
             type="button"
             :value="$store.state.activeplatform"
             :items="$store.state.platform"
