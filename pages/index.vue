@@ -196,8 +196,8 @@ export default {
       result({ data }) {
         this.News = data.News;
       },
-      fetchPolicies: " cache-and-network",
-      pollInterval: 3600000,
+      fetchPolicy: "network-only",
+      pollInterval: typeof window === "undefined" ? null : 3600000,
       // We use a custom update callback because
       // the field names don't match
       // By default, the 'pingMessage' attribute
