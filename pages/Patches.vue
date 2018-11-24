@@ -131,6 +131,7 @@ export default {
         }
       },
       pollInterval: 0,
+
       // We use a custom update callback because
       // the field names don't match
       // By default, the 'pingMessage' attribute

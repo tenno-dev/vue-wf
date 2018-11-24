@@ -196,7 +196,7 @@ export default {
       result({ data }) {
         this.News = data.News;
       },
-      fetchPolicy: "network-first",
+      fetchPolicies: " cache-and-network",
       pollInterval: 3600000,
       // We use a custom update callback because
       // the field names don't match
@@ -455,8 +455,6 @@ export default {
           }
         }
       `,
-      fetchPolicy: "network-first",
-      pollInterval: 60000,
       // Reactive parameters
       variables() {
         // Use vue reactive properties here
@@ -510,8 +508,6 @@ export default {
       update(data) {
         return data.dayNightCycle[0];
       },
-      fetchPolicy: "network-first",
-      pollInterval: 60000,
       // We use a custom update callback because
       // the field names don't match
       // By default, the 'pingMessage' attribute

@@ -8,7 +8,10 @@ const routerBase =
       }
     : {};
 module.exports = {
-  mode: "spa",
+  mode: "universal",
+
+  // https://nuxtjs.org/api/configuration-modern
+  modern: true,
 
   /*
    ** Headers of the page

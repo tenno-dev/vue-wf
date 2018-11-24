@@ -6,7 +6,7 @@
       <v-carousel :height="360" hide-delimiters>
         <v-carousel-item v-for="item in this.news" :key="item.id">
           <v-card :dark="dark1" :light="light1" flat>
-            <v-img :src="item.imageLink" height="200px" contain></v-img>
+            <v-img :src="returnimgurl(item.imageLink)" height="200px" contain></v-img>
             <v-card-title primary-title>
               <div>
                 <div class="headline">{{item.message}}</div>
@@ -62,6 +62,10 @@ export default {
     },
     lightswitch: function() {
       return this.light1;
+    },
+    returnimgurl: function(prop) {
+      var x = "https://img.mybitti.de/o_webp/" + prop;
+      return x;
     },
     sortByKey(array, key) {
       return array.sort(function(a, b) {
