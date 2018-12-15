@@ -165,7 +165,7 @@
                     </div>
                 </v-card>
                 <!-- Vallis -->
-                <v-card v-if="$store.state.activeplatform.short =='pc'">
+                <v-card v-if="$store.state.activeplatform !=='swi'">
                     <div>
                         <p
                             class="headline mb-0 text-xs-center"

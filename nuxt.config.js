@@ -46,12 +46,12 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["@/plugins/vuetify", "~/plugins/countdown"],
+  plugins: ["~/plugins/countdown"],
 
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/apollo"],
+  modules: ["@nuxtjs/apollo", "@nuxtjs/pwa", "@nuxtjs/vuetify"],
   apollo: {
     includeNodeModules: true, // optional, default: false (this includes graphql-tag for node_modules folder)
     // optional
@@ -66,9 +66,15 @@ module.exports = {
     clientConfigs: {
       default: {
         // required
-        httpEndpoint: "https://mybitti.de/graphql"
+        httpEndpoint: "https://mybitti.de/graphql",
+        wsEndpoint: null
       }
     }
+  },
+  vuetify: {
+    // Vuetify options
+    treeShake: true,
+    materialIcons: false
   },
   /*
    ** Build configuration
