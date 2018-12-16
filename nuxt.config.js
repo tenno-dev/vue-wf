@@ -98,7 +98,7 @@ module.exports = {
     gcm_sender_id: "103953800507"
   },
   workbox: {
-    dev: true,
+    dev: false,
     importScripts: [service1]
   },
   /*
