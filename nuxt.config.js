@@ -7,6 +7,10 @@ const routerBase =
         }
       }
     : {};
+const service1 =
+  process.env.DEPLOY_ENV === "GH_PAGES"
+    ? "/vue-wf/firebase-messaging-sw.js"
+    : "firebase-messaging-sw.js";
 module.exports = {
   mode: "spa",
 
@@ -95,7 +99,7 @@ module.exports = {
   },
   workbox: {
     dev: true,
-    importScripts: ["~/firebase-messaging-sw.js"]
+    importScripts: [service1]
   },
   /*
    ** Build configuration
