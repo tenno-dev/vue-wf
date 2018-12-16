@@ -99,7 +99,7 @@ module.exports = {
   },
   workbox: {
     dev: false,
-    importScripts: [service1]
+    importScripts: ["/firebase-messaging-sw.js"]
   },
   /*
    ** Build configuration
