@@ -7,15 +7,8 @@ const routerBase =
         }
       }
     : {};
-const service1 =
-  process.env.DEPLOY_ENV === "GH_PAGES"
-    ? "/vue-wf/firebase-messaging-sw.js"
-    : "firebase-messaging-sw.js";
 module.exports = {
   mode: "spa",
-
-  // https://nuxtjs.org/api/configuration-modern
-  modern: false,
 
   /*
    ** Headers of the pages
@@ -98,8 +91,7 @@ module.exports = {
     gcm_sender_id: "103953800507"
   },
   workbox: {
-    dev: true,
-    importScripts: ["/firebase-messaging-sw.js"]
+    importScripts: ["firebase-sw.js"]
   },
   /*
    ** Build configuration
@@ -110,6 +102,14 @@ module.exports = {
      */
     extend(config, ctx) {
       // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: "pre",
+          test: /\.(js|vue)$/,
+          loader: "eslint-loader",
+          exclude: /(node_modules)/
+        });
+      }
     }
   },
   ...routerBase
