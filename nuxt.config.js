@@ -98,8 +98,8 @@ module.exports = {
     gcm_sender_id: "103953800507"
   },
   workbox: {
-    dev: false,
-    importScripts: [service1]
+    dev: true,
+    importScripts: ["/firebase-messaging-sw.js"]
   },
   /*
    ** Build configuration
