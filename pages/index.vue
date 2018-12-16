@@ -111,6 +111,10 @@ export default {
     messaging.usePublicVapidKey(
       "BAaOEFckzfxBDeDCLzlW23dvue4I5NEw0CKXmv87XpnHrrJE5z0JnEyHa4pbf2C8wKpYHtfy8f-Ngqe_yEwjGuA"
     );
+    navigator.serviceWorker.register(`${process.env.PUBLIC_URL}/firebase-messaging-sw.js`)
+  .then((registration) => {
+    messaging.useServiceWorker(registration);
+  });
     messaging
       .requestPermission()
       .then(function() {
