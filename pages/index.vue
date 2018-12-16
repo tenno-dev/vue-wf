@@ -17,13 +17,13 @@
         </div>
         <br>
         <div v-if="DailyDeals">
-          <CardDarvoDeals :deals="this.DailyDeals" :dark="this.$props.dark1"/>
+          <CardDarvoDeals :deals="DailyDeals" :dark="this.$props.dark1"/>
         </div>
       </v-flex>
       <v-flex xs12 md5 lg3>
         <div v-if="dayNightCycle">
           <CardDayNight
-            :cylces="this.Cycles"
+            :cylces="dayNightCycle"
             :platform="this.$store.state.activeplatform"
             :dark="this.$props.dark1"
           />
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+// @ is an alias to /src.
 import gql from "graphql-tag";
 import CardAlerts from "@/components/CardAlerts.vue";
 import CardNews from "@/components/CardNews.vue";
@@ -75,6 +75,7 @@ import CardInvasions from "@/components/CardInvasions.vue";
 var _ = require("lodash");
 
 import moment from "moment";
+import firebase from "~/plugins/firebase.js";
 
 export default {
   props: ["test", "dark1"],
@@ -96,6 +97,7 @@ export default {
       platform: this.$store.state.activeplatform,
       Alerts: {},
       News: {},
+      messaging: undefined,
       SyndicateMissions: {},
       Cycles: {},
       time1: moment().unix(),
@@ -104,7 +106,56 @@ export default {
       synload: false
     };
   },
-  mounted() {
+  async mounted() {
+    const messaging = firebase.messaging();
+    messaging.usePublicVapidKey(
+      "BAaOEFckzfxBDeDCLzlW23dvue4I5NEw0CKXmv87XpnHrrJE5z0JnEyHa4pbf2C8wKpYHtfy8f-Ngqe_yEwjGuA"
+    );
+    messaging
+      .requestPermission()
+      .then(function() {
+        messaging
+          .requestPermission()
+          .then(() => firebase.messaging().getToken())
+          .then(token => {
+            console.log(token); // Receiver Token to use in the notification
+          })
+          .catch(function(err) {
+            console.log("Unable to get permission to notify.", err);
+          });
+        messaging.onMessage(function(payload) {
+          console.log("Message received. ", payload);
+          // [START_EXCLUDE]
+          // Update the UI to include the received message.
+          // Customize notification here
+          var notificationTitle = "Foreground Message Title";
+          var notificationOptions = {
+            body: "Foreground Message body.",
+            image: payload.data.image
+          };
+          if (!("Notification" in window)) {
+            console.log("This browser does not support system notifications");
+          }
+          // Let's check whether notification permissions have already been granted
+          else if (Notification.permission === "granted") {
+            // If it's okay let's create a notification
+            var notification = new Notification(
+              notificationTitle,
+              notificationOptions
+            );
+            notification.onclick = function(event) {
+              event.preventDefault(); // prevent the browser from focusing the Notification's tab
+              notification.close();
+            };
+          }
+          // [END_EXCLUDE]
+        });
+      })
+      .catch(function(err) {
+        console.log("Unable to get permission to notify.", err);
+      });
+
+    //console.log(this.messaging);
     this.time1 = moment().unix();
     //this.$apollo.queries.News.refresh();
     //this.$apollo.queries.dayNightCycle.refresh();
@@ -112,7 +163,7 @@ export default {
       function() {
         this.time1 = moment().unix();
       }.bind(this),
-      60000 // 60sec
+      60000 // 60secs
     );
   },
   computed: {
@@ -504,6 +555,7 @@ export default {
       // Variables: deep object watch
       deep: true,
       update(data) {
+        console.log(data.dayNightCycle[0]);
         return data.dayNightCycle[0];
       },
       // We use a custom update callback because

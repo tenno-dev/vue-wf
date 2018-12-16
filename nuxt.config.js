@@ -8,13 +8,13 @@ const routerBase =
       }
     : {};
 module.exports = {
-  mode: "universal",
+  mode: "spa",
 
   // https://nuxtjs.org/api/configuration-modern
-  modern: true,
+  modern: false,
 
   /*
-   ** Headers of the page
+   ** Headers of the pages
    */
   head: {
     title: pkg.name,
@@ -29,6 +29,11 @@ module.exports = {
         rel: "stylesheet",
         href:
           "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+      },
+      {
+        rel: "stylesheet",
+        href:
+          "https://cdn.materialdesignicons.com/3.2.89/css/materialdesignicons.min.css"
       }
     ]
   },
@@ -46,14 +51,20 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/countdown"],
+  plugins: [
+    "~/plugins/countdown",
+    {
+      src: "~/plugins/firebase.js",
+      ssr: false
+    }
+  ],
 
   /*
    ** Nuxt.js modules
    */
   modules: ["@nuxtjs/apollo", "@nuxtjs/pwa", "@nuxtjs/vuetify"],
   apollo: {
-    includeNodeModules: true, // optional, default: false (this includes graphql-tag for node_modules folder)
+    includeNodeModules: true, // optionals default: false (this includes graphql-tag for node_modules folder)
     // optional
     errorHandler(error) {
       console.log(
@@ -67,14 +78,24 @@ module.exports = {
       default: {
         // required
         httpEndpoint: "https://mybitti.de/graphql",
-        wsEndpoint: null
+        wsEndpoint: null,
+        httpLinkOptions: {
+          credentials: "same-origin"
+        }
       }
     }
   },
   vuetify: {
-    // Vuetify options
+    // Vuetify options s
     treeShake: true,
     materialIcons: false
+  },
+  manifest: {
+    gcm_sender_id: "103953800507"
+  },
+  workbox: {
+    dev: true,
+    importScripts: ["firebase-messaging-sw.js"]
   },
   /*
    ** Build configuration
