@@ -16,11 +16,6 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 let messaging = firebase.messaging();
-navigator.serviceWorker
-  .register(`/vue-wf/firebase-messaging-sw.js`)
-  .then(registration => {
-    messaging.useServiceWorker(registration);
-  });
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log(
     "[firebase-messaging-sw.js] Received background message ",

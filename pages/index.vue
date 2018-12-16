@@ -115,51 +115,52 @@ export default {
       .register(`/vue-wf/firebase-messaging-sw.js`)
       .then(registration => {
         messaging.useServiceWorker(registration);
-      });
-    messaging
-      .requestPermission()
-      .then(function() {
         messaging
           .requestPermission()
-          .then(() => firebase.messaging().getToken())
-          .then(token => {
-            console.log(token); // Receiver Token to use in the notification
+          .then(function() {
+            messaging
+              .requestPermission()
+              .then(() => firebase.messaging().getToken())
+              .then(token => {
+                console.log(token); // Receiver Token to use in the notification
+              })
+              .catch(function(err) {
+                console.log("Unable to get permission to notify.", err);
+              });
+            messaging.onMessage(function(payload) {
+              console.log("Message received. ", payload);
+              // [START_EXCLUDE]
+              // Update the UI to include the received message.
+              // Customize notification here
+              var notificationTitle = "Foreground Message Title";
+              var notificationOptions = {
+                body: "Foreground Message body.",
+                image: payload.data.image
+              };
+              if (!("Notification" in window)) {
+                console.log(
+                  "This browser does not support system notifications"
+                );
+              }
+              // Let's check whether notification permissions have already been granted
+              else if (Notification.permission === "granted") {
+                // If it's okay let's create a notification
+                var notification = new Notification(
+                  notificationTitle,
+                  notificationOptions
+                );
+                notification.onclick = function(event) {
+                  event.preventDefault(); // prevent the browser from focusing the Notification's tab
+                  notification.close();
+                };
+              }
+              // [END_EXCLUDE]
+            });
           })
           .catch(function(err) {
             console.log("Unable to get permission to notify.", err);
           });
-        messaging.onMessage(function(payload) {
-          console.log("Message received. ", payload);
-          // [START_EXCLUDE]
-          // Update the UI to include the received message.
-          // Customize notification here
-          var notificationTitle = "Foreground Message Title";
-          var notificationOptions = {
-            body: "Foreground Message body.",
-            image: payload.data.image
-          };
-          if (!("Notification" in window)) {
-            console.log("This browser does not support system notifications");
-          }
-          // Let's check whether notification permissions have already been granted
-          else if (Notification.permission === "granted") {
-            // If it's okay let's create a notification
-            var notification = new Notification(
-              notificationTitle,
-              notificationOptions
-            );
-            notification.onclick = function(event) {
-              event.preventDefault(); // prevent the browser from focusing the Notification's tab
-              notification.close();
-            };
-          }
-          // [END_EXCLUDE]
-        });
-      })
-      .catch(function(err) {
-        console.log("Unable to get permission to notify.", err);
       });
-
     //console.log(this.messaging);
     this.time1 = moment().unix();
     //this.$apollo.queries.News.refresh();
