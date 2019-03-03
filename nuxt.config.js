@@ -48,12 +48,9 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    'nuxt-purgecss'
+    '@nuxtjs/pwa'
   ],
-  purgeCSS: {
-    mode: 'postcss'
-  },
+
   /*
   ** Axios module configuration
   */
