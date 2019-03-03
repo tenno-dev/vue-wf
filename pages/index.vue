@@ -2,6 +2,11 @@
 <template>
   <v-container style="width:100%;" fluid grid-list-md>
     <v-layout align-start justify-start row fill-height :wrap="true">
+      <v-flex xs12>
+        <div>
+          <CardEvents :events="Events"/>
+        </div>
+      </v-flex>
       <v-flex xs12 md4 lg3>
         <div>
           <CardAlerts :alerts="Alerts"/>
@@ -67,6 +72,7 @@ import CardDarvoDeals from '@/components/CardDarvoDeals.vue'
 import CardSortie from '@/components/CardSortie.vue'
 import CardVoidFissures from '@/components/CardVoidFissures.vue'
 import CardInvasions from '@/components/CardInvasions.vue'
+import CardEvents from '@/components/CardEvents.vue'
 
 // eslint-disable-next-line
 let _ = require('lodash')
@@ -82,7 +88,8 @@ export default {
     CardDarvoDeals,
     CardSortie,
     CardVoidFissures,
-    CardInvasions
+    CardInvasions,
+    CardEvents
   },
   props: ['test', 'dark1'],
   data() {

@@ -8,10 +8,19 @@
       <p class="headline mb-0 text-xs-center" style="text-align: center!important">Current Events:</p>
       <div>
         <p
+          v-if="events"
           class="subtitle-1 font-weight-bold mb-3 text-xs-center"
           style="text-align: center!important"
-        >{{events.Tooltip}}</p>
-        <v-card style="width: 100%;">
+        >{{events[0].Tooltip}}</p>
+        <v-card v-if="!events" style="width: 100%;">
+          <v-alert
+            :value="true"
+            type="error"
+            stye="margin: 0px !important"
+            outline
+          >No active Events!</v-alert>
+        </v-card>
+        <v-card v-else style="width: 100%;">
           <div>
             <v-list dense>
               <v-list-tile>
@@ -25,7 +34,7 @@
                       small
                       color="grey"
                       text-color="white"
-                    >{{events.Description}}</v-chip>
+                    >{{events[0].Description}}</v-chip>
                     <br>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -40,7 +49,7 @@
                       <v-avatar>
                         <v-icon dark class="black darken-2">mdi-clock-outline</v-icon>
                       </v-avatar>
-                      {{formattime(events.Ends)}}
+                      {{formattime(events[0].Ends)}}
                     </v-chip>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -54,9 +63,9 @@
                     <v-chip
                       style="right: 0px;"
                       small
-                      :color="getcolourfaction(events.Faction)"
+                      :color="getcolourfaction(events[0].Faction)"
                       text-color="white"
-                    >{{events.Faction}}</v-chip>
+                    >{{events[0].Faction}}</v-chip>
                     <br>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -71,9 +80,9 @@
                       <v-chip
                         style="right: 0px;"
                         small
-                        :color="getcolour( events.CurrScore)"
+                        :color="getcolour( events[0].CurrScore)"
                         text-color="white"
-                      >{{events.CurrScore }}% of {{events.MaxScore}}% done</v-chip>
+                      >{{events[0].CurrScore }}% of {{events[0].MaxScore}}% done</v-chip>
                     </span>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -88,6 +97,11 @@
 <style scoped>
 .v-chip .v-avatar {
   margin-left: -13px;
+}
+.v-alert {
+  font-weight: bold;
+  margin: 0px;
+  margin-top: 9px;
 }
 </style>
 <script>
