@@ -10,7 +10,10 @@
         style="text-align: center!important"
       >Current Darvo Deals:</p>
       <div>
-        <v-card style="width: 100%;">
+        <v-card v-if="!deals" style="width: 100%;">
+          <v-alert :value="true" type="error" stye="margin: 0px !important" outline>No active Deals!</v-alert>
+        </v-card>
+        <v-card v-else style="width: 100%;">
           <div>
             <v-list dense>
               <v-list-tile>
@@ -19,7 +22,12 @@
                 </v-list-tile-content>
                 <v-list-tile-action>
                   <v-list-tile-action-text>
-                    <v-chip style="right: 0px;" small color="grey" text-color="white">{{deals.Item}}</v-chip>
+                    <v-chip
+                      style="right: 0px;"
+                      small
+                      color="grey"
+                      text-color="white"
+                    >{{deals[0].Item}}</v-chip>
                     <br>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -34,7 +42,7 @@
                       <v-avatar>
                         <v-icon dark class="black darken-2">mdi-clock-outline</v-icon>
                       </v-avatar>
-                      {{formattime(deals.Ends)}}
+                      {{formattime(deals[0].Ends)}}
                     </v-chip>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -54,7 +62,7 @@
                           src="https://hub.warframestat.us/img/general/plat.png"
                         >
                       </v-avatar>
-                      <s>{{deals.Price}}</s>
+                      <s>{{deals[0].Price}}</s>
                     </v-chip>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -74,7 +82,7 @@
                           src="https://hub.warframestat.us/img/general/plat.png"
                         >
                       </v-avatar>
-                      {{deals.DealPrice}}
+                      {{deals[0].DealPrice}}
                     </v-chip>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -85,13 +93,13 @@
                 </v-list-tile-content>
                 <v-list-tile-action>
                   <v-list-tile-action-text>
-                    <span v-if="deals.Sold !== deals.Stock">
+                    <span v-if="deals[0].Sold !== deals[0].Stock">
                       <v-chip
                         style="right: 0px;"
                         small
-                        :color="getcolour(deals.Stock)"
+                        :color="getcolour(deals[0].Stock)"
                         text-color="white"
-                      >{{deals.Stock - deals.Sold }} of {{deals.Stock}} left</v-chip>
+                      >{{deals[0].Stock - deals[0].Sold }} of {{deals[0].Stock}} left</v-chip>
                     </span>
                     <span v-else>
                       <v-chip style="right: 0px;" small color="red" text-color="white">Sold Out</v-chip>
@@ -109,6 +117,11 @@
 <style scoped>
 .v-chip .v-avatar {
   margin-left: -13px;
+}
+.v-alert {
+  font-weight: bold;
+  margin: 0px;
+  margin-top: 9px;
 }
 </style>
 <script>

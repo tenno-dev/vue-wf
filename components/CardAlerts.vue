@@ -8,7 +8,10 @@
       <hr style="height:10px; visibility:hidden;">
       <p class="headline mb-0 text-xs-center" style="text-align: center!important">Current Alerts:</p>
       <hr style="height:10px; visibility:hidden;">
-      <v-expansion-panel>
+      <v-card v-if="!alerts" style="width: 100%;">
+        <v-alert :value="true" type="error" stye="margin: 0px !important" outline>No active Alerts!</v-alert>
+      </v-card>
+      <v-expansion-panel v-else>
         <v-expansion-panel-content v-for="(alert, index) in alerts" :key="index">
           <div slot="header">
             <span>
@@ -188,7 +191,11 @@
 .v-chip .v-avatar {
   margin-left: -13px;
 }
-
+.v-alert {
+  font-weight: bold;
+  margin: 0px;
+  margin-top: 9px;
+}
 a:hover,
 a:visited,
 a:link,

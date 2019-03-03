@@ -3,7 +3,7 @@
   <v-container style="width:100%;" fluid grid-list-md>
     <v-layout align-start justify-start row fill-height :wrap="true">
       <v-flex xs12 md4 lg3>
-        <div v-if="Object.keys(Alerts).length !== 0">
+        <div>
           <CardAlerts :alerts="Alerts"/>
         </div>
       </v-flex>
@@ -16,8 +16,8 @@
         <!-- <div>
           <CardDailyReset :dark="this.$props.dark1"/>
         </div>-->
-        <div v-if="Object.keys(Deals).length !== 0 ">
-          <CardDarvoDeals :deals="Deals[0]" :dark="this.$props.dark1"/>
+        <div>
+          <CardDarvoDeals :deals="Deals" :dark="this.$props.dark1"/>
         </div>
       </v-flex>
       <v-flex xs12 md4 lg3>

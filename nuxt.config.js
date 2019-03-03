@@ -4,7 +4,7 @@ const pkg = require('./package')
 module.exports = {
   mode: 'spa',
   modern: 'client',
-
+  friendlyErrors: false,
   /*
   ** Headers of the page
   */
