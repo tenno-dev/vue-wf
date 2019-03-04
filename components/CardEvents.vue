@@ -5,10 +5,10 @@
   <v-card style="width: 100%;">
     <v-responsive>
       <hr style="height:10px; visibility:hidden;">
+      <p class="headline mb-0 text-xs-center" style="text-align: center!important">Current active Events:</p>
       <v-card v-if="!events" style="width: 100%;">
         <v-alert :value="true" type="error" stye="margin: 0px !important" outline>No active Events!</v-alert>
       </v-card>
-      <p class="headline mb-0 text-xs-center" style="text-align: center!important">Current Events:</p>
       <div v-if="events">
         <div v-for="event in events" :key="event.id">
           <hr style="height:20px; visibility:hidden;">
