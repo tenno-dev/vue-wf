@@ -20,7 +20,7 @@
             <v-tooltip top :max-width="400">
               <span slot="activator">{{formattime(item.Ends)[1]}}</span>
               <span>{{formattime(item.Ends)[0]}}</span>
-            </v-tooltip>remaining
+            </v-tooltip>&nbsp;remaining
           </div>
           <div>
             <v-list dense class="text-xs-center">
