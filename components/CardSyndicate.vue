@@ -17,13 +17,21 @@
                 </v-list-tile-content>
                 <v-list-tile-action>
                   <v-list-tile-action-text>
-                    <v-chip
-                      slot="activator"
-                      style="right: 0px;"
-                      small
-                      color="red"
-                      text-color="white"
-                    >{{formattime(itemno.Ends)}} mm:ss</v-chip>
+                    <v-tooltip top :max-width="400">
+                      <v-chip
+                        slot="activator"
+                        style="right: 0px;"
+                        small
+                        color="red"
+                        text-color="white"
+                      >
+                        <v-avatar>
+                          <v-icon dark class="red darken-2">mdi-clock-outline</v-icon>
+                        </v-avatar>
+                        {{formattime(itemno.Ends)[1]}}
+                      </v-chip>
+                      <span>{{formattime(itemno.Ends)[0]}} UTC</span>
+                    </v-tooltip>
                     <hr style="height:10px; visibility:hidden;">
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -113,9 +121,24 @@ export default {
       return x
     },
     formattime: function(prop) {
-      const x = moment(prop).format('X')
-      const unix1 = moment(moment.unix(x).diff(moment())).valueOf()
-      return moment(unix1).format('mm:ss')
+      const format = 'YYYY-MM-DD HH:mm Z'
+      const now = moment()
+        .utc()
+        .toISOString()
+      const timeDuration = moment(
+        moment.utc(moment(prop, format)).diff(moment(now, format))
+      )
+        .utc()
+        .format('H:mm:ss')
+      const timeDurationlocal = moment(
+        moment.utc(moment(prop, format)).diff(moment(now, format))
+      )
+        .local()
+        .format('H:mm:ss')
+      // eslint-disable-next-line no-console
+      console.log(timeDuration)
+
+      return [timeDuration, timeDurationlocal]
     },
     planetname: function(prop) {
       return prop.match(/\((.*?)\)/)

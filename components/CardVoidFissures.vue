@@ -17,7 +17,10 @@
             on
             {{item.MissionLocation}}&nbsp;
             <br>
-            {{formattime(item.Ends)}} remaining
+            <v-tooltip top :max-width="400">
+              <span slot="activator">{{formattime(item.Ends)[1]}}</span>
+              <span>{{formattime(item.Ends)[0]}}</span>
+            </v-tooltip>remaining
           </div>
           <div>
             <v-list dense class="text-xs-center">
@@ -59,12 +62,21 @@
                 </v-list-tile-content>
                 <v-list-tile-action>
                   <v-list-tile-action-text>
-                    <v-chip style="right: 0px;" small color="grey" text-color="white">
-                      <v-avatar>
-                        <v-icon class="black darken-2">mdi-clock-outline</v-icon>
-                      </v-avatar>
-                      {{formattime(item.Ends)}}
-                    </v-chip>
+                    <v-tooltip top :max-width="400">
+                      <v-chip
+                        slot="activator"
+                        style="right: 0px;"
+                        small
+                        color="grey"
+                        text-color="white"
+                      >
+                        <v-avatar>
+                          <v-icon dark class="black darken-2">mdi-clock-outline</v-icon>
+                        </v-avatar>
+                        {{formattime(item.Ends)[1]}}
+                      </v-chip>
+                      <span>{{formattime(item.Ends)[0]}} UTC</span>
+                    </v-tooltip>
                     <br>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
@@ -165,9 +177,24 @@ export default {
       return x
     },
     formattime: function(prop) {
-      const x = moment(prop).format('X')
-      const unix1 = moment(moment.unix(x).diff(moment())).valueOf()
-      return moment(unix1).format('mm:ss')
+      const format = 'YYYY-MM-DD HH:mm Z'
+      const now = moment()
+        .utc()
+        .toISOString()
+      const timeDuration = moment(
+        moment.utc(moment(prop, format)).diff(moment(now, format))
+      )
+        .utc()
+        .format('H:mm:ss')
+      const timeDurationlocal = moment(
+        moment.utc(moment(prop, format)).diff(moment(now, format))
+      )
+        .local()
+        .format('H:mm:ss')
+      // eslint-disable-next-line no-console
+      console.log(timeDuration)
+
+      return [timeDuration, timeDurationlocal]
     },
     planetname: function(prop) {
       return prop.match(/\((.*)\)/)[1]

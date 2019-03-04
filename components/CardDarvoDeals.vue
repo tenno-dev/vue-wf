@@ -38,12 +38,21 @@
                 </v-list-tile-content>
                 <v-list-tile-action>
                   <v-list-tile-action-text>
-                    <v-chip style="right: 0px;" small color="grey" text-color="white">
-                      <v-avatar>
-                        <v-icon dark class="black darken-2">mdi-clock-outline</v-icon>
-                      </v-avatar>
-                      {{formattime(deals[0].Ends)}}
-                    </v-chip>
+                    <v-tooltip top :max-width="400">
+                      <v-chip
+                        slot="activator"
+                        style="right: 0px;"
+                        small
+                        color="grey"
+                        text-color="white"
+                      >
+                        <v-avatar>
+                          <v-icon dark class="black darken-2">mdi-clock-outline</v-icon>
+                        </v-avatar>
+                        {{formattime(deals[0].Ends)[1]}}
+                      </v-chip>
+                      <span>{{formattime(deals[0].Ends)[0]}} UTC</span>
+                    </v-tooltip>
                   </v-list-tile-action-text>
                 </v-list-tile-action>
               </v-list-tile>
@@ -132,9 +141,24 @@ export default {
   props: ['deals'],
   methods: {
     formattime: function(prop) {
-      const x = moment(prop).format('X')
-      const unix1 = moment(moment.unix(x).diff(moment())).valueOf()
-      return moment(unix1).format('mm:ss')
+      const format = 'YYYY-MM-DD HH:mm Z'
+      const now = moment()
+        .utc()
+        .toISOString()
+      const timeDuration = moment(
+        moment.utc(moment(prop, format)).diff(moment(now, format))
+      )
+        .utc()
+        .format('HH:mm:ss')
+      const timeDurationlocal = moment(
+        moment.utc(moment(prop, format)).diff(moment(now, format))
+      )
+        .local()
+        .format('HH:mm:ss')
+      // eslint-disable-next-line no-console
+      console.log(timeDuration)
+
+      return [timeDuration, timeDurationlocal]
     },
     getcolour(prop) {
       let x = null

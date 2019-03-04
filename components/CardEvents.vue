@@ -5,91 +5,95 @@
   <v-card style="width: 100%;">
     <v-responsive>
       <hr style="height:10px; visibility:hidden;">
+      <v-card v-if="!events" style="width: 100%;">
+        <v-alert :value="true" type="error" stye="margin: 0px !important" outline>No active Events!</v-alert>
+      </v-card>
       <p class="headline mb-0 text-xs-center" style="text-align: center!important">Current Events:</p>
-      <div>
-        <p
-          v-if="events"
-          class="subtitle-1 font-weight-bold mb-3 text-xs-center"
-          style="text-align: center!important"
-        >{{events[0].Tooltip}}</p>
-        <v-card v-if="!events" style="width: 100%;">
-          <v-alert
-            :value="true"
-            type="error"
-            stye="margin: 0px !important"
-            outline
-          >No active Events!</v-alert>
-        </v-card>
-        <v-card v-else style="width: 100%;">
-          <div>
-            <v-list dense>
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>Description/Type:</v-list-tile-title>
-                </v-list-tile-content>
-                <v-list-tile-action>
-                  <v-list-tile-action-text>
-                    <v-chip
-                      style="right: 0px;"
-                      small
-                      color="grey"
-                      text-color="white"
-                    >{{events[0].Description}}</v-chip>
-                    <br>
-                  </v-list-tile-action-text>
-                </v-list-tile-action>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>Time left:</v-list-tile-title>
-                </v-list-tile-content>
-                <v-list-tile-action>
-                  <v-list-tile-action-text>
-                    <v-chip style="right: 0px;" small color="grey" text-color="white">
-                      <v-avatar>
-                        <v-icon dark class="black darken-2">mdi-clock-outline</v-icon>
-                      </v-avatar>
-                      {{formattime(events[0].Ends)}}
-                    </v-chip>
-                  </v-list-tile-action-text>
-                </v-list-tile-action>
-              </v-list-tile>
-              <v-list-tile v-if="events[0].Faction">
-                <v-list-tile-content>
-                  <v-list-tile-title>Faction:</v-list-tile-title>
-                </v-list-tile-content>
-                <v-list-tile-action>
-                  <v-list-tile-action-text>
-                    <v-chip
-                      style="right: 0px;"
-                      small
-                      :color="getcolourfaction(events[0].Faction)"
-                      text-color="white"
-                    >{{events[0].Faction}}</v-chip>
-                    <br>
-                  </v-list-tile-action-text>
-                </v-list-tile-action>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>Status:</v-list-tile-title>
-                </v-list-tile-content>
-                <v-list-tile-action>
-                  <v-list-tile-action-text>
-                    <span>
+      <div v-if="events">
+        <div v-for="event in events" :key="event.id">
+          <hr style="height:20px; visibility:hidden;">
+          <p
+            class="subtitle-1 font-weight-bold mb-3 text-xs-center"
+            style="text-align: center!important"
+          >{{event.Tooltip}}</p>
+          <v-card flat style="width: 100%;">
+            <div>
+              <v-list dense>
+                <v-list-tile>
+                  <v-list-tile-content>
+                    <v-list-tile-title>Description/Type:</v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action>
+                    <v-list-tile-action-text>
                       <v-chip
                         style="right: 0px;"
                         small
-                        :color="getcolour( events[0].CurrScore)"
+                        color="grey"
                         text-color="white"
-                      >{{events[0].CurrScore }}% of {{events[0].MaxScore}}% done</v-chip>
-                    </span>
-                  </v-list-tile-action-text>
-                </v-list-tile-action>
-              </v-list-tile>
-            </v-list>
-          </div>
-        </v-card>
+                      >{{event.Description}}</v-chip>
+                      <br>
+                    </v-list-tile-action-text>
+                  </v-list-tile-action>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content>
+                    <v-list-tile-title>Time left:</v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action>
+                    <v-list-tile-action-text>
+                      <v-tooltip top :max-width="400">
+                        <v-chip
+                          slot="activator"
+                          style="right: 0px;"
+                          small
+                          color="grey"
+                          text-color="white"
+                        >
+                          <v-avatar>
+                            <v-icon dark class="black darken-2">mdi-clock-outline</v-icon>
+                          </v-avatar>
+                          {{formattime(event.Ends)[1]}}
+                        </v-chip>
+                        <span>{{formattime(event.Ends)[0]}} UTC</span>
+                      </v-tooltip>
+                    </v-list-tile-action-text>
+                  </v-list-tile-action>
+                </v-list-tile>
+                <v-list-tile v-if="event.Faction != ''">
+                  <v-list-tile-content>
+                    <v-list-tile-title>Faction:</v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action>
+                    <v-list-tile-action-text>
+                      <v-chip
+                        style="right: 0px;"
+                        small
+                        :color="getcolourfaction(event.Faction)"
+                        text-color="white"
+                      >{{event.Faction}}</v-chip>
+                      <br>
+                    </v-list-tile-action-text>
+                  </v-list-tile-action>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content>
+                    <v-list-tile-title>Status:</v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action>
+                    <v-list-tile-action-text>
+                      <v-chip
+                        style="right: 0px;"
+                        small
+                        :color="getcolour( event.CurrScore)"
+                        text-color="white"
+                      >{{event.CurrScore }}% of {{event.MaxScore}}% done</v-chip>
+                    </v-list-tile-action-text>
+                  </v-list-tile-action>
+                </v-list-tile>
+              </v-list>
+            </div>
+          </v-card>
+        </div>
       </div>
     </v-responsive>
   </v-card>
@@ -112,9 +116,24 @@ export default {
   props: ['events'],
   methods: {
     formattime: function(prop) {
-      const x = moment(prop).format('X')
-      const unix1 = moment(moment.unix(x).diff(moment())).valueOf()
-      return moment(unix1).format('mm:ss')
+      const format = 'YYYY-MM-DD HH:mm Z'
+      const now = moment()
+        .utc()
+        .toISOString()
+      const timeDuration = moment(
+        moment.utc(moment(prop, format)).diff(moment(now, format))
+      )
+        .utc()
+        .format('H:mm:ss')
+      const timeDurationlocal = moment(
+        moment.utc(moment(prop, format)).diff(moment(now, format))
+      )
+        .local()
+        .format('H:mm:ss')
+      // eslint-disable-next-line no-console
+      console.log(timeDuration)
+
+      return [timeDuration, timeDurationlocal]
     },
     getcolourfaction(prop) {
       let x = null
