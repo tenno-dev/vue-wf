@@ -1,22 +1,24 @@
 # vue-wf
 
-> My Nuxt.js project
 
-## Build Setup
+## Current Status:
 
-``` bash
-# install dependencies
-$ npm install
+### Boxes:
+ - [x] News
+ - [ ] Sorties
+ - [ ] Void Fissures
+ - [ ] Alerts (waiting for api response)
+ - [ ] Darvo's Deals 
+ - [ ] Nightwave
+ - [x] Syndicate Missions ( unfinished )
+ - [ ] Invasions  
+ - [ ] Void Trader 
+ - [ ] World Events
 
-# serve with hot reload at localhost:3000
-$ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+### Other
+ - [ ] Fix responsive layout
+ - [ ] replace v-select with nuxt-vue-multiselect
+ 
+## Any issues? Suggestions?
+Feel free to contact me on [Discord](https://discord.gg/jGZxH9f) or leave an issue on GitHub.
