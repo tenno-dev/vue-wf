@@ -1,0 +1,29 @@
+language: node_js
+dist: xenial
+node_js:
+  - 'node'
+cache:
+  directories:
+    - 'node_modules'
+branches:
+  only:
+    - master
+    - /^greenkeeper/.*$/
+install:
+  - npm install
+  - npm run build
+notifications:
+  email: false
+script:
+  - echo "Skipping tests"
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: dist
+  github-token: $GITHUB_TOKEN # Set in travis-ci.org dashboard, marked secure https://docs.travis-ci.com/user/deployment/pages/#Setting-the-GitHub-token
+  repo: Bitti09/vue-wf
+  keep-history: false
+  fqdn: wf.mybitti.de
+  target-branch: gh-pages
+  on:
+    branch: master

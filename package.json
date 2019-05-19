@@ -9,12 +9,20 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-brands-svg-icons": "^5.8.2",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/vue-fontawesome": "^0.1.5",
     "core-js": "^2.6.5",
+    "node-sass": "^4.12.0",
     "register-service-worker": "^1.6.2",
+    "sass-loader": "^7.1.0",
     "vue": "^2.6.10",
+    "vue-badger-accordion": "^1.1.3",
+    "vue-lang-code-flags": "^1.0.7",
+    "vue-mqtt-topics": "github:Bitti09/Vue-Mqtt#master",
     "vue-router": "^3.0.3",
+    "vue-select": "^3.1.0",
+    "vueperslides": "^1.17.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

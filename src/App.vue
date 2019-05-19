@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <Navbar class="bg-green-700 p-2 mt-0 fixed w-full z-10 pin-t" />
+    <router-view class="pt-10 md:pt-16 sm:pt-16" />
   </div>
 </template>
 
@@ -31,3 +28,13 @@
   color: #42b983;
 }
 </style>
+<script>
+import Navbar from "@/components/Navbar.vue";
+
+export default {
+  name: "App",
+  components: {
+    Navbar
+  }
+};
+</script>

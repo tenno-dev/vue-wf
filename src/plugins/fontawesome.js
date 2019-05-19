@@ -1,9 +1,14 @@
 import Vue from "vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import { faDesktop } from "@fortawesome/free-solid-svg-icons";
+import {
+  faXbox,
+  faPlaystation,
+  faNintendoSwitch
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(fas);
+library.add(faDesktop, faNintendoSwitch, faXbox, faPlaystation);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
