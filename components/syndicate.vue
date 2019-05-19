@@ -14,7 +14,41 @@
           :key="job.Jobtype"
         >
           <div slot="header">{{ job.Jobtype.split('/').slice(-1)[0] }}</div>
-          <div slot="content" class="break-all px-5">{{ job }}</div>
+          <div slot="content" class="break-all px-2">
+            <div class="flex mx-1 items-center">
+              <div class="w-1/4 bg-gray-500 h-auto">Type</div>
+              <div class="w-1/3 bg-gray-500 h-auto">Rewards</div>
+              <div class="w-1/3 bg-gray-500 h-auto">Standing</div>
+              <div class="w-1/4 bg-gray-500 h-auto">Level</div>
+            </div>
+            <div class="flex mx-1 items-center">
+              <div class="w-1/4 bg-gray-500 h-auto">
+                {{ job.Jobtype.split('/').slice(-1)[0] }}
+              </div>
+              <div class="w-1/3 break-all bg-gray-500 h-auto">
+                <span
+                  v-for="(reward, index) in job.Rewards"
+                  :key="index"
+                  :index="index"
+                >
+                  {{ reward }}<br
+                /></span>
+              </div>
+              <div class="w-1/3 break-all bg-gray-500 h-auto">
+                <span
+                  v-for="(stand, index) in job.StandingReward"
+                  :key="index"
+                  :index="index"
+                >
+                  {{ stand }}<br
+                /></span>
+              </div>
+              <div class="w-1/4 bg-gray-500 h-auto">
+                {{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}
+              </div>
+            </div>
+            {{ job }}
+          </div>
         </badger-accordion-item>
       </badger-accordion>
     </div>
@@ -29,7 +63,10 @@
     @apply bg-blue-600;
   }
 }
-
+.dd {
+  margin-inline-start: 0em !important;
+  margin-inline-end: 0em !important;
+}
 .js-badger-accordion-panel-inner {
   // @apply p-4;
   cursor: text;
