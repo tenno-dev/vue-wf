@@ -13,19 +13,19 @@
           v-for="job in syndicateitems.Jobs"
           :key="job.Jobtype"
         >
-          <div slot="header">{{ job.Jobtype.split('/').slice(-1)[0] }}</div>
+          <div class="px-3  flex items-center" slot="header">
+            <p class="w-full">{{ job.Jobtype.split('/').slice(-1)[0] }}</p>
+            <span class="flex-shrink-0 p-2 ml-4 mr-2"
+              >{{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}</span
+            >
+          </div>
           <div slot="content" class="break-all px-2">
             <div class="flex mx-1 items-center">
-              <div class="w-1/4 bg-gray-500 h-auto">Type</div>
-              <div class="w-1/3 bg-gray-500 h-auto">Rewards</div>
+              <div class="w-full bg-gray-500 h-auto">Rewards</div>
               <div class="w-1/3 bg-gray-500 h-auto">Standing</div>
-              <div class="w-1/4 bg-gray-500 h-auto">Level</div>
             </div>
             <div class="flex mx-1 items-center">
-              <div class="w-1/4 bg-gray-500 h-auto">
-                {{ job.Jobtype.split('/').slice(-1)[0] }}
-              </div>
-              <div class="w-1/3 break-all bg-gray-500 h-auto">
+              <div class="w-full break-all bg-gray-500 h-auto">
                 <span
                   v-for="(reward, index) in job.Rewards"
                   :key="index"
@@ -34,7 +34,7 @@
                   {{ reward }}<br
                 /></span>
               </div>
-              <div class="w-1/3 break-all bg-gray-500 h-auto">
+              <div class="w-1/2 self-stretch  bg-gray-500 h-auto">
                 <span
                   v-for="(stand, index) in job.StandingReward"
                   :key="index"
@@ -42,9 +42,6 @@
                 >
                   {{ stand }}<br
                 /></span>
-              </div>
-              <div class="w-1/4 bg-gray-500 h-auto">
-                {{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}
               </div>
             </div>
             {{ job }}
@@ -58,6 +55,7 @@
 <style lang="scss">
 .js-badger-accordion-header {
   @apply bg-gray-600;
+  display: block !important;
   &:hover,
   &.-ba-is-active {
     @apply bg-blue-600;
@@ -74,8 +72,7 @@
 }
 
 .badger-accordion-toggle {
-  @apply px-6;
-  @apply py-3;
+  padding: 0%;
 }
 
 .badger-accordion__panel {
