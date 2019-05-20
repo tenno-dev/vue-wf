@@ -1,31 +1,36 @@
 <template>
   <div
     v-if="syndicateitems"
-    class="max-w-lg md:max-w-md sm:max-w-sm h-auto rounded overflow-hidden border-transparent"
+    class="max-w-lg md:max-w-md sm:max-w-sm h-auto   overflow-hidden border-transparent"
   >
     <div class="font-bold text-default text-4xl mt-1">
       {{ headertext(syndicateitems.Syndicate) }}
     </div>
-    <div class="bg-gray-500 text-default py-2">
-      <div>test</div>
+    <div class="bg-gray-500 text-default pt-1">
+      <div class="flex  items-center pb-1">
+        <div class="w-full bg-gray-500 h-auto pl-2">Ends in</div>
+        <div class="w-1/3 bg-gray-500 h-auto  pr-2">
+          {{ timediff(syndicateitems.End) }}
+        </div>
+      </div>
       <badger-accordion :icons="false">
         <badger-accordion-item
           v-for="job in syndicateitems.Jobs"
           :key="job.Jobtype"
         >
-          <div class="px-3  flex items-center" slot="header">
+          <div slot="header" class="pl-2  pr-6 flex items-center">
             <p class="w-full">{{ job.Jobtype.split('/').slice(-1)[0] }}</p>
             <span class="flex-shrink-0 p-2 ml-4 mr-2"
               >{{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}</span
             >
           </div>
-          <div slot="content" class="break-all px-2">
-            <div class="flex mx-1 items-center">
-              <div class="w-full bg-gray-500 h-auto">Rewards</div>
-              <div class="w-1/3 bg-gray-500 h-auto">Standing</div>
+          <div slot="content" class="break-all">
+            <div class="flex  items-center">
+              <div class="w-full bg-gray-500 h-auto pl-2">Rewards</div>
+              <div class="w-1/3 bg-gray-500 h-auto  pr-2">Standing</div>
             </div>
-            <div class="flex mx-1 items-center">
-              <div class="w-full break-all bg-gray-500 h-auto">
+            <div class="flex items-center px-2">
+              <div class="w-full break-all h-auto">
                 <span
                   v-for="(reward, index) in job.Rewards"
                   :key="index"
@@ -34,7 +39,7 @@
                   {{ reward }}<br
                 /></span>
               </div>
-              <div class="w-1/2 self-stretch  bg-gray-500 h-auto">
+              <div class="w-1/2 self-stretch content-center text-center ">
                 <span
                   v-for="(stand, index) in job.StandingReward"
                   :key="index"
@@ -44,7 +49,6 @@
                 /></span>
               </div>
             </div>
-            {{ job }}
           </div>
         </badger-accordion-item>
       </badger-accordion>
@@ -66,15 +70,12 @@
   margin-inline-end: 0em !important;
 }
 .js-badger-accordion-panel-inner {
-  // @apply p-4;
   cursor: text;
   @apply bg-gray-400;
 }
-
 .badger-accordion-toggle {
   padding: 0%;
 }
-
 .badger-accordion__panel {
   max-height: 75vh !important;
   transition: max-height ease-in-out 0.5s;
@@ -82,7 +83,6 @@
   &.-ba-is-hidden {
     max-height: 0 !important;
   }
-  // transition is added via `badger-accordion--initalised` to stop animation on initalition
   .badger-accordion--initalised & {
     transition: max-height ease-in-out 0.2s;
   }
@@ -92,9 +92,8 @@
 <script>
 import moment from 'moment'
 
-// import platinum from '@/assets/img/general/plat.png';
 export default {
-  name: 'DarvoDealsPanel',
+  name: 'SyndicatePanel',
   props: ['syndicateitems'],
   data() {
     return {
@@ -113,7 +112,10 @@ export default {
       // eslint-disable-next-line
       var ms = moment.duration(start.diff(moment().valueOf()))
       // eslint-disable-next-line
-      var [days, hours, minutes, seconds] = ' '
+      let days = ''
+      let hours = ''
+      let minutes = ' '
+      let seconds = ' '
       if (ms.days() * -1 > 0) {
         days = ms.days() * -1 + 'd '
       }
@@ -127,10 +129,6 @@ export default {
         seconds = ms.seconds() + 's'
       }
       const t = days + hours + minutes + seconds
-      // eslint-disable-next-line
-      // console.log(ms) /**/
-      // const timespan =
-
       return t
     }
   }

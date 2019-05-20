@@ -47,7 +47,6 @@ table.table > thead > tr {
 <script>
 import moment from 'moment'
 
-// import platinum from '@/assets/img/general/plat.png';
 export default {
   name: 'DarvoDealsPanel',
   props: ['deals'],
@@ -68,7 +67,10 @@ export default {
       // eslint-disable-next-line
       var ms = moment.duration(start.diff(moment().valueOf()))
       // eslint-disable-next-line
-      var [days, hours, minutes, seconds] = ' '
+      let days = ''
+      let hours = ''
+      let minutes = ' '
+      let seconds = ' '
       if (ms.days() * -1 > 0) {
         days = ms.days() * -1 + 'd '
       }
@@ -82,10 +84,6 @@ export default {
         seconds = ms.seconds() + 's'
       }
       const t = days + hours + minutes + seconds
-      // eslint-disable-next-line
-      // console.log(ms) /**/
-      // const timespan =
-
       return t
     }
   }

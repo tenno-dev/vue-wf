@@ -63,10 +63,8 @@
 // In your VueJS component.
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
-
 import moment from 'moment'
 
-// Since v. 1.6.0, you need to include Vueper Slides CSS file for default styles.
 export default {
   name: 'News',
   components: { VueperSlides, VueperSlide },
