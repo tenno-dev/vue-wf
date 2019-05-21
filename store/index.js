@@ -1,5 +1,5 @@
 export const state = () => ({
-  darkMode: true,
+  darkmode: true,
   platform: [
     { short: 'pc', label: 'PC', icon: ['fas', 'desktop'] },
     { short: 'ps4', label: 'PS4', icon: ['fab', 'playstation'] },
@@ -23,7 +23,7 @@ export const state = () => ({
 })
 export const mutations = {
   darkmodeswitch(state, dark) {
-    state.darkMode = dark
+    state.darkmode = dark
   },
   setplatform(state, platform) {
     state.activeplatform = platform

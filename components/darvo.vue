@@ -2,7 +2,9 @@
   <div
     class="max-w-lg md:max-w-md sm:max-w-sm h-auto rounded overflow-hidden border-transparent"
   >
-    <div class="font-bold text-default text-4xl mt-1">{{ headertext }}</div>
+    <div class="font-bold text-inverse text-4xl mt-1 bg-transparent">
+      {{ headertext }}
+    </div>
     <div class="bg-gray-500 text-default py-2">
       <div v-if="deals">
         <div class="flex mx-1 items-center">

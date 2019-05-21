@@ -1,8 +1,5 @@
 <template>
-  <div class="home">
-    <div
-      class="w-screen h-10 bg-blue-600 sm:bg-green-600 md:bg-indigo-600 lg:bg-red-600 xl:bg-gray-900"
-    ></div>
+  <div>
     <div class="flex flex-wrap">
       <News
         class=" w-screen sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-auto h-64"
@@ -71,6 +68,9 @@ export default {
     },
     activelang1: function() {
       return this.$store.state.activelang.short
+    },
+    darkmode: function() {
+      return this.$store.state.darkmode
     }
   },
   watch: {
@@ -335,7 +335,7 @@ export default {
     }
   },
   mounted() {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line
     console.log('test')
     this.$mqtt.subscribe(
       '/wf/' +

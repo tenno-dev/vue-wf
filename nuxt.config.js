@@ -52,7 +52,7 @@ module.exports = {
           // import whole set
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: ['faDesktop ']
+            icons: ['faDesktop', 'faSun', 'faMoon']
           },
           {
             set: '@fortawesome/free-brands-svg-icons',

@@ -1,22 +1,21 @@
 <template>
-  <nav class="flex items-center justify-between flex-wrap bg-green-700">
+  <nav class="flex items-center flex-wrap bg-navbar">
     <div class="flex items-center flex-no-shrink text-white mr-6">
-      <!--<svg
-        class="fill-current h-8 w-8 mr-2"
-        width="54"
-        height="54"
-        viewBox="0 0 54 54"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"
-        />
-      </svg>-->
       <span class="font-semibold text-xl tracking-tight"
         >Warframe Info Hub</span
       >
     </div>
-    <div class="block sm:hidden">
+    <div class="flex flex-grow" v-on:click="setDarkmode($store.state.darkmode)">
+      <fa v-if="!$store.state.darkmode" icon="moon" fixed-width /><fa
+        v-else
+        icon="sun"
+        fixed-width
+        :style="{
+          color: 'white'
+        }"
+      />
+    </div>
+    <div class="block sm:hidden mr-4">
       <button
         class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
         @click="toggle"
@@ -36,7 +35,7 @@
       class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
     >
       <div class="text-sm sm:flex-grow"></div>
-      <div class="mb-4 w-32">
+      <div class="w-32">
         <v-select
           :value="$store.state.activeplatform"
           :searchable="false"
@@ -106,13 +105,13 @@ export default {
       this.open = !this.open
     },
     setSelectedlang(value) {
-      // eslint-disable-next-line no-console
-      console.log(value.label)
       this.$store.commit('setlang', value)
     },
+    setDarkmode(value) {
+      value = !value
+      this.$store.commit('darkmodeswitch', value)
+    },
     setSelectedplatform(value) {
-      // eslint-disable-next-line no-console
-      console.log(value.label)
       this.$store.commit('setplatform', value)
     }
   }
