@@ -56,7 +56,38 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="postcss">
+.js-badger-accordion-header {
+  @apply bg-gray-600;
+  display: block !important;
+  &:hover,
+  &.-ba-is-active {
+    @apply bg-blue-600;
+  }
+}
+.dd {
+  margin-inline-start: 0em !important;
+  margin-inline-end: 0em !important;
+}
+.js-badger-accordion-panel-inner {
+  cursor: text;
+  @apply bg-gray-400;
+}
+.badger-accordion-toggle {
+  padding: 0%;
+}
+.badger-accordion__panel {
+  max-height: 75vh !important;
+  transition: max-height ease-in-out 0.5s;
+  overflow: hidden;
+  &.-ba-is-hidden {
+    max-height: 0 !important;
+  }
+  .badger-accordion--initalised & {
+    transition: max-height ease-in-out 0.2s;
+  }
+}
+</style>
 
 <script>
 import moment from 'moment'
