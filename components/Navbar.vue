@@ -35,7 +35,7 @@
       class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
     >
       <div class="text-sm sm:flex-grow"></div>
-      <div class="w-32">
+      <div class="w-32 mr-1">
         <v-select
           :value="$store.state.activeplatform"
           :searchable="false"
@@ -56,7 +56,7 @@
           </template></v-select
         >
       </div>
-      <div class="mb-4 w-40">
+      <div class="w-40">
         <v-select
           :value="$store.state.activelang"
           :searchable="false"
