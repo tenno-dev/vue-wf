@@ -10,6 +10,7 @@ module.exports = {
         'inverse-soft': 'var(--color-text-inverse-soft)'
       },
       backgroundColor: {
+        newsbox: 'var(--color-bg-newsbox)',
         navbar: 'var(--color-bg-navbar)',
         box: 'var(--color-bg-box)',
         boxaccent: 'var(--color-bg-boxaccent)',

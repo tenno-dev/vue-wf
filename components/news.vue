@@ -36,7 +36,8 @@
   @apply h-64;
 }
 .vueperslide__content-wrapper {
-  background-color: rgba(64, 64, 64, 0.829) !important;
+  @apply bg-newsbox;
+  /*background-color: rgba(64, 64, 64, 0.829) !important;*/
   width: 100%;
   top: 74% !important;
   bottom: 0% !important;
@@ -52,7 +53,6 @@
   width: 100%;
   font-size: 16px;
   font-weight: 600;
-  background-color: rgba(64, 64, 64, 0.829) !important;
 }
 .vueperslide__title {
   @apply text-primary;

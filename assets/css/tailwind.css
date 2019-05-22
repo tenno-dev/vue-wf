@@ -8,6 +8,7 @@
   --color-bg-navbar: #375a7f;
   --color-bg-primary: #222;
   --color-bg-box: #303030;
+  --color-bg-newsbox: rgba(48, 48, 48, 0.829) !important;
   --color-bg-boxaccent: grey;
   --color-bg-secondary: #ffc402;
   --color-bg-default: #fff;
@@ -34,6 +35,7 @@
 .theme-dark {
   --color-bg-navbar: #21232a;
   --color-bg-box: #16181f;
+  --color-bg-newsbox: rgba(33, 35, 42, 0.829) !important;
   --color-bg-boxaccent: rgba(200, 225, 250, 0.2);
   --color-bg-primary: #21232a;
   --color-bg-secondary: #dcd0c0;
