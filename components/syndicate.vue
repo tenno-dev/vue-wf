@@ -73,6 +73,9 @@
   margin-inline-start: 0em !important;
   margin-inline-end: 0em !important;
 }
+.dl {
+  margin-block-start: 0em !important;
+}
 .js-badger-accordion-panel-inner {
   cursor: text;
   @apply bg-gray-400;
