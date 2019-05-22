@@ -17,8 +17,8 @@
 
 
 ### Other
- - [ ] Fix responsive layout
- - [ ] replace v-select with nuxt-vue-multiselect
+ - [ ] Fix responsive layout  
+~~replace v-select with nuxt-vue-multiselect~~
  
 ## Any issues? Suggestions?
 Feel free to contact me on [Discord](https://discord.gg/jGZxH9f) or leave an issue on GitHub.
