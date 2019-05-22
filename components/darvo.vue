@@ -2,33 +2,30 @@
   <div
     class="max-w-lg md:max-w-md sm:max-w-sm h-auto rounded overflow-hidden border-transparent"
   >
-    <div class="font-bold text-inverse text-4xl mt-1 bg-transparent">
+    <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
       {{ headertext }}
     </div>
-    <div class="bg-gray-500 text-default py-2">
-      <div v-if="deals">
-        <div class="flex mx-1 items-center">
-          <div class="w-1/3 bg-gray-500 h-auto">Item</div>
-          <div class="w-1/6 bg-gray-500 h-auto">Price</div>
-          <div class="w-1/4 bg-gray-500 h-auto">Stock</div>
-          <div class="w-1/4 bg-gray-500 h-auto">Ends in</div>
+    <div class="bg-box  py-2">
+      <div v-if="deals" class="text-primary ">
+        <div class="flex mx-1 items-center border-b border-gray-600">
+          <div class="w-5/12 h-auto">Item</div>
+          <div class="w-2/12 h-auto">Price</div>
+          <div class="w-2/12 h-auto">Stock</div>
+          <div class="w-2/12 h-auto">Ends in</div>
         </div>
         <div
           v-for="item in deals"
           :key="`${item.id}-deal`"
           class="items-center flex mx-1"
         >
-          <div class="w-1/3 bg-gray-500 h-auto text-xs">{{ item.Item }}</div>
-          <div class="w-1/6 bg-gray-500 h-auto text-green-800 font-black">
+          <div class="w-5/12 h-auto text-xs">{{ item.Item }}</div>
+          <div class="w-2/12 h-auto text-green-800 font-black">
             {{ item.DealPrice }}
           </div>
-          <div
-            v-if="item.Stock - item.Sold > 0"
-            class="w-1/4 bg-gray-500 h-auto"
-          >
+          <div v-if="item.Stock - item.Sold > 0" class="w-2/12 h-auto">
             {{ (((item.Stock - item.Sold) / item.Stock) * 100).toFixed(2) }}%
           </div>
-          <div v-else class="w-1/4 bg-gray-500 h-auto text-red-600 font-black">
+          <div v-else class="w-2/12 h-auto text-red-600 font-black">
             Sold Out
           </div>
           {{ timediff(item.Ends) }}

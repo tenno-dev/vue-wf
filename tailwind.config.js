@@ -11,6 +11,8 @@ module.exports = {
       },
       backgroundColor: {
         navbar: 'var(--color-bg-navbar)',
+        box: 'var(--color-bg-box)',
+        boxaccent: 'var(--color-bg-boxaccent)',
         primary: 'var(--color-bg-primary)',
         secondary: 'var(--color-bg-secondary)',
         default: 'var(--color-bg-default)',
@@ -35,5 +37,5 @@ module.exports = {
   important: false,
   separator: ':',
   variants: {},
-  plugins: []
+  plugins: [require('tailwindcss-elevation')(['responsive'])]
 }

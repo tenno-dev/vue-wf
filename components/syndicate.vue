@@ -3,13 +3,13 @@
     v-if="syndicateitems"
     class="max-w-lg md:max-w-md sm:max-w-sm h-auto   overflow-hidden border-transparent"
   >
-    <div class="font-bold text-inverse text-4xl mt-1">
+    <div class="font-bold text-primary text-4xl mt-1">
       {{ headertext(syndicateitems.Syndicate) }}
     </div>
-    <div class="bg-gray-500 text-default pt-1">
-      <div class="flex  items-center pb-1">
-        <div class="w-full bg-gray-500 h-auto pl-2">Ends in</div>
-        <div class="w-1/3 bg-gray-500 h-auto  pr-2">
+    <div class="bg-box text-primary pt-1 ">
+      <div class="flex  items-center pb-1  border-b border-gray-600">
+        <div class="w-full h-auto pl-2">Ends in</div>
+        <div class="w-1/3 h-auto  pr-2">
           {{ timediff(syndicateitems.End) }}
         </div>
       </div>
@@ -25,11 +25,13 @@
             >
           </div>
           <div slot="content" class="break-all">
-            <div class="flex  items-center">
-              <div class="w-full bg-gray-500 h-auto pl-2">Rewards</div>
-              <div class="w-1/3 bg-gray-500 h-auto  pr-2">Standing</div>
+            <div class="flex  items-center border-b border-gray-600">
+              <div class="w-full bg-box h-auto pl-2">Rewards</div>
+              <div class="w-1/3 bg-box h-auto  pr-2">Standing</div>
             </div>
-            <div class="flex items-center px-2">
+            <div
+              class="flex bg-box text-primary items-center px-2 border-b border-gray-600"
+            >
               <div class="w-full break-all h-auto">
                 <span
                   v-for="(reward, index) in job.Rewards"
@@ -58,7 +60,9 @@
 
 <style lang="postcss">
 .js-badger-accordion-header {
-  @apply bg-gray-600;
+  @apply bg-box;
+  @apply border-gray-600;
+  @apply border-b;
   display: block !important;
   &:hover,
   &.-ba-is-active {

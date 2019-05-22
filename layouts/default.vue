@@ -2,12 +2,14 @@
   <div
     :class="
       darkmode
-        ? 'theme-dark bg-inverse min-h-screen  '
-        : 'bg-inverse min-h-full'
+        ? 'antialiased theme-dark bg-primary min-h-screen  '
+        : 'antialiased bg-primary  min-h-screen'
     "
   >
-    <Navbar class="bg-green-700 p-2 mt-0 fixed w-full z-10 pin-t" />
-    <nuxt class="pt-10 md:pt-16 sm:pt-16" />
+    <Navbar
+      class="elevation-24 bg-green-700 p-2 mt-0 fixed w-full z-10 pin-t"
+    />
+    <nuxt class="pt-10 md:pt-16 sm:pt-16 min-h-screen" />
   </div>
 </template>
 <style></style>

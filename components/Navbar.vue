@@ -5,7 +5,7 @@
         >Warframe Info Hub</span
       >
     </div>
-    <div class="flex flex-grow" v-on:click="setDarkmode($store.state.darkmode)">
+    <div class="flex flex-grow" @click="setDarkmode($store.state.darkmode)">
       <fa v-if="!$store.state.darkmode" icon="moon" fixed-width /><fa
         v-else
         icon="sun"
@@ -20,14 +20,12 @@
         class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
         @click="toggle"
       >
-        <svg
-          class="fill-current h-3 w-3"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
+        <fa
+          icon="bars"
+          fixed-width
+          size="md"
+          class="fill-current text-primary"
+        />
       </button>
     </div>
     <div
@@ -46,7 +44,7 @@
         >
           <template slot="option" slot-scope="option">
             <span class="-ml-2 mr-1"
-              ><fa :icon="option.icon" fixed-width
+              ><fa :icon="option.icon" fixed-width class="fill-current"
             /></span>
             {{ option.label }}
           </template>
@@ -58,6 +56,7 @@
       </div>
       <div class="w-40">
         <v-select
+          class="text-primary "
           :value="$store.state.activelang"
           :searchable="false"
           :clearable="false"
@@ -87,6 +86,21 @@
 .vs__dropdown-menu {
   max-width: 10rem !important;
   min-width: 10rem !important;
+}
+.vs--single .vs__selected {
+  @apply text-primary;
+}
+.vs__dropdown-menu {
+  @apply bg-navbar;
+  @apply text-primary;
+}
+.vs__open-indicator {
+  @apply text-primary;
+
+  @apply fill-current;
+}
+.vs__dropdown-option {
+  @apply text-primary;
 }
 </style>
 

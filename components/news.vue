@@ -2,10 +2,10 @@
   <div
     class=" max-w-lg md:max-w-md   sm:max-w-sm h-auto rounded overflow-hidden  border-transparent"
   >
-    <div class="font-bold text-inverse text-4xl mt-1 bg-transparent ">
+    <div class="font-bold text-primary text-4xl mt-1 bg-transparent ">
       News
     </div>
-    <div class="bg-bgnew  text-default  pb-1">
+    <div class="bg-box  text-default">
       <vueper-slides
         v-if="news"
         :fixed-height="true"
@@ -47,16 +47,17 @@
   bottom: -16px !important;
 }
 .vueperslide__content {
+  @apply text-primary;
+
   width: 100%;
   font-size: 16px;
   font-weight: 600;
-  color: #fff;
   background-color: rgba(64, 64, 64, 0.829) !important;
 }
 .vueperslide__title {
+  @apply text-primary;
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
 }
 </style>
 <script>

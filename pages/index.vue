@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap ">
       <News
         class=" w-screen sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-auto h-64"
         :news="News"
