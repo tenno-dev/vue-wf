@@ -1,0 +1,177 @@
+<template>
+  <div
+    class="max-w-lg md:max-w-md sm:max-w-sm h-auto rounded overflow-hidden border-transparent"
+  >
+    <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
+      {{ headertext }}
+    </div>
+    <div class="bg-box text-primary pt-1 ">
+      <badger-accordion :icons="false">
+        <badger-accordion-item v-for="inva in invasions" :key="inva.ID">
+          <div slot="header" class="pl-2  pr-6 flex items-center">
+            <p class="w-full">
+              <span :class="getcolourfaction(inva.AttackerMissionInfo)">
+                {{ inva.AttackerMissionInfo }}</span
+              >
+              vs
+              <span :class="getcolourfaction(inva.DefenderMissionInfo)">{{
+                inva.DefenderMissionInfo
+              }}</span>
+            </p>
+            <span class="flex-shrink-0 p-2 ml-4 mr-2">{{ inva.Location }}</span>
+          </div>
+          <div
+            slot="content"
+            class=" bg-box break-all border-b border-gray-600"
+          >
+            <div class="pl-2  pr-6 flex items-center">
+              <p class="w-full">
+                Completion:
+              </p>
+              <span class="flex-shrink-0 p-2 ml-4 mr-2">
+                {{ parseFloat(complete(inva.Completion)).toFixed(2) }} %
+                completed</span
+              >
+            </div>
+            <div class="pl-2  pr-6 flex items-center">
+              <p class="w-full">
+                Mission Type:
+              </p>
+              <span class="flex-shrink-0 p-2 ml-4 mr-2">{{
+                inva.MissionType
+              }}</span>
+            </div>
+            <div
+              v-if="inva.AttackerRewardItem"
+              class="pl-2  pr-6 flex items-center"
+            >
+              <p class="w-full">
+                Attack Reward:
+              </p>
+              <span class="flex-shrink-0 p-2 ml-4 mr-2"
+                >{{ inva.AttackerRewardCount }}&nbsp;x&nbsp;{{
+                  inva.AttackerRewardItem
+                }}</span
+              >
+            </div>
+            <div
+              v-if="inva.DefenderRewardItem"
+              class="pl-2  pr-6 flex items-center"
+            >
+              <p class="w-full">
+                Defender Reward:
+              </p>
+              <span class="flex-shrink-0 p-2 ml-4 mr-2"
+                >{{ inva.DefenderRewardCount }}&nbsp;x&nbsp;{{
+                  inva.DefenderRewardItem
+                }}</span
+              >
+            </div>
+            <!--
+            <div class="flex  items-center border-b border-gray-600">
+              <div class="w-full bg-box h-auto pl-2">Rewards</div>
+              <div class="w-1/3 bg-box h-auto  pr-2">Standing</div>
+            </div>
+            <div
+              class="flex bg-box text-primary items-center px-2 border-b border-gray-600"
+            >
+              <div class="w-full break-all h-auto">
+                <span
+                  v-for="(reward, index) in job.Rewards"
+                  :key="index"
+                  :index="index"
+                >
+                  {{ reward }}<br
+                /></span>
+              </div>
+              <div class="w-1/2 self-stretch content-center text-center ">
+                <span
+                  v-for="(stand, index) in job.StandingReward"
+                  :key="index"
+                  :index="index"
+                >
+                  {{ stand }}<br
+                /></span>
+              </div>
+            </div>-->
+          </div>
+        </badger-accordion-item>
+      </badger-accordion>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+table.table div,
+table.table th,
+table.table > thead > tr {
+  border: 0;
+}
+</style>
+
+<script>
+import moment from 'moment'
+
+export default {
+  name: 'InvasionsPanel',
+  // eslint-disable-next-line
+  props: ['invasions'],
+  data() {
+    return {
+      platinum: 'platinum'
+    }
+  },
+  computed: {
+    headertext() {
+      return 'Invasions'
+    }
+  },
+  methods: {
+    getcolourfaction(prop) {
+      let x = null
+      if (prop === 'Grineer') {
+        x = 'text-red-600'
+      } else if (prop === 'Corpus') {
+        x = 'text-blue-600'
+      } else if (prop === 'Infested') {
+        x = 'text-green-600'
+      } else {
+        x = 'text-white'
+      }
+      return x
+    },
+    complete: function(prop) {
+      let x = prop
+      if (prop < 0) {
+        x = x * -1
+      }
+      return x
+    },
+    timediff(var1) {
+      var1 = var1 * 1
+      const start = moment(var1)
+      // eslint-disable-next-line
+      var ms = moment.duration(start.diff(moment().valueOf()))
+      // eslint-disable-next-line
+      let days = ''
+      let hours = ''
+      let minutes = ' '
+      let seconds = ' '
+      if (ms.days() * -1 > 0) {
+        days = ms.days() * -1 + 'd '
+      }
+      if (ms.hours() > 0) {
+        hours = ms.hours() + 'h:'
+      }
+      if (ms.minutes() > 0) {
+        minutes = ms.minutes() + 'm:'
+      }
+      if (ms.seconds() > 0) {
+        seconds = ms.seconds() + 's'
+      }
+      const t = days + hours + minutes + seconds
+      return t
+    }
+  }
+}
+</script>

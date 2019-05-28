@@ -1,24 +1,25 @@
 <template>
   <div>
-    <div class="flex flex-wrap ">
+    <div class="flex flex-wrap -mb-4">
       <News
-        class=" w-screen sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-auto h-64"
+        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :news="News"
       />
-      <br />
       <Darvo
-        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-auto h-64"
+        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :deals="Deals"
       />
-      <br />
       <Syndicate
-        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-auto h-64"
+        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :syndicateitems="Syndicates[0]"
       />
-      <br />
       <Syndicate
-        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-auto h-64"
+        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :syndicateitems="Syndicates[1]"
+      />
+      <Invasions
+        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        :invasions="Invasions"
       />
     </div>
   </div>
@@ -29,13 +30,15 @@ import moment from 'moment'
 import News from '@/components/news.vue'
 import Darvo from '@/components/darvo.vue'
 import Syndicate from '@/components/syndicate.vue'
+import Invasions from '@/components/invasions.vue'
 
 export default {
   name: 'Index',
   components: {
     News,
     Darvo,
-    Syndicate
+    Syndicate,
+    Invasions
   },
   head: {
     title: 'Welcome',

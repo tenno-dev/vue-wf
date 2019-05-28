@@ -101,6 +101,7 @@ import moment from 'moment'
 
 export default {
   name: 'SyndicatePanel',
+  // eslint-disable-next-line
   props: ['syndicateitems'],
   data() {
     return {

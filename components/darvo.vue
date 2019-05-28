@@ -48,6 +48,7 @@ import moment from 'moment'
 
 export default {
   name: 'DarvoDealsPanel',
+  // eslint-disable-next-line
   props: ['deals'],
   data() {
     return {

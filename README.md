@@ -11,7 +11,7 @@
  - [ ] Darvo's Deals 
  - [ ] Nightwave
  - [x] Syndicate Missions ( unfinished )
- - [ ] Invasions  
+ - [x] Invasions  ( unfinished )
  - [ ] Void Trader 
  - [ ] World Events
 

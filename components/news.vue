@@ -69,6 +69,7 @@ import moment from 'moment'
 export default {
   name: 'News',
   components: { VueperSlides, VueperSlide },
+  // eslint-disable-next-line
   props: ['news'],
   methods: {
     formattime2: function(prop) {
