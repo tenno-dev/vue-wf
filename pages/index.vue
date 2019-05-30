@@ -306,8 +306,6 @@ export default {
     },
     'wf/#/#/news'(data) {
       const x = JSON.parse(data.toString())
-      // eslint-disable-next-line
-      console.log(x)
       this.News = x.reverse()
     },
     'wf/#/#/syndicates'(data) {
