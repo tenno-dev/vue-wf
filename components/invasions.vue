@@ -67,33 +67,6 @@
                 }}</span
               >
             </div>
-            <!--
-            <div class="flex  items-center border-b border-gray-600">
-              <div class="w-full bg-box h-auto pl-2">Rewards</div>
-              <div class="w-1/3 bg-box h-auto  pr-2">Standing</div>
-            </div>
-            <div
-              class="flex bg-box text-primary items-center px-2 border-b border-gray-600"
-            >
-              <div class="w-full break-all h-auto">
-                <span
-                  v-for="(reward, index) in job.Rewards"
-                  :key="index"
-                  :index="index"
-                >
-                  {{ reward }}<br
-                /></span>
-              </div>
-              <div class="w-1/2 self-stretch content-center text-center ">
-                <span
-                  v-for="(stand, index) in job.StandingReward"
-                  :key="index"
-                  :index="index"
-                >
-                  {{ stand }}<br
-                /></span>
-              </div>
-            </div>-->
           </div>
         </badger-accordion-item>
       </badger-accordion>

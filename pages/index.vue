@@ -2,6 +2,7 @@
   <div>
     <div class="flex flex-wrap -mb-4">
       <News
+        v-if="News"
         class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :news="News"
       />
@@ -87,43 +88,39 @@ export default {
       // eslint-disable-next-line
       console.log('Prop changed: ', newVal, ' | was: ', oldVal)
       this.$mqtt.unsubscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + oldVal + '/alerts'
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/alerts'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           this.$store.state.activelang.short +
           '/' +
           oldVal +
           '/syndicates'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + oldVal + '/news'
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/news'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
-          this.$store.state.activelang.short +
-          '/' +
-          oldVal +
-          '/invasions'
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/invasions'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + oldVal + '/sorties'
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/sorties'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + oldVal + '/cycles'
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/cycles'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + oldVal + '/fissures'
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/fissures'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           this.$store.state.activelang.short +
           '/' +
           oldVal +
           '/darvodeals'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + oldVal + '/events'
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/events'
       )
       this.Alerts = ''
       this.News = ''
@@ -135,43 +132,39 @@ export default {
       this.Deals = ''
       this.Events = ''
       this.$mqtt.subscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + newVal + '/alerts'
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/alerts'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           this.$store.state.activelang.short +
           '/' +
           newVal +
           '/syndicates'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
-          this.$store.state.activelang.short +
-          '/' +
-          newVal +
-          '/invasions'
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/invasions'
       )
       this.$mqtt.subscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + newVal + '/news'
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/news'
       )
       this.$mqtt.subscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + newVal + '/sorties'
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/sorties'
       )
       this.$mqtt.subscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + newVal + '/cycles'
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/cycles'
       )
       this.$mqtt.subscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + newVal + '/fissures'
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/fissures'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           this.$store.state.activelang.short +
           '/' +
           newVal +
           '/darvodeals'
       )
       this.$mqtt.subscribe(
-        '/wf/' + this.$store.state.activelang.short + '/' + newVal + '/events'
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/events'
       )
     },
     activelang1: function(newVal, oldVal) {
@@ -179,59 +172,59 @@ export default {
       // eslint-disable-next-line
       console.log('Prop changed: ', newVal, ' | was: ', oldVal)
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/alerts'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/syndicates'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' + oldVal + '/' + this.$store.state.activeplatform.short + '/news'
+        'wf/' + oldVal + '/' + this.$store.state.activeplatform.short + '/news'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/invasions'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/sorties'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/cycles'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/fissures'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/darvodeals'
       )
       this.$mqtt.unsubscribe(
-        '/wf/' +
+        'wf/' +
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
@@ -247,59 +240,59 @@ export default {
       this.Deals = ''
       this.Events = ''
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/alerts'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/syndicates'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/invasions'
       )
       this.$mqtt.subscribe(
-        '/wf/' + newVal + '/' + this.$store.state.activeplatform.short + '/news'
+        'wf/' + newVal + '/' + this.$store.state.activeplatform.short + '/news'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/sorties'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/cycles'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/fissures'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
           '/darvodeals'
       )
       this.$mqtt.subscribe(
-        '/wf/' +
+        'wf/' +
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
@@ -308,32 +301,34 @@ export default {
     }
   },
   mqtt: {
-    '/wf/#/#/alerts'(data) {
+    'wf/#/#/alerts'(data) {
       this.Alerts = JSON.parse(data.toString())
     },
-    '/wf/#/#/news'(data) {
+    'wf/#/#/news'(data) {
       const x = JSON.parse(data.toString())
+      // eslint-disable-next-line
+      console.log(x)
       this.News = x.reverse()
     },
-    '/wf/#/#/syndicates'(data) {
+    'wf/#/#/syndicates'(data) {
       this.Syndicates = JSON.parse(data.toString())
     },
-    '/wf/#/#/invasions'(data) {
+    'wf/#/#/invasions'(data) {
       this.Invasions = JSON.parse(data.toString())
     },
-    '/wf/#/#/sorties'(data) {
+    'wf/#/#/sorties'(data) {
       this.Sortie = JSON.parse(data.toString())
     },
-    '/wf/#/#/cycles'(data) {
+    'wf/#/#/cycles'(data) {
       this.Cycles = JSON.parse(data.toString())
     },
-    '/wf/#/#/fissures'(data) {
+    'wf/#/#/fissures'(data) {
       this.Fissures = JSON.parse(data.toString())
     },
-    '/wf/#/#/darvodeals'(data) {
+    'wf/#/#/darvodeals'(data) {
       this.Deals = JSON.parse(data.toString())
     },
-    '/wf/#/#/events'(data) {
+    'wf/#/#/events'(data) {
       this.Events = JSON.parse(data.toString())
     }
   },
@@ -341,63 +336,63 @@ export default {
     // eslint-disable-next-line
     console.log('test')
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
         '/alerts'
     )
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
         '/news'
     )
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
         '/syndicates'
     )
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
         '/invasions'
     )
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
         '/sorties'
     )
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
         '/cycles'
     )
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
         '/fissures'
     )
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
         '/darvodeals'
     )
     this.$mqtt.subscribe(
-      '/wf/' +
+      'wf/' +
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
