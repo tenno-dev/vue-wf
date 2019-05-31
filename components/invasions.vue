@@ -6,8 +6,8 @@
       {{ headertext }}
     </div>
     <div class="bg-box text-primary pt-1 ">
-      <badger-accordion :icons="false">
-        <badger-accordion-item v-for="inva in invasions" :key="inva.ID">
+      <badger-accordion v-if="invasions[0]" :icons="false" ref="myAccordion">
+        <badger-accordion-item v-for="inva in invasions" :key="inva.id">
           <div slot="header" class="pl-2  pr-6 flex items-center">
             <p class="w-full">
               <span :class="getcolourfaction(inva.AttackerMissionInfo)">
@@ -97,6 +97,30 @@ export default {
   computed: {
     headertext() {
       return 'Invasions'
+    },
+    activeplat: function() {
+      return this.$store.state.activeplatform.short
+    },
+    activelang1: function() {
+      return this.$store.state.activelang.short
+    }
+  },
+  watch: {
+    activeplat: function(newVal, oldVal) {
+      // watch platform switch & subscribe to new channels
+      // eslint-disable-next-line
+      console.log('Prop changed inva: ', invasions.length, ' | was: ', oldVal)
+    },
+    activelang1: function(newVal, oldVal) {
+      // watch platform switch & subscribe to new channels
+      // eslint-disable-next-line
+      console.log(
+        'Prop changed inva: ',
+        this.$props.invasions,
+        ' | was: ',
+        oldVal
+      )
+      this.$refs.myAccordion.init()
     }
   },
   methods: {

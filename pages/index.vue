@@ -20,7 +20,7 @@
       />
       <Invasions
         class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-1 h-64"
-        :invasions="Invasions"
+        :invasions="Invasion"
       />
     </div>
   </div>
@@ -52,7 +52,7 @@ export default {
       Alerts: '',
       News: '',
       Syndicates: '',
-      Invasions: '',
+      Invasion: '',
       Sortie: '',
       Cycles: '',
       Fissures: '',
@@ -233,7 +233,7 @@ export default {
       this.Alerts = ''
       this.News = ''
       this.Syndicates = ''
-      this.Invasions = ''
+      this.Invasion = ''
       this.Sortie = ''
       this.Cycles = ''
       this.Fissures = ''
@@ -312,7 +312,8 @@ export default {
       this.Syndicates = JSON.parse(data.toString())
     },
     'wf/#/#/invasions'(data) {
-      this.Invasions = JSON.parse(data.toString())
+      this.Invasion = ''
+      this.Invasion = JSON.parse(data.toString())
     },
     'wf/#/#/sorties'(data) {
       this.Sortie = JSON.parse(data.toString())
