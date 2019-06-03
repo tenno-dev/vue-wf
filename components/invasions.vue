@@ -6,7 +6,7 @@
       {{ headertext }}
     </div>
     <div class="bg-box text-primary pt-1 ">
-      <badger-accordion v-if="invasions[0]" :icons="false" ref="myAccordion">
+      <badger-accordion v-if="invasions[0]" ref="myAccordion" :icons="false">
         <badger-accordion-item v-for="inva in invasions" :key="inva.id">
           <div slot="header" class="pl-2  pr-6 flex items-center">
             <p class="w-full">
