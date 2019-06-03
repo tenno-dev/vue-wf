@@ -1,11 +1,7 @@
 <template>
-  <div
-    class=" max-w-lg md:max-w-md   sm:max-w-sm h-auto rounded overflow-hidden  border-transparent"
-  >
-    <div class="font-bold text-primary text-4xl mt-1 bg-transparent ">
-      News
-    </div>
-    <div class="bg-box  text-default">
+  <div class="h-auto rounded overflow-hidden border-transparent">
+    <div class="font-bold text-primary text-4xl mt-1 bg-transparent">News</div>
+    <div class="bg-box text-default">
       <vueper-slides
         v-if="news"
         :fixed-height="true"
@@ -20,9 +16,13 @@
           :image="
             'https://cdn.warframestat.us/o_webp,rs_760_fit/' + slide.Image
           "
-          :title="slide.Message"
-          ><div slot="slideContent">
-            <a target="_blank" :href="slide.URL"
+        >
+          <div slot="slideContent">
+            <div class="vueperslide__title">{{ slide.Message }}</div>
+            <a
+              target="_blank"
+              class="absolute  bottom-0 inset-x-0"
+              :href="slide.URL"
               >Posted: {{ formattime2(slide.Date) }}</a
             >
           </div>
@@ -35,14 +35,40 @@
 .vueperslides--fixed-height {
   @apply h-64;
 }
-.vueperslide__content-wrapper {
-  @apply bg-newsbox;
-  /*background-color: rgba(64, 64, 64, 0.829) !important;*/
-  width: 100%;
-  top: 74% !important;
-  bottom: 0% !important;
-  left: 50% !important;
-  right: 50% !important;
+
+@media (min-width: 1024px) {
+  .vueperslide__content-wrapper {
+    @apply bg-newsbox;
+    /*background-color: rgba(64, 64, 64, 0.829) !important;*/
+    width: 100%;
+    top: 74% !important;
+    bottom: 0% !important;
+    left: 50% !important;
+    right: 50% !important;
+  }
+}
+@media (min-width: 1224px) {
+  .vueperslide__content-wrapper {
+    @apply bg-newsbox;
+    /*background-color: rgba(64, 64, 64, 0.829) !important;*/
+    width: 100%;
+    top: 80% !important;
+    bottom: 0% !important;
+    left: 50% !important;
+    right: 50% !important;
+  }
+}
+
+@media (min-width: 122px) {
+  .vueperslide__content-wrapper {
+    @apply bg-newsbox;
+    /*background-color: rgba(64, 64, 64, 0.829) !important;*/
+    width: 100%;
+    top: 73% !important;
+    bottom: 0% !important;
+    left: 50% !important;
+    right: 50% !important;
+  }
 }
 .vueperslides__bullets {
   bottom: -16px !important;

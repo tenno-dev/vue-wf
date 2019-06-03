@@ -7,7 +7,7 @@
         :news="News"
       />
       <Darvo
-        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/3 mx-1 h-64"
         :deals="Deals"
       />
       <Syndicate
