@@ -17,6 +17,7 @@
     </div>
     <div class="block sm:hidden mr-4">
       <button
+        aria-label="Switch Dark / light theme"
         class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
         @click="toggle"
       >
