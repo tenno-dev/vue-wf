@@ -1,11 +1,7 @@
 <template>
   <div>
     <div class="flex flex-wrap -mb-4">
-      <News
-        v-if="News"
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
-        :news="News"
-      />
+      <News v-if="News" class="w-full mx-1 h-64" :news="News" />
       <Darvo
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/3 mx-1 h-64"
         :deals="Deals"

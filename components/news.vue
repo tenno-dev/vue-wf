@@ -1,8 +1,10 @@
 <template>
-  <div
-    class="max-w-xl md:max-w-md sm:max-w-sm h-auto rounded overflow-hidden border-transparent"
-  >
-    <div class="font-bold text-primary text-4xl mt-1 bg-transparent">News</div>
+  <div class="h-auto rounded overflow-hidden border-transparent">
+    <div
+      class="font-bold text-primary text-4xl text-center mt-1 bg-transparent"
+    >
+      News
+    </div>
     <div class="bg-box text-default">
       <div v-if="!news[0]" class="text-primary ">
         <div
@@ -23,9 +25,7 @@
         <vueper-slide
           v-for="(slide, i) in news"
           :key="i"
-          :image="
-            'https://cdn.warframestat.us/o_webp,rs_760_fit/' + slide.Image
-          "
+          :image="'https://cdn.warframestat.us/o_webp,rs_x250/' + slide.Image"
         >
           <div slot="slideContent">
             <div class="vueperslide__title">{{ slide.Message }}</div>
@@ -44,6 +44,11 @@
 <style>
 .vueperslides--fixed-height {
   @apply h-64;
+}
+.vueperslide {
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  background-size: auto !important;
 }
 
 @media (min-width: 1024px) {
