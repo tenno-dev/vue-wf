@@ -16,7 +16,7 @@
       </div>
       <div
         v-if="syndicateitems"
-        class="flex items-center pb-1 border-b border-gray-600"
+        class="flex items-center py-2 border-b border-gray-600"
       >
         <div class="w-full h-auto pl-2">Ends in</div>
         <div class="w-1/3 h-auto  pr-2">
