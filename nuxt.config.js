@@ -65,6 +65,24 @@ export default {
   ],
 
   /*
+   ** PurgeCSS
+   ** https://github.com/Developmint/nuxt-purgecss
+   */
+  purgeCSS: {
+    whitelistPatterns: [
+      /(^|\.)fa-/,
+      /-fa($|\.)/,
+      /^vueperslide/,
+      /^badger/,
+      /^vs/,
+      /^flag/,
+      /-(leave|enter|appear)(|-(to|from|active))$/,
+      /^(?!(|.*?:)cursor-move).+-move$/,
+      /^nuxt-link(|-exact)-active$/
+    ]
+  },
+
+  /*
    ** Build configuration
    */
   build: {
