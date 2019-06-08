@@ -3,7 +3,7 @@
     class="max-w-lg md:max-w-md sm:max-w-sm h-auto   overflow-hidden border-transparent"
   >
     <div v-if="syndicateitems" class="font-bold text-primary text-4xl mt-1">
-      {{ syndicateitems.Syndicate }}
+      {{ headertext(syndicateitems.Syndicate) }}{{ $t('test.syndicate') }}
     </div>
     <div class="bg-box text-primary pt-0 ">
       <div v-if="!syndicateitems" class="text-primary ">
@@ -11,14 +11,14 @@
           class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
           role="alert"
         >
-          <strong class="font-bold">No News today</strong>
+          <strong class="font-bold">No Jobs today</strong>
         </div>
       </div>
       <div
         v-if="syndicateitems"
         class="flex items-center py-2 border-b border-gray-600"
       >
-        <div class="w-full h-auto pl-2">Ends in</div>
+        <div class="w-full h-auto pl-2">{{ $t('test.endsin') }}</div>
         <div class="w-1/3 h-auto  pr-2">
           {{ timediff(syndicateitems.End) }}
         </div>
@@ -36,8 +36,12 @@
           </div>
           <div slot="content" class="break-all">
             <div class="flex  items-center border-b border-gray-600">
-              <div class="w-full bg-box h-auto pl-2">Rewards</div>
-              <div class="w-1/3 bg-box h-auto  pr-2">Standing</div>
+              <div class="w-full bg-box h-auto pl-2">
+                {{ $tc('test.rewards', 2) }}
+              </div>
+              <div class="w-1/3 bg-box h-auto  pr-2">
+                {{ $t('test.standing') }}
+              </div>
             </div>
             <div
               class="flex bg-box text-primary items-center px-2 border-b border-gray-600"
@@ -122,7 +126,7 @@ export default {
   methods: {
     headertext(var1) {
       let x = var1
-      x = x.replace('Syndicate', ' Jobs')
+      x = x.replace('Syndicate', ' ')
       return x
     },
     timediff(var1) {

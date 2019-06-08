@@ -1,5 +1,19 @@
 {
     "home": {
         "introduction": "This is an introduction in English."
+    },
+    "test": {
+        "complete": "Completion:",
+        "complete2": "completed",
+        "missiontype": "Mission Type:",
+        "endsin": "Ends in:",
+        "rewards": "Reward | Rewards",
+        "attacker": "Attacker",
+        "defender": "Defender",
+        "standing": "Standing",
+        "price": "Price",
+        "stock": "Stock",
+        "syndicate": "Syndicate",
+        "invasions" :"Invasion | Invasions"
     }
 }

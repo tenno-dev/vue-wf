@@ -1,5 +1,19 @@
 {
     "home": {
         "introduction": "This is an introduction in German."
+    },
+    "test": {
+        "complete": "Status:",
+        "complete2": "abgeschlossen",
+        "missiontype": "Missions Typ:",
+        "endsin": "Endet in:",
+        "rewards": "Belohnung | Belohnungen",
+        "attacker": "Angreifer",
+        "defender": "Verteidiger",
+        "standing": "Ansehen",
+        "price": "Preis",
+        "stock": "Bestand",
+        "syndicate": "Syndikat",
+        "invasions": "Invasion | Invasionen"
     }
 }
