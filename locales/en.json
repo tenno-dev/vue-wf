@@ -14,6 +14,11 @@
         "price": "Price",
         "stock": "Stock",
         "syndicate": "Syndicate",
-        "invasions" :"Invasion | Invasions"
+        "invasions": "Invasion | Invasions",
+        "alerts": "Alerts",
+        "on": "on",
+        "enemylevel": "Enemy Level:",
+        "enemyfaction": "Enemy Faction:"
+
     }
 }

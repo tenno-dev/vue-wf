@@ -14,6 +14,10 @@
         "price": "Preis",
         "stock": "Bestand",
         "syndicate": "Syndikat",
-        "invasions": "Invasion | Invasionen"
+        "invasions": "Invasion | Invasionen",
+        "alerts": "Alamierungen",
+        "on": "auf",
+        "enemylevel": "Gegner Level:",
+        "enemyfaction": "Gegner Fraktion:"
     }
 }

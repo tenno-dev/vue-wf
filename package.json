@@ -1,7 +1,7 @@
 {
   "name": "vue-wf",
   "version": "1.0.0",
-  "description": "My impressive Nuxt.js project",
+  "description": "Warframe Info Hub (WIP)",
   "author": "Bitti",
   "private": true,
   "scripts": {

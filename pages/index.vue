@@ -5,7 +5,7 @@
       <Darvo
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/3 mx-1 h-64"
         :deals="Deals"
-      />
+      /><!---->
       <Syndicate
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :syndicateitems="Syndicates[0]"
@@ -18,6 +18,10 @@
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :invasions="Invasion"
       />
+      <Alerts
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        :alerts="Alerts"
+      />
     </div>
   </div>
 </template>
@@ -28,6 +32,7 @@ import News from '@/components/news.vue'
 import Darvo from '@/components/darvo.vue'
 import Syndicate from '@/components/syndicate.vue'
 import Invasions from '@/components/invasions.vue'
+import Alerts from '@/components/alerts.vue'
 
 export default {
   name: 'Index',
@@ -35,7 +40,8 @@ export default {
     News,
     Darvo,
     Syndicate,
-    Invasions
+    Invasions,
+    Alerts
   },
   head: {
     title: 'Welcome',
