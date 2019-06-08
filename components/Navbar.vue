@@ -21,12 +21,7 @@
         class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
         @click="toggle"
       >
-        <fa
-          icon="bars"
-          fixed-width
-          size="md"
-          class="fill-current text-primary"
-        />
+        <fa icon="bars" fixed-width class="fill-current text-primary" />
       </button>
     </div>
     <div
@@ -120,6 +115,9 @@ export default {
       this.open = !this.open
     },
     setSelectedlang(value) {
+      // eslint-disable-next-line
+      console.log(this.$i18n)
+      this.$i18n.locale = value.short
       this.$store.commit('setlang', value)
     },
     setDarkmode(value) {
@@ -127,6 +125,8 @@ export default {
       this.$store.commit('darkmodeswitch', value)
     },
     setSelectedplatform(value) {
+      // eslint-disable-next-line
+      console.log(this.$i18n)
       this.$store.commit('setplatform', value)
     }
   }

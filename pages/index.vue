@@ -329,7 +329,8 @@ export default {
   },
   mounted() {
     // eslint-disable-next-line
-    console.log('test')
+    console.log(this.$i18n)
+    this.$i18n.locale = this.$store.state.activelang.short
     this.$mqtt.subscribe(
       'wf/' +
         this.$store.state.activelang.short +
