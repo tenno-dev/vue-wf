@@ -14,7 +14,7 @@
           <strong class="font-bold">No Progress today</strong>
         </div>
       </div>
-      <div v-else class="flex mb-4">
+      <div v-else class="flex pt-3 pb-1  mb-4">
         <div class="w-1/3 text-center">
           <svg-progress-bar
             :value="progess['P1']"
