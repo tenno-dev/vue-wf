@@ -29,7 +29,7 @@
       class="flex-grow sm:flex sm:items-center sm:w-auto"
     >
       <div class="text-sm sm:flex-grow"></div>
-      <div class="mr-1 p-2">
+      <div class="mr-1 px-2 w-40">
         <v-select
           :value="$store.state.activeplatform"
           :searchable="false"
@@ -52,7 +52,7 @@
           </template></v-select
         >
       </div>
-      <div class="mr-1 px-2">
+      <div class="mr-1 px-2  w-40">
         <v-select
           class="text-primary "
           :value="$store.state.activelang"
@@ -82,8 +82,8 @@
 
 <style>
 .vs__dropdown-menu {
-  max-width: 10rem !important;
-  min-width: 10rem !important;
+  max-width: 9rem !important;
+  min-width: 9rem !important;
 }
 .vs--single .vs__selected {
   @apply text-primary;
