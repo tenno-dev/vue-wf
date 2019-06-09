@@ -1,38 +1,38 @@
 <template>
   <div>
-    <div class="flex flex-wrap -mb-4">
-      <News v-if="News" class="w-full mx-1 h-64" :news="News" />
-      <Darvo
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/3 mx-1 h-64"
-        :deals="Deals"
-      /><!---->
+    <News v-if="News" class="w-full mx-1 h-64" :news="News" />
+    <div class="flex flex-wrap ">
+      <Time
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-1 h-64"
+        :timer="Time1[0]"
+      />
+      <Alerts
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-1 h-64"
+        :alerts="Alerts"
+      />
       <Syndicate
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-1 h-64"
         :syndicateitems="Syndicates[0]"
       />
       <Syndicate
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-1 h-64"
         :syndicateitems="Syndicates[1]"
       />
       <Invasions
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-1 h-64"
         :invasions="Invasion"
       />
-      <Alerts
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
-        :alerts="Alerts"
-      />
       <BuildP
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-1 h-64"
         :progess="Progress1[0]"
       />
       <Sortie
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-1 h-64"
         :sortie="Sortie[0]"
       />
-      <Time
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
-        :timer="Time1[0]"
+      <Darvo
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/3 h-64 px-1"
+        :deals="Deals"
       />
     </div>
   </div>

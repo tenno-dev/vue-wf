@@ -101,7 +101,6 @@ export default {
         ' | was: ',
         oldVal
       )
-      this.$refs.myAccordion.init()
     }
   },
   methods: {

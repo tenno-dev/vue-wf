@@ -14,27 +14,36 @@
           <strong class="font-bold">No Sortie today</strong>
         </div>
       </div>
-      <div v-else class="flex items-center py-2 border-b border-gray-600">
-        <div class="w-full h-auto pl-2">
-          <span :class="getcolourfaction(sortie.Faction)">{{
-            sortie.Faction
-          }}</span>
-          {{ sortie.Boss }}
+      <div v-else>
+        <div class="flex items-center pt-2">
+          <div class="w-full h-auto pl-2">
+            {{ sortie.Boss }}
+          </div>
+          <div class="w-1/3 h-auto  mr-2">
+            <span :class="getcolourfaction(sortie.Faction)">{{
+              sortie.Faction
+            }}</span>
+          </div>
         </div>
-        <div class="w-1/3 h-auto  pr-2">
-          {{ timediff(sortie.Ends) }}
+        <div class="flex items-center pb-2 border-b border-gray-600">
+          <div class="w-full h-auto pl-2">
+            {{ $t('test.endsin') }}
+          </div>
+          <div class="w-1/3 h-auto  mr-2">
+            {{ timediff(sortie.Ends) }}
+          </div>
         </div>
       </div>
       <div
         v-if="typeof sortie !== 'undefined'"
         class="flex items-center py-2 border-b border-gray-600"
       >
-        <div class="ml-5 w-full h-auto pl-2">
+        <div class="ml-4 w-full h-auto">
           {{ sortie.Variants[0].MissionType }}<br />{{
             sortie.Variants[0].MissionMod
           }}
         </div>
-        <div class="w-1/2 h-auto  pr-2">
+        <div class="w-1/3 h-auto  mr-2">
           {{ sortie.Variants[0].MissionLocation }}
         </div>
       </div>
@@ -42,12 +51,12 @@
         v-if="typeof sortie !== 'undefined'"
         class="flex items-center py-2 border-b border-gray-600"
       >
-        <div class="ml-5 w-full h-auto pl-2">
+        <div class="ml-4 w-full h-auto">
           {{ sortie.Variants[1].MissionType }}<br />{{
             sortie.Variants[1].MissionMod
           }}
         </div>
-        <div class="w-1/2 h-auto  pr-2">
+        <div class="w-1/3 h-auto  mr-2">
           {{ sortie.Variants[1].MissionLocation }}
         </div>
       </div>
@@ -55,12 +64,12 @@
         v-if="typeof sortie !== 'undefined'"
         class="flex items-center py-2 border-b border-gray-600"
       >
-        <div class="ml-5 w-full h-auto pl-2">
+        <div class="ml-4 mr-2 w-full h-auto">
           {{ sortie.Variants[2].MissionType }}<br />{{
             sortie.Variants[2].MissionMod
           }}
         </div>
-        <div class="w-1/2 h-auto  pr-2">
+        <div class="w-1/3 h-auto  mr-2">
           {{ sortie.Variants[2].MissionLocation }}
         </div>
       </div>
@@ -130,7 +139,6 @@ export default {
         ' | was: ',
         oldVal
       )
-      this.$refs.myAccordion.init()
     }
   },
   methods: {

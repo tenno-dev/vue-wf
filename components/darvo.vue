@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="max-w-xl md:max-w-md sm:max-w-sm h-auto rounded overflow-hidden border-transparent"
-  >
+  <div class="h-auto rounded overflow-hidden border-transparent">
     <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
       {{ headertext }}
     </div>
@@ -15,7 +13,7 @@
         </div>
       </div>
       <div v-else class="text-primary ">
-        <div class="flex mx-1 items-center border-b border-gray-600 py-2 px-2">
+        <div class="flex items-center border-b border-gray-600 py-2 px-2">
           <div class="w-5/12 h-auto">Item</div>
           <div class="w-2/12 h-auto">{{ $t('test.price') }}</div>
           <div class="w-2/12 h-auto">{{ $t('test.stock') }}</div>
@@ -26,7 +24,7 @@
           :key="`${item.id}-deal`"
           class="items-center flex py-1 px-2"
         >
-          <div class="w-5/12 h-auto text-xs">{{ item.Item }}</div>
+          <div class="w-5/12 h-auto text-md">{{ item.Item }}</div>
           <div class="w-2/12 h-auto text-green-800 font-black">
             {{ item.DealPrice }}
           </div>
