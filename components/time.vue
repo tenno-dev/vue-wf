@@ -16,8 +16,8 @@
       </div>
       <div v-else>
         <div class="flex items-center  w-full  py-2 border-b border-gray-600">
-          <div class="ml-5 w-1/3 h-auto pl-2">Earth</div>
-          <div class="w-1/5 h-auto  pr-4">
+          <div class="ml-3 w-1/2 h-auto">Earth</div>
+          <div class="w-1/2 text-left h-auto pr-2">
             <fa
               v-if="timer.Earth[0].State == 'day'"
               icon="sun"
@@ -35,7 +35,7 @@
             />
             {{ timer.Earth[0].State }}
           </div>
-          <div class="w-auto h-auto  pr-2">
+          <div class="w-full  text-right h-auto  mr-3">
             {{ timediff(timer.Earth[0].End) }} left till
             <fa
               v-if="timer.Earth[0].State == 'day'"
@@ -52,8 +52,8 @@
           </div>
         </div>
         <div class="flex items-center  w-full  py-2 border-b border-gray-600">
-          <div class="ml-5 w-1/3 h-auto pl-2">Cetus</div>
-          <div class="w-1/5 h-auto  pr-4">
+          <div class="ml-3 w-1/2 h-auto">Cetus</div>
+          <div class="w-1/2 text-left h-auto pr-2">
             <fa
               v-if="timer.Cetus[0].State == 'day'"
               icon="sun"
@@ -71,7 +71,7 @@
             />
             {{ timer.Cetus[0].State }}
           </div>
-          <div class="w-auto h-auto  pr-2">
+          <div class="w-full text-right h-auto mr-3">
             {{ timediff(timer.Cetus[0].End) }} left till
             <fa
               v-if="timer.Cetus[0].State == 'day'"
@@ -88,8 +88,8 @@
           </div>
         </div>
         <div class="flex items-center  w-full  py-2 border-b border-gray-600">
-          <div class="ml-5 w-1/3 h-auto pl-2">Valis</div>
-          <div class="w-1/5 h-auto  pr-4">
+          <div class="ml-3 w-1/2 h-auto">Valis</div>
+          <div class="w-1/2 text-left h-auto pr-2">
             <fa
               v-if="timer.Vallis[0].State == 'cold'"
               icon="snowflake"
@@ -107,7 +107,7 @@
             />
             {{ timer.Vallis[0].State }}
           </div>
-          <div class="w-auto h-auto  pr-2">
+          <div class="w-full text-right h-auto mr-3">
             {{ timediff(timer.Vallis[0].End) }} left till
             <fa
               v-if="timer.Vallis[0].State == 'cold'"
