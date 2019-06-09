@@ -107,24 +107,10 @@ export default {
   },
   watch: {
     activeplat: function(newVal, oldVal) {
-      // watch platform switch & subscribe to new channels
-      // eslint-disable-next-line
-      console.log(
-        'Prop changed inva: ',
-        this.$props.invasions.length,
-        ' | was: ',
-        oldVal
-      )
+      this.$refs.myAccordion.init()
     },
     activelang1: function(newVal, oldVal) {
       // watch platform switch & subscribe to new channels
-      // eslint-disable-next-line
-      console.log(
-        'Prop changed inva: ',
-        this.$props.invasions,
-        ' | was: ',
-        oldVal
-      )
       this.$refs.myAccordion.init()
     }
   },

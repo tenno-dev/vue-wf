@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex items-center flex-wrap bg-navbar">
+  <nav class="flex items-center flex-wrap bg-navbar px-2 ">
     <div class="flex items-center flex-no-shrink text-white mr-6">
       <span class="font-semibold text-xl tracking-tight"
         >Warframe Info Hub</span
@@ -26,10 +26,10 @@
     </div>
     <div
       :class="open ? 'block' : 'hidden'"
-      class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
+      class="flex-grow sm:flex sm:items-center sm:w-auto"
     >
       <div class="text-sm sm:flex-grow"></div>
-      <div class="w-32 mr-1">
+      <div class="mr-1 p-2">
         <v-select
           :value="$store.state.activeplatform"
           :searchable="false"
@@ -45,12 +45,14 @@
             {{ option.label }}
           </template>
           <template slot="selected-option" slot-scope="option">
-            <span class=" mr-1"><fa :icon="option.icon" fixed-width/></span>
+            <span class=" mr-1 px-2"
+              ><fa :icon="option.icon" fixed-width
+            /></span>
             {{ option.label }}
           </template></v-select
         >
       </div>
-      <div class="w-40">
+      <div class="mr-1 px-2">
         <v-select
           class="text-primary "
           :value="$store.state.activelang"

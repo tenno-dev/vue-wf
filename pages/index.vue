@@ -1,6 +1,6 @@
 <template>
   <div>
-    <News v-if="News" class="w-full mx-1 h-64" :news="News" />
+    <News v-if="News" class="w-full px-1 h-64" :news="News" />
     <div class="flex flex-wrap ">
       <Time
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"

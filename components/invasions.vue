@@ -101,28 +101,6 @@ export default {
       return this.$store.state.activelang.short
     }
   },
-  watch: {
-    activeplat: function(newVal, oldVal) {
-      // watch platform switch & subscribe to new channels
-      // eslint-disable-next-line
-      console.log(
-        'Prop changed inva: ',
-        this.$props.invasions.length,
-        ' | was: ',
-        oldVal
-      )
-    },
-    activelang1: function(newVal, oldVal) {
-      // watch platform switch & subscribe to new channels
-      // eslint-disable-next-line
-      console.log(
-        'Prop changed inva: ',
-        this.$props.invasions,
-        ' | was: ',
-        oldVal
-      )
-    }
-  },
   methods: {
     getcolourfaction(prop) {
       let x = null

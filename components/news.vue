@@ -1,5 +1,5 @@
 <template>
-  <div class="h-auto rounded overflow-hidden border-transparent">
+  <div class="w-full  h-auto rounded overflow-hidden border-transparent">
     <div
       class="font-bold text-primary text-4xl text-center mt-1 bg-transparent"
     >
