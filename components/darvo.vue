@@ -1,5 +1,5 @@
 <template>
-  <div class="h-auto rounded overflow-hidden border-transparent">
+  <div class="max-w-lg md:max-w-md sm:max-w-sm h-auto rounded overflow-hidden border-transparent">
     <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
       {{ headertext }}
     </div>
