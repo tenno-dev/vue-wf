@@ -10,7 +10,7 @@
       class="elevation-24 bg-green-700 p-2 mt-0 fixed w-full z-10 pin-t"
       role="navigation"
     />
-    <nuxt class="py-16 md:pt-16 sm:pt-16 min-h-screen" role="main" />
+    <nuxt class="py-16 pt-12 min-h-screen" role="main" />
     <Footer
       class="elevation-24 bg-green-700 p-2 fixed w-full  z-10 bottom-0 pin-b"
     />
