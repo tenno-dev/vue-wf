@@ -55,7 +55,14 @@ export default {
           // import whole set
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: ['faDesktop', 'faSun', 'faMoon', 'faBars', 'faGamepad']
+            icons: [
+              'faDesktop',
+              'faSun',
+              'faMoon',
+              'faBars',
+              'faGamepad',
+              'faSnowflake'
+            ]
           },
           {
             set: '@fortawesome/free-brands-svg-icons',

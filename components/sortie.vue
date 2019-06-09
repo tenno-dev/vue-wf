@@ -25,7 +25,10 @@
           {{ timediff(sortie.Ends) }}
         </div>
       </div>
-      <div class="flex items-center py-2 border-b border-gray-600">
+      <div
+        v-if="typeof sortie !== 'undefined'"
+        class="flex items-center py-2 border-b border-gray-600"
+      >
         <div class="ml-5 w-full h-auto pl-2">
           {{ sortie.Variants[0].MissionType }}<br />{{
             sortie.Variants[0].MissionMod
@@ -35,7 +38,10 @@
           {{ sortie.Variants[0].MissionLocation }}
         </div>
       </div>
-      <div class="flex items-center py-2 border-b border-gray-600">
+      <div
+        v-if="typeof sortie !== 'undefined'"
+        class="flex items-center py-2 border-b border-gray-600"
+      >
         <div class="ml-5 w-full h-auto pl-2">
           {{ sortie.Variants[1].MissionType }}<br />{{
             sortie.Variants[1].MissionMod
@@ -45,7 +51,10 @@
           {{ sortie.Variants[1].MissionLocation }}
         </div>
       </div>
-      <div class="flex items-center py-2 border-b border-gray-600">
+      <div
+        v-if="typeof sortie !== 'undefined'"
+        class="flex items-center py-2 border-b border-gray-600"
+      >
         <div class="ml-5 w-full h-auto pl-2">
           {{ sortie.Variants[2].MissionType }}<br />{{
             sortie.Variants[2].MissionMod

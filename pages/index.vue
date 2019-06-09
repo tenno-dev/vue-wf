@@ -30,6 +30,10 @@
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :sortie="Sortie[0]"
       />
+      <Time
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        :timer="Time1[0]"
+      />
     </div>
   </div>
 </template>
@@ -43,6 +47,7 @@ import Invasions from '@/components/invasions.vue'
 import Alerts from '@/components/alerts.vue'
 import BuildP from '@/components/buildprogress.vue'
 import Sortie from '@/components/sortie.vue'
+import Time from '@/components/time.vue'
 
 export default {
   name: 'Index',
@@ -53,7 +58,8 @@ export default {
     Invasions,
     Alerts,
     BuildP,
-    Sortie
+    Sortie,
+    Time
   },
   head: {
     title: 'Welcome',
@@ -72,6 +78,7 @@ export default {
       Fissures: '',
       Progress1: '',
       Deals: '',
+      Time1: '',
       Events: '',
       syndics: ['Solaris United', 'Ostron'],
       time1: moment().unix(),
@@ -367,6 +374,9 @@ export default {
     },
     'wf/#/#/progress'(data) {
       this.Progress1 = JSON.parse(data.toString())
+    },
+    'wf/#/#/time'(data) {
+      this.Time1 = JSON.parse(data.toString())
     }
   },
   mounted() {
@@ -442,6 +452,13 @@ export default {
         '/' +
         this.$store.state.activeplatform.short +
         '/progress'
+    )
+    this.$mqtt.subscribe(
+      'wf/' +
+        this.$store.state.activelang.short +
+        '/' +
+        this.$store.state.activeplatform.short +
+        '/time'
     )
   },
   methods: {
