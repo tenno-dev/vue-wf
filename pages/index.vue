@@ -22,6 +22,10 @@
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :alerts="Alerts"
       />
+      <BuildP
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        :progess="Progress1[0]"
+      />
     </div>
   </div>
 </template>
@@ -33,6 +37,7 @@ import Darvo from '@/components/darvo.vue'
 import Syndicate from '@/components/syndicate.vue'
 import Invasions from '@/components/invasions.vue'
 import Alerts from '@/components/alerts.vue'
+import BuildP from '@/components/buildprogress.vue'
 
 export default {
   name: 'Index',
@@ -41,7 +46,8 @@ export default {
     Darvo,
     Syndicate,
     Invasions,
-    Alerts
+    Alerts,
+    BuildP
   },
   head: {
     title: 'Welcome',
@@ -58,6 +64,7 @@ export default {
       Sortie: '',
       Cycles: '',
       Fissures: '',
+      Progress1: '',
       Deals: '',
       Events: '',
       syndics: ['Solaris United', 'Ostron'],
@@ -124,6 +131,9 @@ export default {
       this.$mqtt.unsubscribe(
         'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/events'
       )
+      this.$mqtt.unsubscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/progress'
+      )
       this.Alerts = ''
       this.News = ''
       this.Syndicates = ''
@@ -167,6 +177,9 @@ export default {
       )
       this.$mqtt.subscribe(
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/events'
+      )
+      this.$mqtt.subscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/progress'
       )
     },
     activelang1: function(newVal, oldVal) {
@@ -231,6 +244,13 @@ export default {
           '/' +
           this.$store.state.activeplatform.short +
           '/events'
+      )
+      this.$mqtt.unsubscribe(
+        'wf/' +
+          oldVal +
+          '/' +
+          this.$store.state.activeplatform.short +
+          '/progress'
       )
       this.Alerts = ''
       this.News = ''
@@ -300,6 +320,13 @@ export default {
           this.$store.state.activeplatform.short +
           '/events'
       )
+      this.$mqtt.subscribe(
+        'wf/' +
+          newVal +
+          '/' +
+          this.$store.state.activeplatform.short +
+          '/progress'
+      )
     }
   },
   mqtt: {
@@ -331,6 +358,9 @@ export default {
     },
     'wf/#/#/events'(data) {
       this.Events = JSON.parse(data.toString())
+    },
+    'wf/#/#/progress'(data) {
+      this.Progress1 = JSON.parse(data.toString())
     }
   },
   mounted() {
@@ -399,6 +429,13 @@ export default {
         '/' +
         this.$store.state.activeplatform.short +
         '/events'
+    )
+    this.$mqtt.subscribe(
+      'wf/' +
+        this.$store.state.activelang.short +
+        '/' +
+        this.$store.state.activeplatform.short +
+        '/progress'
     )
   },
   methods: {

@@ -36,6 +36,7 @@ export default {
     { src: '~/plugins/mqtt.js', ssr: false },
     { src: '~/plugins/accordion.js', ssr: false },
     { src: '~/plugins/vselect.js', ssr: false },
+    { src: '~/plugins/vcircle.js' },
     { src: '@/plugins/i18n.js' }
   ],
 

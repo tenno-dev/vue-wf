@@ -41,7 +41,5 @@ module.exports = {
     }
   },
   variants: {},
-  plugins: [
-    require('tailwindcss-elevation')(['responsive']),
-  ]
+  plugins: [require('tailwindcss-elevation')(['responsive'])]
 }
