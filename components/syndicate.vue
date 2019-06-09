@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-lg md:max-w-md sm:max-w-sm h-auto   overflow-hidden border-transparent"
+    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto   overflow-hidden border-transparent"
   >
     <div v-if="syndicateitems" class="font-bold text-primary text-4xl mt-1">
       {{ headertext(syndicateitems.Syndicate) }}{{ $t('test.syndicate') }}

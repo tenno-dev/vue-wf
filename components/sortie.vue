@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-lg md:max-w-md sm:max-w-sm h-auto rounded overflow-hidden border-transparent"
+    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
   >
     <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
       Sortie
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div
-        v-if="typeof sortie !== 'undefined'"
+        v-if="typeof sortie !== 'undefined' && sortie.Variants[0]"
         class="flex items-center py-2 border-b border-gray-600"
       >
         <div class="ml-4 w-full h-auto">

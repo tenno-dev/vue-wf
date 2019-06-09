@@ -1,7 +1,7 @@
 <template>
   <div>
-    <News v-if="News" class="w-full px-1 h-64" :news="News" />
-    <div class="flex flex-wrap ">
+    <News v-if="News" class="w-full xl:px-2 px-1 h-64" :news="News" />
+    <div class="flex flex-wrap xl:px-1">
       <Time
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
         :timer="Time1[0]"
@@ -31,7 +31,7 @@
         :sortie="Sortie[0]"
       />
       <Darvo
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 h-64 px-1"
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
         :deals="Deals"
       />
     </div>

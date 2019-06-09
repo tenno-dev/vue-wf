@@ -5,7 +5,7 @@
     >
       News
     </div>
-    <div class="bg-box text-default">
+    <div class=" bg-box border-transparent text-default">
       <div v-if="!news[0]" class="text-primary ">
         <div
           class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"

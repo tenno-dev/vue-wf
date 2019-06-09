@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-navbar text-white">
+  <div class="bg-navbar text-white px-2 ">
     &copy; Bitti09 |
     <a
       name="Warframe Info Hub Github"
