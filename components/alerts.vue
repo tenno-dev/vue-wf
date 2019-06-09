@@ -16,10 +16,10 @@
       </div>
       <badger-accordion v-else ref="myAccordion" :icons="false">
         <badger-accordion-item v-for="alert in alerts" :key="alert.id">
-          <div slot="header" class="pl-2  pr-6 flex items-center">
+          <div slot="header" class="px-3 flex items-center">
             <p class="w-full">
               <span>
-                {{ alert.MissionType }} {{ $t('test.on') }}
+                {{ alert.MissionType }}<br />{{ $t('test.on') }}
                 {{ alert.MissionLocation }}</span
               >
             </p>
@@ -29,7 +29,7 @@
                 inva.DefenderMissionInfo
               }}</span>
             </p>-->
-            <span class="flex-shrink-0 p-2 ml-4 mr-2">
+            <span class="flex-shrink-0 p-2 pr-0">
               {{ timediff(alert.Ends) }} left
             </span>
           </div>
@@ -38,14 +38,14 @@
             slot="content"
             class=" bg-box break-all border-b border-gray-600"
           >
-            <div class="pl-2  pr-6 flex items-center">
+            <div class="px-3 flex items-center">
               <p class="w-full ml-4">{{ $t('test.enemylevel') }}</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 {{ alert.MinEnemyLevel }}
                 - {{ alert.MaxEnemyLevel }}</span
               >
             </div>
-            <div class="pl-2  pr-6 flex items-center">
+            <div class="px-3 flex items-center">
               <p class="w-full ml-4">
                 {{ $t('test.enemyfaction') }}
               </p>
@@ -55,13 +55,13 @@
                 }}</span>
               </span>
             </div>
-            <div class="pl-2  pr-6 flex items-center">
+            <div class="px-3 flex items-center">
               <p class="w-full ml-4">Credits {{ $tc('test.rewards', 1) }}:</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 {{ alert.RewardCredits }}
               </span>
             </div>
-            <div v-if="alert.RewardItem" class="pl-2  pr-6 flex items-center">
+            <div v-if="alert.RewardItem" class="px-3 flex items-center">
               <p class="w-full ml-4">Item {{ $tc('test.rewards', 1) }}:</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 {{ alert.RewardItem }}
