@@ -26,6 +26,10 @@
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
         :progess="Progress1[0]"
       />
+      <Sortie
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 mx-1 h-64"
+        :sortie="Sortie[0]"
+      />
     </div>
   </div>
 </template>
@@ -38,6 +42,7 @@ import Syndicate from '@/components/syndicate.vue'
 import Invasions from '@/components/invasions.vue'
 import Alerts from '@/components/alerts.vue'
 import BuildP from '@/components/buildprogress.vue'
+import Sortie from '@/components/sortie.vue'
 
 export default {
   name: 'Index',
@@ -47,7 +52,8 @@ export default {
     Syndicate,
     Invasions,
     Alerts,
-    BuildP
+    BuildP,
+    Sortie
   },
   head: {
     title: 'Welcome',
