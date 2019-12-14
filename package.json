@@ -31,7 +31,7 @@
     "vue-lang-code-flags": "^1.0.7",
     "vue-mqtt-topics": "github:Bitti09/Vue-Mqtt#master",
     "vue-select": "^3.1.0",
-    "vueperslides": "^1.19.0"
+    "vueperslides": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1",
