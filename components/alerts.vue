@@ -107,11 +107,13 @@ export default {
   },
   watch: {
     activeplat(newVal, oldVal) {
-      this.$refs.myAccordion.init()
+      // eslint-disable-next-line no-console
+      // console.log(this)
+      // this.$refs.myAccordion.init()
     },
     activelang1(newVal, oldVal) {
       // watch platform switch & subscribe to new channels
-      this.$refs.myAccordion.init()
+      // this.$refs.myAccordion.init()
     }
   },
   methods: {

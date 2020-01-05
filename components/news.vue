@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full  h-auto rounded overflow-hidden border-transparent">
+  <div class="w-full h-auto  rounded overflow-hidden border-transparent">
     <div
       class="font-bold text-primary text-4xl text-center mt-1 bg-transparent"
     >
@@ -27,15 +27,19 @@
           :key="i"
           :image="'https://cdn.warframestat.us/o_webp,rs_x250/' + slide.Image"
         >
-          <div slot="slideContent">
-            <div class="vueperslide__title">{{ slide.Message }}</div>
-            <a
-              target="_blank"
-              class="absolute  bottom-0 inset-x-0"
-              :href="slide.URL"
-              >Posted: {{ formattime2(slide.Date) }}</a
+          <template v-slot:content>
+            <div
+              class="vueperslide__content-wrapper absolute  bottom-0 inset-x-0"
+              style="height:35%;"
             >
-          </div>
+              <div class="vueperslide__title -mt-8">
+                {{ slide.Message }}
+              </div>
+              <a class="text-primary" target="_blank" :href="slide.URL"
+                >Posted: {{ formattime2(slide.Date) }}</a
+              >
+            </div>
+          </template>
         </vueper-slide>
       </vueper-slides>
     </div>
@@ -56,10 +60,8 @@
     @apply bg-newsbox;
     /*background-color: rgba(64, 64, 64, 0.829) !important;*/
     width: 100%;
-    top: 74% !important;
-    bottom: 0% !important;
-    left: 50% !important;
-    right: 50% !important;
+    top: -74 !important;
+    bottom: 0 !important;
   }
 }
 @media (min-width: 1224px) {
@@ -68,9 +70,7 @@
     /*background-color: rgba(64, 64, 64, 0.829) !important;*/
     width: 100%;
     top: 80% !important;
-    bottom: 0% !important;
-    left: 50% !important;
-    right: 50% !important;
+    bottom: 0 !important;
   }
 }
 
@@ -79,10 +79,8 @@
     @apply bg-newsbox;
     /*background-color: rgba(64, 64, 64, 0.829) !important;*/
     width: 100%;
-    top: 73% !important;
+    top: 60 !important;
     bottom: 0% !important;
-    left: 50% !important;
-    right: 50% !important;
   }
 }
 .vueperslides__bullets {
@@ -90,7 +88,6 @@
 }
 .vueperslide__content {
   @apply text-primary;
-
   width: 100%;
   font-size: 16px;
   font-weight: 600;
