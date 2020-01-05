@@ -15,9 +15,11 @@
         </div>
       </div>
       <div v-else>
-        <div class="flex items-center  w-full  py-2 border-b border-gray-600">
+        <div
+          class="flex items-center justify-between  w-full  py-2 border-b border-gray-600"
+        >
           <div class="ml-3 w-1/2 h-auto">Earth</div>
-          <div class="w-1/2 text-left h-auto pr-2">
+          <div class="w-1/2 text-left h-auto">
             <fa
               v-if="timer.Earth[0].State == 'day'"
               icon="sun"
@@ -53,7 +55,7 @@
         </div>
         <div class="flex items-center  w-full  py-2 border-b border-gray-600">
           <div class="ml-3 w-1/2 h-auto">Cetus</div>
-          <div class="w-1/2 text-left h-auto pr-2">
+          <div class="w-1/2 text-left h-auto">
             <fa
               v-if="timer.Cetus[0].State == 'day'"
               icon="sun"
@@ -89,7 +91,7 @@
         </div>
         <div class="flex items-center  w-full  py-2 border-b border-gray-600">
           <div class="ml-3 w-1/2 h-auto">Valis</div>
-          <div class="w-1/2 text-left h-auto pr-2">
+          <div class="w-1/2 text-left h-auto">
             <fa
               v-if="timer.Vallis[0].State == 'cold'"
               icon="snowflake"

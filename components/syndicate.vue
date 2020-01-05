@@ -16,10 +16,10 @@
       </div>
       <div
         v-if="syndicateitems"
-        class="flex items-center py-2 border-b border-gray-600"
+        class="flex items-center pl-2 pr-4 py-2 border-b border-gray-600"
       >
-        <div class="w-full h-auto pl-2">{{ $t('test.endsin') }}</div>
-        <div class="w-1/3 h-auto  pr-2">
+        <div class="w-4/5 h-auto ">{{ $t('test.endsin') }}</div>
+        <div class="w-1/5 h-auto text-center">
           {{ timediff(syndicateitems.End) }}
         </div>
       </div>
@@ -28,9 +28,11 @@
           v-for="job in syndicateitems.Jobs"
           :key="job.Jobtype"
         >
-          <div slot="header" class="pl-2  pr-6 flex items-center">
-            <p class="w-full">{{ job.Jobtype.split('/').slice(-1)[0] }}</p>
-            <span class="flex-shrink-0 p-2 ml-4 mr-2"
+          <div slot="header" class="pl-2  -pr-2 flex   row items-center">
+            <p class="w-4/5">
+              {{ job.Jobtype.split('/').slice(-1)[0] }}
+            </p>
+            <span class="w-1/5 p-2 text-center"
               >{{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}</span
             >
           </div>
