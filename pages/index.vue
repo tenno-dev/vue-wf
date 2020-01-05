@@ -61,10 +61,6 @@ export default {
     Sortie,
     Time
   },
-  head: {
-    title: 'Welcome',
-    meta: [{ hid: 'description', name: 'description', content: 'Welcome' }]
-  },
   data() {
     return {
       tstamp: '0',
@@ -89,23 +85,23 @@ export default {
     }
   },
   computed: {
-    activeplat: function() {
+    activeplat() {
       return this.$store.state.activeplatform.short
     },
-    activelang1: function() {
+    activelang1() {
       return this.$store.state.activelang.short
     },
-    darkmode: function() {
+    darkmode() {
       return this.$store.state.darkmode
     }
   },
   watch: {
-    alerts: function(newVal, oldVal) {
+    alerts(newVal, oldVal) {
       // watch it
       // eslint-disable-next-line
       console.log('Prop changed: ', newVal, ' | was: ', oldVal)
     },
-    activeplat: function(newVal, oldVal) {
+    activeplat(newVal, oldVal) {
       // watch platform switch & subscribe to new channels
       // eslint-disable-next-line
       console.log('Prop changed: ', newVal, ' | was: ', oldVal)
@@ -195,7 +191,7 @@ export default {
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/progress'
       )
     },
-    activelang1: function(newVal, oldVal) {
+    activelang1(newVal, oldVal) {
       // watch platform switch & subscribe to new channels
       // eslint-disable-next-line
       console.log('Prop changed: ', newVal, ' | was: ', oldVal)
@@ -342,43 +338,6 @@ export default {
       )
     }
   },
-  mqtt: {
-    'wf/#/#/alerts'(data) {
-      this.Alerts = JSON.parse(data.toString())
-    },
-    'wf/#/#/news'(data) {
-      const x = JSON.parse(data.toString())
-      this.News = x.reverse()
-    },
-    'wf/#/#/syndicates'(data) {
-      this.Syndicates = JSON.parse(data.toString())
-    },
-    'wf/#/#/invasions'(data) {
-      this.Invasion = ''
-      this.Invasion = JSON.parse(data.toString())
-    },
-    'wf/#/#/sorties'(data) {
-      this.Sortie = JSON.parse(data.toString())
-    },
-    'wf/#/#/cycles'(data) {
-      this.Cycles = JSON.parse(data.toString())
-    },
-    'wf/#/#/fissures'(data) {
-      this.Fissures = JSON.parse(data.toString())
-    },
-    'wf/#/#/darvodeals'(data) {
-      this.Deals = JSON.parse(data.toString())
-    },
-    'wf/#/#/events'(data) {
-      this.Events = JSON.parse(data.toString())
-    },
-    'wf/#/#/progress'(data) {
-      this.Progress1 = JSON.parse(data.toString())
-    },
-    'wf/#/#/time'(data) {
-      this.Time1 = JSON.parse(data.toString())
-    }
-  },
   mounted() {
     // eslint-disable-next-line
     console.log(this.$i18n)
@@ -462,11 +421,52 @@ export default {
     )
   },
   methods: {
-    formattime2: function(prop) {
+    formattime2(prop) {
       prop = prop / 1
       const x = moment(prop).format('DD[.]MM[.]YYYY')
       // const x = moment(prop).fromNow()
       return x
+    }
+  },
+  head: {
+    title: 'Welcome',
+    meta: [{ hid: 'description', name: 'description', content: 'Welcome' }]
+  },
+  mqtt: {
+    'wf/#/#/alerts'(data) {
+      this.Alerts = JSON.parse(data.toString())
+    },
+    'wf/#/#/news'(data) {
+      const x = JSON.parse(data.toString())
+      this.News = x.reverse()
+    },
+    'wf/#/#/syndicates'(data) {
+      this.Syndicates = JSON.parse(data.toString())
+    },
+    'wf/#/#/invasions'(data) {
+      this.Invasion = ''
+      this.Invasion = JSON.parse(data.toString())
+    },
+    'wf/#/#/sorties'(data) {
+      this.Sortie = JSON.parse(data.toString())
+    },
+    'wf/#/#/cycles'(data) {
+      this.Cycles = JSON.parse(data.toString())
+    },
+    'wf/#/#/fissures'(data) {
+      this.Fissures = JSON.parse(data.toString())
+    },
+    'wf/#/#/darvodeals'(data) {
+      this.Deals = JSON.parse(data.toString())
+    },
+    'wf/#/#/events'(data) {
+      this.Events = JSON.parse(data.toString())
+    },
+    'wf/#/#/progress'(data) {
+      this.Progress1 = JSON.parse(data.toString())
+    },
+    'wf/#/#/time'(data) {
+      this.Time1 = JSON.parse(data.toString())
     }
   }
 }

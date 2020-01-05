@@ -113,7 +113,7 @@ export default {
   // eslint-disable-next-line
   props: ['news'],
   methods: {
-    formattime2: function(prop) {
+    formattime2(prop) {
       prop = prop / 1
       const x = moment(prop).format('DD[.]MM[.]YYYY  HH:mm')
       // const x = moment(prop).fromNow()

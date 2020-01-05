@@ -63,15 +63,15 @@ export default {
     }
   },
   computed: {
-    activeplat: function() {
+    activeplat() {
       return this.$store.state.activeplatform.short
     },
-    activelang1: function() {
+    activelang1() {
       return this.$store.state.activelang.short
     },
     options() {
       return {
-        text: function(value) {
+        text(value) {
           return (
             this.htmlifyNumber(value) +
             '<span style="font-size: 0.4em;">%</span>'
@@ -82,7 +82,7 @@ export default {
     }
   },
   methods: {
-    complete: function(prop) {
+    complete(prop) {
       let x = prop
       if (prop < 0) {
         x = x * -1

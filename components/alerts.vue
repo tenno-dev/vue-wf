@@ -98,18 +98,18 @@ export default {
     headertext() {
       return 'Invasions'
     },
-    activeplat: function() {
+    activeplat() {
       return this.$store.state.activeplatform.short
     },
-    activelang1: function() {
+    activelang1() {
       return this.$store.state.activelang.short
     }
   },
   watch: {
-    activeplat: function(newVal, oldVal) {
+    activeplat(newVal, oldVal) {
       this.$refs.myAccordion.init()
     },
-    activelang1: function(newVal, oldVal) {
+    activelang1(newVal, oldVal) {
       // watch platform switch & subscribe to new channels
       this.$refs.myAccordion.init()
     }
@@ -128,7 +128,7 @@ export default {
       }
       return x
     },
-    complete: function(prop) {
+    complete(prop) {
       let x = prop
       if (prop < 0) {
         x = x * -1

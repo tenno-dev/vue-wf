@@ -27,7 +27,7 @@ export default {
     Footer
   },
   computed: {
-    darkmode: function() {
+    darkmode() {
       return this.$store.state.darkmode
     }
   }
