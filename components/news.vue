@@ -5,7 +5,7 @@
     >
       News
     </div>
-    <div class=" bg-box border-transparent text-default">
+    <div class=" bg-netransparentwsbox border-transparent text-default">
       <div v-if="!news[0]" class="text-primary ">
         <div
           class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
@@ -25,12 +25,12 @@
         <vueper-slide
           v-for="(slide, i) in news"
           :key="i"
-          :image="'https://cdn.warframestat.us/o_webp,rs_x250/' + slide.Image"
+          :image="'https://cdn.warframestat.us/o_webp/' + slide.Image"
         >
           <template v-slot:content>
             <div
-              class="vueperslide__content-wrapper absolute  bottom-0 inset-x-0"
-              style="height:35%;"
+              class="vueperslide__content-wrapper absolute bottom-0 mb-0 inset-x-0"
+              style="height:15%;"
             >
               <div class="vueperslide__title -mt-8">
                 {{ slide.Message }}
@@ -47,29 +47,36 @@
 </template>
 <style>
 .vueperslides--fixed-height {
-  @apply h-64;
+  @apply bg-transparent;
+  height: 52vh;
 }
 .vueperslide {
+  @apply bg-transparent;
   background-repeat: no-repeat !important;
-  background-color: transparent !important;
-  background-size: auto !important;
+  background-size: contain !important;
 }
-
+.vueperslide__content-wrapper {
+  @apply bg-transparent;
+  @apply my-0;
+  width: 100%;
+  top: 80% !important;
+  bottom: 0 !important;
+}
 @media (min-width: 1024px) {
   .vueperslide__content-wrapper {
-    @apply bg-newsbox;
-    /*background-color: rgba(64, 64, 64, 0.829) !important;*/
+    @apply bg-transparent;
+    @apply my-0;
     width: 100%;
-    top: -74 !important;
+    top: 80% !important;
     bottom: 0 !important;
   }
 }
 @media (min-width: 1224px) {
   .vueperslide__content-wrapper {
-    @apply bg-newsbox;
-    /*background-color: rgba(64, 64, 64, 0.829) !important;*/
+    @apply bg-transparent;
+    @apply my-0;
     width: 100%;
-    top: 80% !important;
+    top: 90% !important;
     bottom: 0 !important;
   }
 }
@@ -77,9 +84,9 @@
 @media (min-width: 120px) {
   .vueperslide__content-wrapper {
     @apply bg-newsbox;
-    /*background-color: rgba(64, 64, 64, 0.829) !important;*/
+    @apply my-0;
     width: 100%;
-    top: 60 !important;
+    top: 90% !important;
     bottom: 0% !important;
   }
 }

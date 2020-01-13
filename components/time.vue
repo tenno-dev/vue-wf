@@ -107,6 +107,7 @@
                 color: 'yellow'
               }"
             />
+
             {{ timer.Vallis[0].State }}
           </div>
           <div class="w-full text-right h-auto mr-3">
@@ -153,7 +154,8 @@ export default {
   props: ['timer'],
   data() {
     return {
-      platinum: 'platinum'
+      platinum: 'platinum',
+      vallis: 'test.missiontype'
     }
   },
   computed: {

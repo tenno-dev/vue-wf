@@ -7,6 +7,7 @@
         "complete2": "completed",
         "missiontype": "Mission Type:",
         "endsin": "Ends in:",
+        "endsin2": "ends in:",
         "rewards": "Reward | Rewards",
         "attacker": "Attacker",
         "defender": "Defender",
@@ -19,6 +20,9 @@
         "on": "on",
         "enemylevel": "Enemy Level:",
         "enemyfaction": "Enemy Faction:"
-
+    },
+    "timer":{
+       "night": "Night",
+       "day" : "Day" 
     }
 }

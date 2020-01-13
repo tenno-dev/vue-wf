@@ -10,6 +10,10 @@
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
         :alerts="Alerts"
       />
+      <Nightwave
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        :nightwave="Nightwave[0]"
+      />
       <Syndicate
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
         :syndicateitems="Syndicates[0]"
@@ -42,6 +46,7 @@
 import moment from 'moment'
 import News from '@/components/news.vue'
 import Darvo from '@/components/darvo.vue'
+import Nightwave from '@/components/nightwave.vue'
 import Syndicate from '@/components/syndicate.vue'
 import Invasions from '@/components/invasions.vue'
 import Alerts from '@/components/alerts.vue'
@@ -54,6 +59,7 @@ export default {
   components: {
     News,
     Darvo,
+    Nightwave,
     Syndicate,
     Invasions,
     Alerts,
@@ -69,6 +75,7 @@ export default {
       News: '',
       Syndicates: '',
       Invasion: '',
+      Nightwave: '',
       Sortie: '',
       Cycles: '',
       Fissures: '',
@@ -107,6 +114,9 @@ export default {
       console.log('Prop changed: ', newVal, ' | was: ', oldVal)
       this.$mqtt.unsubscribe(
         'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/alerts'
+      )
+      this.$mqtt.unsubscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/nightwave'
       )
       this.$mqtt.unsubscribe(
         'wf/' +
@@ -156,6 +166,9 @@ export default {
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/alerts'
       )
       this.$mqtt.subscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/nightwave'
+      )
+      this.$mqtt.subscribe(
         'wf/' +
           this.$store.state.activelang.short +
           '/' +
@@ -201,6 +214,13 @@ export default {
           '/' +
           this.$store.state.activeplatform.short +
           '/alerts'
+      )
+      this.$mqtt.unsubscribe(
+        'wf/' +
+          oldVal +
+          '/' +
+          this.$store.state.activeplatform.short +
+          '/nightwave'
       )
       this.$mqtt.unsubscribe(
         'wf/' +
@@ -268,6 +288,7 @@ export default {
       this.Sortie = ''
       this.Cycles = ''
       this.Fissures = ''
+      this.Nightwave = ''
       this.Deals = ''
       this.Events = ''
       this.$mqtt.subscribe(
@@ -276,6 +297,13 @@ export default {
           '/' +
           this.$store.state.activeplatform.short +
           '/alerts'
+      )
+      this.$mqtt.subscribe(
+        'wf/' +
+          newVal +
+          '/' +
+          this.$store.state.activeplatform.short +
+          '/nightwave'
       )
       this.$mqtt.subscribe(
         'wf/' +
@@ -348,6 +376,13 @@ export default {
         '/' +
         this.$store.state.activeplatform.short +
         '/alerts'
+    )
+    this.$mqtt.subscribe(
+      'wf/' +
+        this.$store.state.activelang.short +
+        '/' +
+        this.$store.state.activeplatform.short +
+        '/nightwave'
     )
     this.$mqtt.subscribe(
       'wf/' +
@@ -435,6 +470,9 @@ export default {
   mqtt: {
     'wf/#/#/alerts'(data) {
       this.Alerts = JSON.parse(data.toString())
+    },
+    'wf/#/#/nightwave'(data) {
+      this.Nightwave = JSON.parse(data.toString())
     },
     'wf/#/#/news'(data) {
       const x = JSON.parse(data.toString())
