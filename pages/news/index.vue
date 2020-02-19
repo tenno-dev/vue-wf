@@ -5,8 +5,9 @@
 </template>
 
 <script>
-import moment from 'moment'
 import News from '@/components/news.vue'
+// eslint-disable-next-line import/order
+import moment from 'moment'
 
 export default {
   name: 'Index',
@@ -97,10 +98,6 @@ export default {
       // const x = moment(prop).fromNow()
       return x
     }
-  },
-  head: {
-    title: 'Welcome',
-    meta: [{ hid: 'description', name: 'description', content: 'Welcome' }]
   },
   mqtt: {
     'wf/#/#/news'(data) {

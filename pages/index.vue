@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import moment from 'moment'
 import News from '@/components/news.vue'
+import Time from '@/components/time.vue'
 import Darvo from '@/components/darvo.vue'
 import Nightwave from '@/components/nightwave.vue'
 import Syndicate from '@/components/syndicate.vue'
@@ -52,7 +52,8 @@ import Invasions from '@/components/invasions.vue'
 import Alerts from '@/components/alerts.vue'
 import BuildP from '@/components/buildprogress.vue'
 import Sortie from '@/components/sortie.vue'
-import Time from '@/components/time.vue'
+// eslint-disable-next-line import/order
+import moment from 'moment'
 
 export default {
   name: 'Index',
@@ -462,10 +463,6 @@ export default {
       // const x = moment(prop).fromNow()
       return x
     }
-  },
-  head: {
-    title: 'Welcome',
-    meta: [{ hid: 'description', name: 'description', content: 'Welcome' }]
   },
   mqtt: {
     'wf/#/#/alerts'(data) {

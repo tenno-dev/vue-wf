@@ -13,7 +13,8 @@ module.exports = {
         default: 'var(--color-text-default)',
         'default-soft': 'var(--color-text-default-soft)',
         inverse: 'var(--color-text-inverse)',
-        'inverse-soft': 'var(--color-text-inverse-soft)'
+        'inverse-soft': 'var(--color-text-inverse-soft)',
+        alert: 'var(--color-text-alert)'
       },
       backgroundColor: {
         newsbox: 'var(--color-bg-newsbox)',

@@ -16,10 +16,10 @@
       </div>
       <div v-else>
         <div
-          class="flex items-center justify-between  w-full  py-2 border-b border-gray-600"
+          class="grid grid-cols-3 items-center  px-1 border-b border-gray-600"
         >
-          <div class="ml-3 w-1/2 h-auto">Earth</div>
-          <div class="w-1/2 text-left h-auto">
+          <div class="w-1/4 h-auto">Earth</div>
+          <div class="w-full text-center h-auto">
             <fa
               v-if="timer.Earth[0].State == 'day'"
               icon="sun"
@@ -37,7 +37,7 @@
             />
             {{ timer.Earth[0].State }}
           </div>
-          <div class="w-full  text-right h-auto  mr-3">
+          <div class="w-full  text-right h-auto">
             {{ timediff(timer.Earth[0].End) }} left till
             <fa
               v-if="timer.Earth[0].State == 'day'"
@@ -52,10 +52,8 @@
               }"
             />
           </div>
-        </div>
-        <div class="flex items-center  w-full  py-2 border-b border-gray-600">
-          <div class="ml-3 w-1/2 h-auto">Cetus</div>
-          <div class="w-1/2 text-left h-auto">
+          <div class="w-full h-auto">Cetus</div>
+          <div class="w-full text-center h-auto">
             <fa
               v-if="timer.Cetus[0].State == 'day'"
               icon="sun"
@@ -73,7 +71,7 @@
             />
             {{ timer.Cetus[0].State }}
           </div>
-          <div class="w-full text-right h-auto mr-3">
+          <div class="w-full text-right h-auto">
             {{ timediff(timer.Cetus[0].End) }} left till
             <fa
               v-if="timer.Cetus[0].State == 'day'"
@@ -88,10 +86,8 @@
               }"
             />
           </div>
-        </div>
-        <div class="flex items-center  w-full  py-2 border-b border-gray-600">
-          <div class="ml-3 w-1/2 h-auto">Valis</div>
-          <div class="w-1/2 text-left h-auto">
+          <div class="w-full h-auto">Valis</div>
+          <div class="w-full text-center h-auto">
             <fa
               v-if="timer.Vallis[0].State == 'cold'"
               icon="snowflake"
@@ -110,7 +106,7 @@
 
             {{ timer.Vallis[0].State }}
           </div>
-          <div class="w-full text-right h-auto mr-3">
+          <div class="w-full text-right h-auto">
             {{ timediff(timer.Vallis[0].End) }} left till
             <fa
               v-if="timer.Vallis[0].State == 'cold'"

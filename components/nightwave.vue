@@ -2,7 +2,10 @@
   <div
     class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto   overflow-hidden border-transparent"
   >
-    <div v-if="nightwave" class="font-bold text-primary text-4xl mt-1">
+    <div
+      v-if="nightwave && nightwave.DailyChallenges"
+      class="font-bold text-primary text-4xl mt-1"
+    >
       Nightwave S{{ nightwave.Season - 1 }}
     </div>
     <div class="bg-box text-primary pt-0 ">
@@ -14,79 +17,81 @@
           <strong class="font-bold">No Nightwave active</strong>
         </div>
       </div>
-      <div
-        v-if="nightwave"
-        class="flex items-center pl-2 pr-4 py-2 border-b border-gray-600"
-      >
-        <div class="w-3/5 h-auto ">
-          Season {{ nightwave.Season }} {{ $t('test.endsin2') }}
+      <template v-if="nightwave && nightwave.DailyChallenges">
+        <div class="flex items-center pl-2 pr-4 py-2 border-b border-gray-600">
+          <div class="w-3/5 h-auto ">
+            Season {{ nightwave.Season }} {{ $t('test.endsin2') }}
+          </div>
+          <span class="w-2/5 h-auto text-right">
+            {{ timediff(nightwave.Ends) }}
+          </span>
         </div>
-        <span class="w-2/5 h-auto text-right">
-          {{ timediff(nightwave.Ends) }}
-        </span>
-      </div>
-      <badger-accordion v-if="nightwave" :icons="false">
-        <badger-accordion-item
-          v-for="job in nightwave.DailyChallenges"
-          :key="job.ID"
+        <badger-accordion
+          v-if="nightwave && nightwave.DailyChallenges"
+          :icons="false"
         >
-          <div slot="header" class="pl-2 flex row items-center">
-            <p class="w-3/5">
-              {{ job.Title }}
-            </p>
-            <span class="w-2/5 p-2 text-right">
-              {{ timediff(job.Ends) }}
-            </span>
-          </div>
-          <div slot="content" class="break-all">
-            <div class="flex  items-center border-b border-gray-600">
-              <div class="w-full bg-box h-auto pl-2">
-                {{ job.Description }}
+          <badger-accordion-item
+            v-for="job in nightwave.DailyChallenges"
+            :key="job.ID"
+          >
+            <div slot="header" class="pl-2 flex row items-center">
+              <p class="w-3/5">
+                {{ job.Title }}
+              </p>
+              <span class="w-2/5 p-2 text-right">
+                {{ timediff(job.Ends) }}
+              </span>
+            </div>
+            <div slot="content" class="break-all">
+              <div class="flex  items-center border-b border-gray-600">
+                <div class="w-full bg-box h-auto pl-2">
+                  {{ job.Description }}
+                </div>
               </div>
             </div>
-          </div>
-        </badger-accordion-item>
-        <badger-accordion-item
-          v-for="job in nightwave.WeeklyChallenges"
-          :key="job.ID"
-        >
-          <div slot="header" class="pl-2 -pr-2 flex row items-center">
-            <p class="w-3/5">
-              {{ job.Title }}
-            </p>
-            <span class="w-2/5 p-2 text-right">
-              {{ timediff(job.Ends) }}
-            </span>
-          </div>
-          <div slot="content" class="break-all">
-            <div class="flex  items-center border-b border-gray-600">
-              <div class="w-full bg-box h-auto pl-2">
-                {{ job.Description }}
+          </badger-accordion-item>
+          <badger-accordion-item
+            v-for="job in nightwave.WeeklyChallenges"
+            :key="job.ID"
+          >
+            <div slot="header" class="pl-2 -pr-2 flex row items-center">
+              <p class="w-3/5">
+                {{ job.Title }}
+              </p>
+              <span class="w-2/5 p-2 text-right">
+                {{ timediff(job.Ends) }}
+              </span>
+            </div>
+            <div slot="content" class="break-all">
+              <div class="flex  items-center border-b border-gray-600">
+                <div class="w-full bg-box h-auto pl-2">
+                  {{ job.Description }}
+                </div>
               </div>
             </div>
-          </div>
-        </badger-accordion-item>
-        <badger-accordion-item
-          v-for="job in nightwave.WeeklyEliteChallenges"
-          :key="job.ID"
-        >
-          <div slot="header" class="pl-2 -pr-2 flex row items-center">
-            <p class="w-3/5">
-              {{ job.Title }}
-            </p>
-            <span class="w-2/5 p-2 text-right">
-              {{ timediff(job.Ends) }}
-            </span>
-          </div>
-          <div slot="content" class="break-all">
-            <div class="flex  items-center border-b border-gray-600">
-              <div class="w-full bg-box h-auto pl-2">
-                {{ job.Description }}
+          </badger-accordion-item>
+          <badger-accordion-item
+            v-for="job in nightwave.WeeklyEliteChallenges"
+            :key="job.ID"
+          >
+            <div slot="header" class="pl-2 -pr-2 flex row items-center">
+              <p class="w-3/5">
+                {{ job.Title }}
+              </p>
+              <span class="w-2/5 p-2 text-right">
+                {{ timediff(job.Ends) }}
+              </span>
+            </div>
+            <div slot="content" class="break-all">
+              <div class="flex  items-center border-b border-gray-600">
+                <div class="w-full bg-box h-auto pl-2">
+                  {{ job.Description }}
+                </div>
               </div>
             </div>
-          </div>
-        </badger-accordion-item>
-      </badger-accordion>
+          </badger-accordion-item>
+        </badger-accordion>
+      </template>
     </div>
   </div>
 </template>
@@ -133,7 +138,7 @@
 import moment from 'moment'
 
 export default {
-  name: 'SyndicatePanel',
+  name: 'NightwavePanel',
   // eslint-disable-next-line
   props: ['nightwave'],
   data() {

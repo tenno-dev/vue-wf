@@ -8,7 +8,7 @@
     <div class="bg-box text-primary pt-0 ">
       <div v-if="!alerts" class="text-primary ">
         <div
-          class="bg-transparent border border-red-400 text-red-600 px-4 py-3 rounded relative"
+          class="bg-transparent border border-red-400 text-alert px-4 py-3 rounded relative antialiased"
           role="alert"
         >
           <strong class="font-bold">No Alerts today</strong>

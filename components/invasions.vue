@@ -6,7 +6,7 @@
       {{ $tc('test.invasions', 2) }}
     </div>
     <div class="bg-box text-primary pt-0 ">
-      <div v-if="!invasions[0]" class="text-primary ">
+      <div v-if="invasions.length < 1" class="text-primary ">
         <div
           class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
           role="alert"
@@ -14,58 +14,54 @@
           <strong class="font-bold">No Invasions today</strong>
         </div>
       </div>
-      <badger-accordion v-else ref="myAccordion" :icons="false">
-        <badger-accordion-item v-for="inva in invasions" :key="inva.id">
-          <div slot="header" class="px-3 flex items-center">
-            <p class="w-full">
-              <span :class="getcolourfaction(inva.AttackerMissionInfo)">
-                {{ inva.AttackerMissionInfo }}</span
-              >
-              vs
-              <span :class="getcolourfaction(inva.DefenderMissionInfo)">{{
-                inva.DefenderMissionInfo
-              }}</span>
-            </p>
-            <span class="w-3/4 text-right p-2 pr-0">{{ inva.Location }}</span>
-          </div>
-          <div
-            slot="content"
-            class=" bg-box break-all border-b border-gray-600"
-          >
-            <div class="px-3 flex items-center">
+      <template v-else>
+        <badger-accordion ref="myAccordion" :icons="false">
+          <badger-accordion-item v-for="inva in invasions" :key="inva.id">
+            <div slot="header" class="px-2 flex items-center">
               <p class="w-full">
-                {{ $t('test.complete') }}
+                <span :class="getcolourfaction(inva.AttackerMissionInfo)">
+                  {{ inva.AttackerMissionInfo }}</span
+                >
+                vs
+                <span :class="getcolourfaction(inva.DefenderMissionInfo)">{{
+                  inva.DefenderMissionInfo
+                }}</span>
               </p>
-              <span class="flex-shrink-0 p-2">
-                {{ parseFloat(complete(inva.Completion)).toFixed(2) }} %
-                {{ $t('test.complete2') }}</span
-              >
+              <span class="w-3/4 text-right p-2 pr-0">{{ inva.Location }}</span>
             </div>
-            <div class="px-3 flex items-center">
-              <p class="w-full">
-                {{ $t('test.missiontype') }}
-              </p>
-              <span class="flex-shrink-0 p-2">{{ inva.MissionType }}</span>
+            <div
+              slot="content"
+              class=" bg-box break-all border-b border-gray-600"
+            >
+              <div class="px-2 grid grid-cols-2 gap-2">
+                <div class="w-full">
+                  {{ $t('test.complete') }}
+                </div>
+                <div class="w-full">
+                  {{ parseFloat(complete(inva.Completion)).toFixed(2) }} %
+                  {{ $t('test.complete2') }}
+                </div>
+                <div class="w-full">
+                  {{ $t('test.missiontype') }}
+                </div>
+                <div class="w-full break-normal">{{ inva.MissionType }}</div>
+                <div v-if="inva.AttackerRewardItem" class="w-full">
+                  {{ $t('test.attacker') }} {{ $tc('test.rewards', 1) }}:
+                </div>
+                <div v-if="inva.AttackerRewardItem" class="w-full break-normal">
+                  {{ inva.AttackerRewardItem }}
+                </div>
+                <div v-if="inva.DefenderRewardItem" class="w-full">
+                  {{ $t('test.defender') }} {{ $tc('test.rewards', 1) }}:
+                </div>
+                <div v-if="inva.DefenderRewardItem" class="w-full break-normal">
+                  {{ inva.DefenderRewardItem }}
+                </div>
+              </div>
             </div>
-            <div v-if="inva.AttackerRewardItem" class="px-3 flex items-center">
-              <p class="w-full">
-                {{ $t('test.attacker') }} {{ $tc('test.rewards', 1) }}:
-              </p>
-              <span class="flex-shrink-0 p-2">{{
-                inva.AttackerRewardItem
-              }}</span>
-            </div>
-            <div v-if="inva.DefenderRewardItem" class="px-3 flex items-center">
-              <p class="w-full">
-                {{ $t('test.defender') }} {{ $tc('test.rewards', 1) }}:
-              </p>
-              <span class="flex-shrink-0 p-2">{{
-                inva.DefenderRewardItem
-              }}</span>
-            </div>
-          </div>
-        </badger-accordion-item>
-      </badger-accordion>
+          </badger-accordion-item>
+        </badger-accordion>
+      </template>
     </div>
   </div>
 </template>
@@ -80,7 +76,6 @@ table.table > thead > tr {
 
 <script>
 import moment from 'moment'
-
 export default {
   name: 'InvasionsPanel',
   // eslint-disable-next-line

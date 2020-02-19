@@ -37,17 +37,13 @@
             >
           </div>
           <div slot="content" class="break-all">
-            <div class="flex  items-center border-b border-gray-600">
-              <div class="w-full bg-box h-auto pl-2">
+            <div class="px-2 grid grid-cols-2 gap-2">
+              <div class="w-full">
                 {{ $tc('test.rewards', 2) }}
               </div>
-              <div class="w-1/3 bg-box h-auto  pr-2">
+              <div class="w-full  text-center ">
                 {{ $t('test.standing') }}
               </div>
-            </div>
-            <div
-              class="flex bg-box text-primary items-center px-2 border-b border-gray-600"
-            >
               <div class="w-full break-all h-auto">
                 <span
                   v-for="(reward, index) in job.Rewards"
@@ -57,7 +53,7 @@
                   {{ reward }}<br
                 /></span>
               </div>
-              <div class="w-1/2 self-stretch content-center text-center ">
+              <div class="w-full self-stretch content-center text-center ">
                 <span
                   v-for="(stand, index) in job.StandingReward"
                   :key="index"

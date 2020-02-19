@@ -29,8 +29,8 @@
         >
           <template v-slot:content>
             <div
-              class="vueperslide__content-wrapper absolute bottom-0 mb-0 inset-x-0"
-              style="height:15%;"
+              class="vueperslide__content-wrapper bg-transparent absolute bottom-0 mb-2 inset-x-0"
+              style="height:23%;"
             >
               <div class="vueperslide__title -mt-8">
                 {{ slide.Message }}
@@ -76,7 +76,7 @@
     @apply bg-transparent;
     @apply my-0;
     width: 100%;
-    top: 90% !important;
+    top: 80% !important;
     bottom: 0 !important;
   }
 }
@@ -86,7 +86,7 @@
     @apply bg-newsbox;
     @apply my-0;
     width: 100%;
-    top: 90% !important;
+    top: 86% !important;
     bottom: 0% !important;
   }
 }
