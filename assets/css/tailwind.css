@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 /*! purgecss start ignore */
 
-:root {
+.root {
   --color-bg-navbar: #375a7f;
   --color-bg-primary: #222;
   --color-bg-box: #303030;
