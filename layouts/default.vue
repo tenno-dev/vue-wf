@@ -7,16 +7,13 @@
     "
   >
     <Navbar
-      class="elevation-24 bg-green-700 py-2 w-full fixed z-10 pin-t"
+      class="elevation-24 py-2 w-full fixed z-10 pin-t"
       role="navigation"
     />
     <nuxt class="py-16 pt-12  min-h-screen" role="main" />
-    <Footer
-      class="elevation-24 bg-green-700 py-2 fixed w-full z-10 bottom-0 pin-b"
-    />
+    <Footer class="elevation-24 py-2 fixed w-full z-10 bottom-0 pin-b" />
   </div>
 </template>
-<style></style>
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/footer.vue'

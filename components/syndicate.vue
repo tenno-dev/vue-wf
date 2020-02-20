@@ -36,7 +36,7 @@
               >{{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}</span
             >
           </div>
-          <div slot="content" class="break-all">
+          <div slot="content" class="break-all bg-box">
             <div class="px-2 grid grid-cols-2 gap-2">
               <div class="w-full">
                 {{ $tc('test.rewards', 2) }}
@@ -75,33 +75,43 @@
   @apply bg-box;
   @apply border-gray-600;
   @apply border-b;
+
   display: block !important;
+
   &:hover,
   &.-ba-is-active {
     @apply bg-blue-600;
   }
 }
+
 .dd {
   margin-inline-start: 0em !important;
   margin-inline-end: 0em !important;
 }
+
 .dl {
   margin-block-start: 0em !important;
 }
+
 .js-badger-accordion-panel-inner {
   cursor: text;
-  @apply bg-gray-400;
+
+  @apply bg-box;
 }
+
 .badger-accordion-toggle {
   padding: 0%;
 }
+
 .badger-accordion__panel {
   max-height: 75vh !important;
   transition: max-height ease-in-out 0.5s;
   overflow: hidden;
+
   &.-ba-is-hidden {
     max-height: 0 !important;
   }
+
   .badger-accordion--initalised & {
     transition: max-height ease-in-out 0.2s;
   }
