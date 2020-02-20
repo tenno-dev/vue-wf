@@ -20,8 +20,8 @@
   --color-text-inverse: #444;
   --color-text-inverse-soft: #999;
   --color-text-alert: #e53e3e;
-  --font-display: 'Helvetica Neue', helvetica, arial, sans-serif;
-  --font-body: 'Helvetica Neue', helvetica, arial, sans-serif;
+  --font-display: ['Helvetica Neue', helvetica, arial, sans-serif];
+  --font-body: ['Helvetica Neue', helvetica, arial, sans-serif];
   --font-weight-normal: 400;
   --font-weight-display: 400;
   --font-weight-btn: 600;
@@ -44,9 +44,10 @@
   --color-text-inverse: #000;
   --color-text-inverse-soft: #bbb;
   --color-text-alert: #fc8181;
-  --font-display: georgia, times, 'Times New Roman', serif;
+  --font-display: [georgia, times, 'Times New Roman', serif];
   --font-body:
-    corbel,
+    [
+    'corbel',
     'Lucida Grande',
     'Lucida Sans Unicode',
     'Lucida Sans',
@@ -55,7 +56,7 @@
     'Liberation Sans',
     verdana,
     'Verdana Ref',
-    sans-serif;
+    sans-serif];
   --font-weight-normal: 400;
   --font-weight-display: 400;
   --font-weight-btn: 600;
