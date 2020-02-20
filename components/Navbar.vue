@@ -84,19 +84,20 @@
 .vs__dropdown-menu {
   max-width: 9rem !important;
   min-width: 9rem !important;
-}
-.vs--single .vs__selected {
-  @apply text-primary;
-}
-.vs__dropdown-menu {
+
   @apply bg-navbar;
   @apply text-primary;
 }
+
+.vs--single .vs__selected {
+  @apply text-primary;
+}
+
 .vs__open-indicator {
   @apply text-primary;
-
   @apply fill-current;
 }
+
 .vs__dropdown-option {
   @apply text-primary;
 }
