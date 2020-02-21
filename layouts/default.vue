@@ -2,14 +2,11 @@
   <div
     :class="
       darkmode
-        ? 'antialiased theme-dark bg-primary min-h-screen '
+        ? 'theme-dark bg-primary min-h-screen '
         : 'antialiased bg-primary  min-h-screen '
     "
   >
-    <Navbar
-      class="elevation-24 py-2 w-full fixed z-10 pin-t"
-      role="navigation"
-    />
+    <Navbar class="py-0 w-full fixed pin-t z-10" role="navigation" />
     <nuxt class="py-16 pt-12  min-h-screen" role="main" />
     <Footer class="elevation-24 py-2 fixed w-full z-10 bottom-0 pin-b" />
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex items-center flex-wrap bg-navbar px-2 ">
+  <nav class=" flex items-center flex-wrap bg-navbar px-2 py-2">
     <div class="flex items-center flex-no-shrink text-white mr-6">
       <span class="font-semibold text-xl tracking-tight"
         >Warframe Info Hub</span
@@ -18,7 +18,7 @@
     <div class="block sm:hidden mr-4">
       <button
         aria-label="Switch between Dark and Light theme"
-        class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
+        class="flex items-center px-3 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
         @click="toggle"
       >
         <fa icon="bars" fixed-width class="fill-current text-primary" />
