@@ -14,32 +14,38 @@
           <strong class="font-bold">No Deals active</strong>
         </div>
       </div>
-      <div v-else class="text-primary ">
-        <div class="flex items-center border-b-4 border-gray-600 py-2 px-2">
-          <div class="w-5/12 h-auto">Item</div>
-          <div class="w-2/12 h-auto">{{ $t('test.price') }}</div>
-          <div class="w-2/12 h-auto">{{ $t('test.stock') }}</div>
-          <div class="w-2/12 h-auto">{{ $t('test.endsin') }}</div>
+      <div
+        v-else
+        class="text-primary grid  grid-cols-8 items-center border-b-4 border-gray-600 py-2 px-2"
+      >
+        <div class="col-span-2 h-auto">Item</div>
+        <div class="col-span-2 h-auto">{{ $t('test.price') }}</div>
+        <div class="col-span-2 h-auto">{{ $t('test.stock') }}</div>
+        <div class="col-span-2 h-auto">{{ $t('test.endsin') }}</div>
+      </div>
+
+      <div
+        v-for="item in deals"
+        :key="`${item.id}-deal`"
+        class="text-primary grid  grid-cols-8 items-center py-2 px-2"
+      >
+        <div class="col-span-2 h-auto text-md">{{ item.Item }}</div>
+        <div class="col-span-2 h-auto text-green-800 font-black number-col">
+          {{ item.DealPrice }}
         </div>
         <div
-          v-for="item in deals"
-          :key="`${item.id}-deal`"
-          class="items-center flex py-1 px-2"
+          v-if="item.Stock - item.Sold > 0"
+          class="col-span-2 h-auto number-col"
         >
-          <div class="w-5/12 h-auto text-md">{{ item.Item }}</div>
-          <div class="w-2/12 h-auto text-green-800 font-black">
-            {{ item.DealPrice }}
-          </div>
-          <div v-if="item.Stock - item.Sold > 0" class="w-2/12 h-auto">
-            {{ (((item.Stock - item.Sold) / item.Stock) * 100).toFixed(2) }}%
-          </div>
-          <div v-else class="w-2/12 h-auto text-red-600 font-black">
-            Sold Out
-          </div>
-          <div class="number-col">
-            {{ timediff(item.Ends) }}
-          </div>
+          {{ (((item.Stock - item.Sold) / item.Stock) * 100).toFixed(2) }}%
         </div>
+        <div v-else class="col-span-2 h-auto text-red-600 font-black">
+          Sold Out
+        </div>
+        <div class="number-col col-span-2">
+          {{ timediff(item.Ends) }}
+        </div>
+        <!---->
       </div>
     </div>
   </div>
