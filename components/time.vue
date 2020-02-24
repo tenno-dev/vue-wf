@@ -135,7 +135,7 @@
 
 <style scoped>
 .number-col {
-  font-family: 'Roboto' !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 table.table div,

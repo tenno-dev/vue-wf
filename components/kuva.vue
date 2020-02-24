@@ -16,13 +16,24 @@
       </div>
       <div v-else>
         <div
+          class="grid grid-cols-6 items-center  pl-2 pr-3 border-b-4 border-gray-600"
+        >
+          <div class="col-span-3">
+            Node (Planet)
+          </div>
+          <div class="col-span-2">Mission Type</div>
+          <div class="number-col">Time left</div>
+        </div>
+        <div
           v-for="(mission, id) in kuva"
           :key="id"
-          class="grid grid-cols-3 items-center  px-1 border-b border-gray-600"
+          class="grid grid-cols-6 items-center  pl-2 pr-3 border-b border-gray-600"
         >
-          <div>{{ mission.Node }} ({{ mission.Planet }})</div>
-          <div>{{ mission.Missiontype }}</div>
-          <div class="number-col">{{ timediff(mission.Ends) }} left</div>
+          <div class="col-span-3">
+            {{ mission.Node }} ({{ mission.Planet }})
+          </div>
+          <div class="col-span-2">{{ mission.Missiontype }}</div>
+          <div class="number-col">{{ timediff(mission.Ends) }}</div>
         </div>
       </div>
     </div>
@@ -37,7 +48,7 @@ table.table > thead > tr {
 }
 
 .number-col {
-  font-family: 'Roboto' !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 </style>
 <script>

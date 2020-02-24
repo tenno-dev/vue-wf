@@ -16,18 +16,27 @@
       </div>
       <div v-else>
         <div
+          class="grid grid-cols-6 items-center pl-2 pr-3  border-b-4 border-gray-600"
+        >
+          <div class="col-span-3">
+            Node (Planet)
+          </div>
+          <div class="col-span-2">Mission Type</div>
+          <div class="number-col">Time left</div>
+        </div>
+        <div
           v-for="(mission, id) in arbitration"
           :key="id"
-          class="grid grid-cols-3 items-center  px-1 border-b border-gray-600"
+          class="grid grid-cols-6 items-center pl-2 pr-3 border-b border-gray-600"
         >
-          <div v-if="mission.Node">
+          <div v-if="mission.Node" class="col-span-3">
             {{ mission.Node }} ({{ mission.Planet }})
           </div>
-          <div v-else>
+          <div v-else class="col-span-3">
             {{ mission.Node2 }}
           </div>
-          <div>{{ mission.Missiontype }}</div>
-          <div class="number-col">{{ timediff(mission.Ends) }} left</div>
+          <div class="col-span-2">{{ mission.Missiontype }}</div>
+          <div class="number-col">{{ timediff(mission.Ends) }}</div>
         </div>
       </div>
     </div>

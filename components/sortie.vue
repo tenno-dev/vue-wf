@@ -31,7 +31,7 @@
             {{ timediff(sortie.Ends) }}
           </div>
         </div>
-        <div class="px-2 grid grid-cols-2 gap-0 border-t border-gray-600 ">
+        <div class="px-2 grid grid-cols-2 gap-0 border-t-4 border-gray-600 ">
           <div
             v-if="typeof sortie !== 'undefined' && sortie.Variants[0]"
             class="py-2 w-full h-auto"
@@ -90,7 +90,7 @@ table.table > thead > tr {
 }
 
 .number-col {
-  font-family: 'Roboto' !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 </style>
 

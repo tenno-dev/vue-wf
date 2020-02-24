@@ -16,7 +16,7 @@
       </div>
       <div
         v-if="syndicateitems"
-        class="flex items-center pl-2 pr-4 py-2 border-b border-gray-600"
+        class="flex items-center pl-2 pr-4 py-2 border-b-4 border-gray-600"
       >
         <div class="w-3/5 h-auto ">{{ $t('test.endsin') }}</div>
         <div class="w-2/5 h-auto text-center number-col">
@@ -85,7 +85,7 @@
 }
 
 .number-col {
-  font-family: 'Roboto' !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 .dd {

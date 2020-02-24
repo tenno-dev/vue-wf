@@ -18,7 +18,9 @@
         </div>
       </div>
       <template v-if="nightwave && nightwave.DailyChallenges">
-        <div class="flex items-center pl-2 pr-4 py-2 border-b border-gray-600">
+        <div
+          class="flex items-center pl-2 pr-4 py-2 border-b-4 border-gray-600"
+        >
           <div class="w-3/5 h-auto ">
             Season {{ nightwave.Season }} {{ $t('test.endsin2') }}
           </div>
