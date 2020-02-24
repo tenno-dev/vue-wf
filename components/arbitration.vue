@@ -1,5 +1,6 @@
 <template>
   <div
+    id="root"
     class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
   >
     <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
@@ -21,8 +22,8 @@
           <div class="col-span-3">
             Node (Planet)
           </div>
-          <div class="col-span-2">Mission Type</div>
-          <div class="number-col">Time left</div>
+          <div class="col-span-2">Mission</div>
+          <div class="number-col">Time</div>
         </div>
         <div
           v-for="(mission, id) in arbitration"
@@ -36,7 +37,7 @@
             {{ mission.Node2 }}
           </div>
           <div class="col-span-2">{{ mission.Missiontype }}</div>
-          <div class="number-col">{{ timediff(mission.Ends) }}</div>
+          <div class="number-col sm:text-xs">{{ timediff(mission.Ends) }}</div>
         </div>
       </div>
     </div>
@@ -44,12 +45,6 @@
 </template>
 
 <style scoped>
-table.table div,
-table.table th,
-table.table > thead > tr {
-  border: 0;
-}
-
 .number-col {
   font-family: 'Roboto', sans-serif !important;
 }

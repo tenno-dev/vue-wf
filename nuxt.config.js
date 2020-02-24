@@ -91,6 +91,12 @@ export default {
     ]
   },
 
+  pwa: {
+    manifest: {
+      name: 'Warframe Info hub'
+    }
+  },
+
   /*
    ** Build configuration
    */

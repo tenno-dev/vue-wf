@@ -27,7 +27,7 @@
         >
           <template v-slot:content>
             <div
-              class="vueperslide__content-wrapper bg-transparent absolute bottom-0 mb-2 inset-x-0"
+              class="vueperslide__content-wrapper bg-transparent absolute bottom-0 inset-x-0"
             >
               <div class="vueperslide__title -mt-8 text-xl">
                 {{ slide.Message }}
@@ -76,23 +76,48 @@
 }
 
 @media (min-width: 120px) {
+  .vueperslides--fixed-height {
+    @apply bg-transparent;
+
+    height: 27vh;
+  }
+
   .vueperslide__content-wrapper {
     @apply bg-newsbox;
     @apply my-0;
 
-    height: 32% !important;
+    margin-bottom: 0% !important;
+    height: 33% !important;
     width: 100%;
     top: 68% !important;
     bottom: 0% !important;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 520px) {
   .vueperslide__content-wrapper {
     @apply bg-newsbox;
     @apply my-0;
 
-    height: 27% !important;
+    height: 22% !important;
+    width: 100%;
+    top: 55% !important;
+    bottom: 0% !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vueperslides--fixed-height {
+    @apply bg-transparent;
+
+    height: 35vh;
+  }
+
+  .vueperslide__content-wrapper {
+    @apply bg-newsbox;
+    @apply my-0;
+
+    height: 21% !important;
     width: 100%;
     top: 75% !important;
     bottom: 0 !important;
@@ -104,9 +129,9 @@
     @apply bg-newsbox;
     @apply my-0;
 
-    height: 35% !important;
+    height: 36% !important;
     width: 100%;
-    top: 67% !important;
+    top: 85% !important;
     bottom: 0 !important;
   }
 }

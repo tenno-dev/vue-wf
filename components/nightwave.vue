@@ -19,12 +19,12 @@
       </div>
       <template v-if="nightwave && nightwave.DailyChallenges">
         <div
-          class="flex items-center pl-2 pr-4 py-2 border-b-4 border-gray-600"
+          class="grid grid-cols-2 items-center pl-2 pr-4 py-2 border-b-4 border-gray-600"
         >
-          <div class="w-3/5 h-auto ">
+          <div class="w-full h-auto ">
             Season {{ nightwave.Season }} {{ $t('test.endsin2') }}
           </div>
-          <span class="w-2/5 h-auto text-right number-col">
+          <span class="w-full h-auto text-right number-col">
             {{ timediff(nightwave.Ends) }}
           </span>
         </div>
@@ -36,13 +36,17 @@
             v-for="job in nightwave.DailyChallenges"
             :key="job.ID"
           >
-            <div slot="header" class="pl-2 flex row items-center">
-              <p class="w-3/5">
+            <div
+              slot="header"
+              class="pl-2 -pr-4 grid grid-cols-2 items-center"
+              style="padding-right: -0, 75rem;"
+            >
+              <div class="w-full">
                 {{ job.Title }}
-              </p>
-              <span class="w-2/5 p-2 text-right number-col">
+              </div>
+              <div class="w-full p-2 text-right number-col">
                 {{ timediff(job.Ends) }}
-              </span>
+              </div>
             </div>
             <div slot="content" class="break-all">
               <div class="flex  items-center border-b border-gray-600">
@@ -56,13 +60,17 @@
             v-for="job in nightwave.WeeklyChallenges"
             :key="job.ID"
           >
-            <div slot="header" class="pl-2 -pr-2 flex row items-center">
-              <p class="w-3/5">
+            <div
+              slot="header"
+              class="pl-2 -pr-2 grid grid-cols-2 items-center"
+              style="padding-right: -0, 75rem;"
+            >
+              <div class="w-full">
                 {{ job.Title }}
-              </p>
-              <span class="w-2/5 p-2 text-right number-col">
+              </div>
+              <div class="w-full p-2 text-right number-col">
                 {{ timediff(job.Ends) }}
-              </span>
+              </div>
             </div>
             <div slot="content" class="break-all">
               <div class="flex  items-center border-b border-gray-600">
@@ -76,13 +84,13 @@
             v-for="job in nightwave.WeeklyEliteChallenges"
             :key="job.ID"
           >
-            <div slot="header" class="pl-2 -pr-2 flex row items-center">
-              <p class="w-3/5">
+            <div slot="header" class="pl-2 -pr-2 grid grid-cols-2 items-center">
+              <div class="w-full">
                 {{ job.Title }}
-              </p>
-              <span class="w-2/5 p-2 text-right number-col">
+              </div>
+              <div class="w-full p-2 text-right number-col">
                 {{ timediff(job.Ends) }}
-              </span>
+              </div>
             </div>
             <div slot="content" class="break-all">
               <div class="flex  items-center border-b border-gray-600">
@@ -173,6 +181,7 @@ export default {
       var1 = var1 * 1
       // eslint-disable-next-line
       var ms = moment.duration(moment.unix(var1).diff(moment()))
+
       let days = ''
       let hours = ''
       let minutes = ' '

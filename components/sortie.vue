@@ -15,26 +15,26 @@
         </div>
       </div>
       <div v-else>
-        <div class="px-2 grid grid-cols-2 gap-0">
+        <div class="px-2 grid grid-cols-3 gap-0">
           <div class="w-full h-auto">
             Boss:
           </div>
-          <div class="w-full3 h-auto">
+          <div class="w-full h-auto col-span-2">
             <span :class="getcolourfaction(sortie.Faction)"
-              >{{ sortie.Boss }} ( {{ sortie.Faction }} )</span
+              >{{ sortie.Boss }} ({{ sortie.Faction }})</span
             >
           </div>
           <div class="w-full h-auto">
             {{ $t('test.endsin') }}
           </div>
-          <div class="w-full h-auto number-col">
+          <div class="w-full h-auto number-col col-span-2">
             {{ timediff(sortie.Ends) }}
           </div>
         </div>
         <div class="px-2 grid grid-cols-2 gap-0 border-t-4 border-gray-600 ">
           <div
             v-if="typeof sortie !== 'undefined' && sortie.Variants[0]"
-            class="py-2 w-full h-auto"
+            class="pt-1 w-full h-auto"
           >
             {{ sortie.Variants[0].MissionType }}
           </div>
@@ -45,14 +45,14 @@
             {{ sortie.Variants[0].MissionLocation }}
           </div>
         </div>
-        <div class="grid grid-cols-1 border-b border-gray-600 ">
+        <div class="px-2 pb-1 grid grid-cols-1 border-b border-gray-600 ">
           Mod: {{ sortie.Variants[0].MissionMod }}
         </div>
 
-        <div class="px-2 grid grid-cols-2 gap-0">
+        <div class="px-2 pt-1 grid grid-cols-2 gap-0">
           <div
             v-if="typeof sortie !== 'undefined'"
-            class="flex items-center py-2 w-full h-auto"
+            class="flex items-center  w-full h-auto"
           >
             {{ sortie.Variants[1].MissionType }}
           </div>
@@ -60,13 +60,13 @@
             {{ sortie.Variants[1].MissionLocation }}
           </div>
         </div>
-        <div class="grid grid-cols-1 border-b border-gray-600 ">
+        <div class="pb-1 px-2 grid grid-cols-1 border-b border-gray-600 ">
           Mod: {{ sortie.Variants[1].MissionMod }}
         </div>
-        <div class="px-2 grid grid-cols-2 gap-0">
+        <div class="px-2 pt-1 grid grid-cols-2 gap-0">
           <div
             v-if="typeof sortie !== 'undefined'"
-            class="flex items-center py-2  -full h-auto"
+            class="flex items-center  w-full h-auto"
           >
             {{ sortie.Variants[2].MissionType }}
           </div>
@@ -74,7 +74,7 @@
             {{ sortie.Variants[2].MissionLocation }}
           </div>
         </div>
-        <div class="grid grid-cols-1">
+        <div class="px-2 pb-1 grid grid-cols-1">
           Mod: {{ sortie.Variants[2].MissionMod }}
         </div>
       </div>
