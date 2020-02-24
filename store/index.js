@@ -18,15 +18,18 @@ export const state = () => ({
     { short: 'zh', label: 'Chinese' }
   ],
   theme: [
-    { short: '', label: 'Default' },
-    { short: 'theme-dark', label: 'Dark normal' },
-    { short: 'theme-dark-test', label: 'Dark Corpus' },
+    { short: 'theme-normal', label: 'Default' },
+    { short: 'theme-normal-grineer', label: 'Bright Grineer' },
+    { short: 'theme-normal-corpus', label: 'Bright Corpus' },
+    { short: 'theme-normal-solaris', label: 'Bright Solaris' },
+    { short: 'theme-dark-normal', label: 'Dark' },
+    { short: 'theme-dark-corpus', label: 'Dark Corpus' },
     { short: 'theme-dark-test2', label: 'Dark Grineer' },
     { short: 'theme-dark-test3', label: 'Dark Solaris' }
   ],
   activeplatform: { short: 'pc', label: 'PC', icon: ['fas', 'desktop'] },
   activelang: { short: 'en', label: 'English' },
-  activetheme: { short: '', label: 'Default' }
+  activetheme: { short: 'theme-normal', label: 'Default' }
 })
 export const mutations = {
   themeswitch(state, theme) {

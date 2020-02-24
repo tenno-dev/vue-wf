@@ -5,21 +5,20 @@
         >Warframe Info Hub</span
       >
     </div>
-    <div class="mr-1 px-2 w-70 number-col">
+    <div class="mr-1 px-2 flex-grow w-80 number-col">
       <v-select
         :value="$store.state.activetheme"
         :searchable="false"
         :clearable="false"
+        :filterable="false"
         :v-model="$store.state.activetheme"
         :options="$store.state.theme"
         @input="setSelectedtheme"
       >
         <template slot="option" slot-scope="option">
-          <span class="-ml-2 mr-1"></span>
           {{ option.label }}
         </template>
         <template slot="selected-option" slot-scope="option">
-          <span class=" mr-1 px-2"></span>
           {{ option.label }}
         </template></v-select
       >
@@ -37,8 +36,7 @@
       :class="open ? 'block' : 'hidden'"
       class="flex-grow sm:flex sm:items-center sm:w-auto"
     >
-      <div class="text-sm sm:flex-grow"></div>
-      <div class="mr-1 px-2 w-40">
+      <div class="mr-1 px-2 w-40 number-col">
         <v-select
           :value="$store.state.activeplatform"
           :searchable="false"
@@ -61,12 +59,13 @@
           </template></v-select
         >
       </div>
-      <div class="mr-1 px-2  w-50">
+      <div class="mr-1 px-2 pb-1  w-50 number-col">
         <v-select
           class="text-primary "
           :value="$store.state.activelang"
           :searchable="false"
           :clearable="false"
+          :filterable="false"
           :v-model="$store.state.activelang"
           :options="$store.state.lang"
           @input="setSelectedlang"
@@ -92,12 +91,15 @@
 <style>
 .number-col {
   font-family: 'Roboto', sans-serif !important;
+  max-width: 14rem !important;
+  min-width: 10rem !important;
 }
 
 .vs__dropdown-menu {
-  max-width: 9rem !important;
-  min-width: 9rem !important;
+  max-width: 11rem !important;
+  min-width: 11rem !important;
 
+  @apply pb-1;
   @apply bg-navbar;
   @apply text-primary;
 }

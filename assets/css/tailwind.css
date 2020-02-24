@@ -31,7 +31,7 @@
   src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2);
 }
 
-:root {
+.theme-normal {
   --color-bg-navbar: #375a7f;
   --color-bg-primary: #222;
   --color-bg-box: #303030;
@@ -55,7 +55,34 @@
   --rounded-btn: 0.25rem;
 }
 
-.theme-dark {
+.theme-normal-grineer {
+  @apply theme-normal;
+
+  --font-display: ['Grineer', 'Roboto'];
+  --font-body: ['Grineer', 'roboto'];
+
+  font-family: 'Grineer', 'roboto', sans-serif;
+}
+
+.theme-normal-corpus {
+  @apply theme-normal;
+
+  --font-display: ['Corpus', 'Roboto'];
+  --font-body: ['Corpus', 'roboto'];
+
+  font-family: 'Corpus', 'roboto', sans-serif;
+}
+
+.theme-normal-solaris {
+  @apply theme-normal;
+
+  --font-display: ['Solaris', 'Roboto'];
+  --font-body: ['Solaris', 'roboto'];
+
+  font-family: 'Solaris', 'roboto', sans-serif;
+}
+
+.theme-dark-normal {
   --color-bg-navbar: #303030;
   --color-bg-box: #303030;
   --color-bg-newsbox: #2d3748 !important;
@@ -79,83 +106,29 @@
   --rounded-btn: 0;
 }
 
-.theme-dark-test {
-  --color-bg-navbar: #303030;
-  --color-bg-box: #303030;
-  --color-bg-newsbox: #2d3748 !important;
-  --color-bg-boxaccent: rgba(200, 225, 250, 0.2);
-  --color-bg-primary: #222;
-  --color-bg-secondary: #dcd0c0;
-  --color-bg-default: #f4f4f4;
-  --color-bg-inverse: #373737;
-  --color-text-primary: #a1a9b7;
-  --color-text-secondary: #927e7e;
-  --color-text-default: #373737;
-  --color-text-default-soft: #6a6a6a;
-  --color-text-inverse: #000;
-  --color-text-inverse-soft: #bbb;
-  --color-text-alert: #fc8181;
+.theme-dark-corpus {
+  @apply theme-dark-normal;
+
   --font-display: ['Corpus', 'Roboto'];
   --font-body: ['Corpus', 'roboto'];
 
   font-family: 'Corpus', 'roboto', sans-serif;
-
-  --font-weight-normal: 400;
-  --font-weight-display: 400;
-  --font-weight-btn: 600;
-  --rounded-btn: 0;
 }
 
 .theme-dark-test2 {
-  --color-bg-navbar: #303030;
-  --color-bg-box: #303030;
-  --color-bg-newsbox: #2d3748 !important;
-  --color-bg-boxaccent: rgba(200, 225, 250, 0.2);
-  --color-bg-primary: #222;
-  --color-bg-secondary: #dcd0c0;
-  --color-bg-default: #f4f4f4;
-  --color-bg-inverse: #373737;
-  --color-text-primary: #a1a9b7;
-  --color-text-secondary: #927e7e;
-  --color-text-default: #373737;
-  --color-text-default-soft: #6a6a6a;
-  --color-text-inverse: #000;
-  --color-text-inverse-soft: #bbb;
-  --color-text-alert: #fc8181;
+  @apply theme-dark-normal;
+
   --font-display: ['Grineer', 'Roboto'];
   --font-body: ['Grineer', 'roboto'];
 
   font-family: 'Grineer', 'roboto', sans-serif;
-
-  --font-weight-normal: 400;
-  --font-weight-display: 400;
-  --font-weight-btn: 600;
-  --rounded-btn: 0;
 }
 
 .theme-dark-test3 {
-  --color-bg-navbar: #303030;
-  --color-bg-box: #303030;
-  --color-bg-newsbox: #2d3748 !important;
-  --color-bg-boxaccent: rgba(200, 225, 250, 0.2);
-  --color-bg-primary: #222;
-  --color-bg-secondary: #dcd0c0;
-  --color-bg-default: #f4f4f4;
-  --color-bg-inverse: #373737;
-  --color-text-primary: #a1a9b7;
-  --color-text-secondary: #927e7e;
-  --color-text-default: #373737;
-  --color-text-default-soft: #6a6a6a;
-  --color-text-inverse: #000;
-  --color-text-inverse-soft: #bbb;
-  --color-text-alert: #fc8181;
+  @apply theme-dark-normal;
+
   --font-display: ['Solaris', 'Roboto'];
   --font-body: ['Solaris', 'roboto'];
 
   font-family: 'Solaris', 'roboto', sans-serif;
-
-  --font-weight-normal: 400;
-  --font-weight-display: 400;
-  --font-weight-btn: 600;
-  --rounded-btn: 0;
 }
