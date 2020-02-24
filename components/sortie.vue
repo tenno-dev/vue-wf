@@ -88,9 +88,6 @@ table.table th,
 table.table > thead > tr {
   border: 0;
 }
-circles-text[style] {
-  line-height: 90px !important;
-}
 </style>
 
 <script>

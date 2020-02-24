@@ -6,6 +6,14 @@
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
         :timer="Time1[0]"
       />
+      <Kuva
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        :kuva="Kuva"
+      />
+      <Arbitration
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        :arbitration="Arbitration"
+      />
       <Alerts
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
         :alerts="Alerts"
@@ -52,6 +60,9 @@ import Invasions from '@/components/invasions.vue'
 import Alerts from '@/components/alerts.vue'
 import BuildP from '@/components/buildprogress.vue'
 import Sortie from '@/components/sortie.vue'
+import Kuva from '@/components/kuva.vue'
+import Arbitration from '@/components/arbitration.vue'
+
 // eslint-disable-next-line import/order
 import moment from 'moment'
 
@@ -66,7 +77,9 @@ export default {
     Alerts,
     BuildP,
     Sortie,
-    Time
+    Time,
+    Kuva,
+    Arbitration
   },
   data() {
     return {
@@ -84,6 +97,8 @@ export default {
       Deals: '',
       Time1: '',
       Events: '',
+      Kuva: '',
+      Arbitration: '',
       syndics: ['Solaris United', 'Ostron'],
       time1: moment().unix(),
       error: 0,
@@ -154,6 +169,16 @@ export default {
       this.$mqtt.unsubscribe(
         'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/progress'
       )
+      this.$mqtt.unsubscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/kuva'
+      )
+      this.$mqtt.unsubscribe(
+        'wf/' +
+          this.$store.state.activelang.short +
+          '/' +
+          oldVal +
+          '/arbitration'
+      )
       this.Alerts = ''
       this.News = ''
       this.Syndicates = ''
@@ -163,6 +188,8 @@ export default {
       this.Fissures = ''
       this.Deals = ''
       this.Events = ''
+      this.Kuva = ''
+      this.Arbitration = ''
       this.$mqtt.subscribe(
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/alerts'
       )
@@ -203,6 +230,16 @@ export default {
       )
       this.$mqtt.subscribe(
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/progress'
+      )
+      this.$mqtt.subscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/kuva'
+      )
+      this.$mqtt.subscribe(
+        'wf/' +
+          this.$store.state.activelang.short +
+          '/' +
+          newVal +
+          '/arbitration'
       )
     },
     activelang1(newVal, oldVal) {
@@ -282,6 +319,16 @@ export default {
           this.$store.state.activeplatform.short +
           '/progress'
       )
+      this.$mqtt.unsubscribe(
+        'wf/' + oldVal + '/' + this.$store.state.activeplatform.short + '/kuva'
+      )
+      this.$mqtt.unsubscribe(
+        'wf/' +
+          oldVal +
+          '/' +
+          this.$store.state.activeplatform.short +
+          '/arbitration'
+      )
       this.Alerts = ''
       this.News = ''
       this.Syndicates = ''
@@ -292,6 +339,8 @@ export default {
       this.Nightwave = ''
       this.Deals = ''
       this.Events = ''
+      this.Kuva = ''
+      this.Arbitration = ''
       this.$mqtt.subscribe(
         'wf/' +
           newVal +
@@ -364,6 +413,16 @@ export default {
           '/' +
           this.$store.state.activeplatform.short +
           '/progress'
+      )
+      this.$mqtt.subscribe(
+        'wf/' + newVal + '/' + this.$store.state.activeplatform.short + '/kuva'
+      )
+      this.$mqtt.subscribe(
+        'wf/' +
+          newVal +
+          '/' +
+          this.$store.state.activeplatform.short +
+          '/arbitration'
       )
     }
   },
@@ -455,6 +514,20 @@ export default {
         this.$store.state.activeplatform.short +
         '/time'
     )
+    this.$mqtt.subscribe(
+      'wf/' +
+        this.$store.state.activelang.short +
+        '/' +
+        this.$store.state.activeplatform.short +
+        '/kuva'
+    )
+    this.$mqtt.subscribe(
+      'wf/' +
+        this.$store.state.activelang.short +
+        '/' +
+        this.$store.state.activeplatform.short +
+        '/arbitration'
+    )
   },
   methods: {
     formattime2(prop) {
@@ -502,6 +575,12 @@ export default {
     },
     'wf/#/#/time'(data) {
       this.Time1 = JSON.parse(data.toString())
+    },
+    'wf/#/#/kuva'(data) {
+      this.Kuva = JSON.parse(data.toString())
+    },
+    'wf/#/#/arbitration'(data) {
+      this.Arbitration = JSON.parse(data.toString())
     }
   }
 }
