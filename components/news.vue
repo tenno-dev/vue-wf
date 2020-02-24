@@ -32,7 +32,11 @@
               <div class="vueperslide__title -mt-8 text-xl">
                 {{ slide.Message }}
               </div>
-              <a class="text-primary" target="_blank" :href="slide.URL"
+              <a
+                class="text-primary"
+                rel="noreferrer"
+                target="_blank"
+                :href="slide.URL"
                 >Posted:
                 <span class="number-col">{{ formattime2(slide.Date) }}</span></a
               >
