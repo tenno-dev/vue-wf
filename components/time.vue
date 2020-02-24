@@ -38,7 +38,8 @@
             {{ timer.Earth[0].State }}
           </div>
           <div class="w-full  text-right h-auto">
-            {{ timediff(timer.Earth[0].End) }} left till
+            <span class="number-col"> {{ timediff(timer.Earth[0].End) }}</span>
+            left till
             <fa
               v-if="timer.Earth[0].State == 'day'"
               icon="moon"
@@ -71,8 +72,9 @@
             />
             {{ timer.Cetus[0].State }}
           </div>
-          <div class="w-full text-right h-auto">
-            {{ timediff(timer.Cetus[0].End) }} left till
+          <div class="w-full text-right h-auto ">
+            <span class="number-col"> {{ timediff(timer.Cetus[0].End) }}</span>
+            left till
             <fa
               v-if="timer.Cetus[0].State == 'day'"
               icon="moon"
@@ -107,7 +109,8 @@
             {{ timer.Vallis[0].State }}
           </div>
           <div class="w-full text-right h-auto">
-            {{ timediff(timer.Vallis[0].End) }} left till
+            <span class="number-col"> {{ timediff(timer.Vallis[0].End) }}</span>
+            left till
             <fa
               v-if="timer.Vallis[0].State == 'cold'"
               icon="sun"
@@ -131,8 +134,11 @@
 </template>
 
 <style scoped>
+.number-col {
+  font-family: 'Roboto' !important;
+}
+
 table.table div,
-table.table th,
 table.table > thead > tr {
   border: 0;
 }

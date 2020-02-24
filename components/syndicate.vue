@@ -18,8 +18,8 @@
         v-if="syndicateitems"
         class="flex items-center pl-2 pr-4 py-2 border-b border-gray-600"
       >
-        <div class="w-4/5 h-auto ">{{ $t('test.endsin') }}</div>
-        <div class="w-1/5 h-auto text-center">
+        <div class="w-3/5 h-auto ">{{ $t('test.endsin') }}</div>
+        <div class="w-2/5 h-auto text-center number-col">
           {{ timediff(syndicateitems.End) }}
         </div>
       </div>
@@ -32,7 +32,7 @@
             <p class="w-4/5">
               {{ job.Jobtype.split('/').slice(-1)[0] }}
             </p>
-            <span class="w-1/5 p-2 text-center"
+            <span class="w-1/5 p-2 text-center number-col"
               >{{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}</span
             >
           </div>
@@ -84,13 +84,17 @@
   }
 }
 
+.number-col {
+  font-family: 'Roboto' !important;
+}
+
 .dd {
-  margin-inline-start: 0em !important;
-  margin-inline-end: 0em !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 0 !important;
 }
 
 .dl {
-  margin-block-start: 0em !important;
+  margin-block-start: 0 !important;
 }
 
 .js-badger-accordion-panel-inner {

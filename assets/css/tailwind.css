@@ -3,6 +3,33 @@
 @import 'tailwindcss/utilities';
 
 /*! purgecss start ignore */
+@font-face {
+  font-family: 'Corpus';
+  font-style: normal;
+  font-weight: 700;
+  src: url(~static/fonts/Corpus.ttf);
+}
+
+@font-face {
+  font-family: 'Grineer';
+  font-style: normal;
+  font-weight: 700;
+  src: url(~static/fonts/Grineer.ttf);
+}
+
+@font-face {
+  font-family: 'Solaris';
+  font-style: normal;
+  font-weight: 700;
+  src: url(~static/fonts/Solaris.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2);
+}
 
 :root {
   --color-bg-navbar: #375a7f;
@@ -44,19 +71,89 @@
   --color-text-inverse: #000;
   --color-text-inverse-soft: #bbb;
   --color-text-alert: #fc8181;
-  --font-display: [georgia, times, 'Times New Roman', serif];
-  --font-body:
-    [
-    'corbel',
-    'Lucida Grande',
-    'Lucida Sans Unicode',
-    'Lucida Sans',
-    'DejaVu Sans',
-    'Bitstream Vera Sans',
-    'Liberation Sans',
-    verdana,
-    'Verdana Ref',
-    sans-serif];
+  --font-display: ['Helvetica Neue', helvetica, arial, sans-serif];
+  --font-body: ['Helvetica Neue', helvetica, arial, sans-serif];
+  --font-weight-normal: 400;
+  --font-weight-display: 400;
+  --font-weight-btn: 600;
+  --rounded-btn: 0;
+}
+
+.theme-dark-test {
+  --color-bg-navbar: #303030;
+  --color-bg-box: #303030;
+  --color-bg-newsbox: #2d3748 !important;
+  --color-bg-boxaccent: rgba(200, 225, 250, 0.2);
+  --color-bg-primary: #222;
+  --color-bg-secondary: #dcd0c0;
+  --color-bg-default: #f4f4f4;
+  --color-bg-inverse: #373737;
+  --color-text-primary: #a1a9b7;
+  --color-text-secondary: #927e7e;
+  --color-text-default: #373737;
+  --color-text-default-soft: #6a6a6a;
+  --color-text-inverse: #000;
+  --color-text-inverse-soft: #bbb;
+  --color-text-alert: #fc8181;
+  --font-display: ['Corpus', 'Roboto'];
+  --font-body: ['Corpus', 'roboto'];
+
+  font-family: 'Corpus', 'roboto', sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-display: 400;
+  --font-weight-btn: 600;
+  --rounded-btn: 0;
+}
+
+.theme-dark-test2 {
+  --color-bg-navbar: #303030;
+  --color-bg-box: #303030;
+  --color-bg-newsbox: #2d3748 !important;
+  --color-bg-boxaccent: rgba(200, 225, 250, 0.2);
+  --color-bg-primary: #222;
+  --color-bg-secondary: #dcd0c0;
+  --color-bg-default: #f4f4f4;
+  --color-bg-inverse: #373737;
+  --color-text-primary: #a1a9b7;
+  --color-text-secondary: #927e7e;
+  --color-text-default: #373737;
+  --color-text-default-soft: #6a6a6a;
+  --color-text-inverse: #000;
+  --color-text-inverse-soft: #bbb;
+  --color-text-alert: #fc8181;
+  --font-display: ['Grineer', 'Roboto'];
+  --font-body: ['Grineer', 'roboto'];
+
+  font-family: 'Grineer', 'roboto', sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-display: 400;
+  --font-weight-btn: 600;
+  --rounded-btn: 0;
+}
+
+.theme-dark-test3 {
+  --color-bg-navbar: #303030;
+  --color-bg-box: #303030;
+  --color-bg-newsbox: #2d3748 !important;
+  --color-bg-boxaccent: rgba(200, 225, 250, 0.2);
+  --color-bg-primary: #222;
+  --color-bg-secondary: #dcd0c0;
+  --color-bg-default: #f4f4f4;
+  --color-bg-inverse: #373737;
+  --color-text-primary: #a1a9b7;
+  --color-text-secondary: #927e7e;
+  --color-text-default: #373737;
+  --color-text-default-soft: #6a6a6a;
+  --color-text-inverse: #000;
+  --color-text-inverse-soft: #bbb;
+  --color-text-alert: #fc8181;
+  --font-display: ['Solaris', 'Roboto'];
+  --font-body: ['Solaris', 'roboto'];
+
+  font-family: 'Solaris', 'roboto', sans-serif;
+
   --font-weight-normal: 400;
   --font-weight-display: 400;
   --font-weight-btn: 600;

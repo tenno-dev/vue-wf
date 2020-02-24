@@ -20,9 +20,14 @@
           :key="id"
           class="grid grid-cols-3 items-center  px-1 border-b border-gray-600"
         >
-          <div>{{ mission.Node }} ({{ mission.Planet }})</div>
+          <div v-if="mission.Node">
+            {{ mission.Node }} ({{ mission.Planet }})
+          </div>
+          <div v-else>
+            {{ mission.Node2 }}
+          </div>
           <div>{{ mission.Missiontype }}</div>
-          <div>{{ timediff(mission.Ends) }} left</div>
+          <div class="number-col">{{ timediff(mission.Ends) }} left</div>
         </div>
       </div>
     </div>
@@ -34,6 +39,10 @@ table.table div,
 table.table th,
 table.table > thead > tr {
   border: 0;
+}
+
+.number-col {
+  font-family: 'Roboto' !important;
 }
 </style>
 <script>

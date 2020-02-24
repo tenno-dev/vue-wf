@@ -5,15 +5,24 @@
         >Warframe Info Hub</span
       >
     </div>
-    <div class="flex flex-grow" @click="setDarkmode($store.state.darkmode)">
-      <fa v-if="!$store.state.darkmode" icon="moon" fixed-width /><fa
-        v-else
-        icon="sun"
-        fixed-width
-        :style="{
-          color: 'white'
-        }"
-      />
+    <div class="mr-1 px-2 w-70 number-col">
+      <v-select
+        :value="$store.state.activetheme"
+        :searchable="false"
+        :clearable="false"
+        :v-model="$store.state.activetheme"
+        :options="$store.state.theme"
+        @input="setSelectedtheme"
+      >
+        <template slot="option" slot-scope="option">
+          <span class="-ml-2 mr-1"></span>
+          {{ option.label }}
+        </template>
+        <template slot="selected-option" slot-scope="option">
+          <span class=" mr-1 px-2"></span>
+          {{ option.label }}
+        </template></v-select
+      >
     </div>
     <div class="block sm:hidden mr-4">
       <button
@@ -52,7 +61,7 @@
           </template></v-select
         >
       </div>
-      <div class="mr-1 px-2  w-40">
+      <div class="mr-1 px-2  w-50">
         <v-select
           class="text-primary "
           :value="$store.state.activelang"
@@ -81,6 +90,10 @@
 </template>
 
 <style>
+.number-col {
+  font-family: 'Roboto', sans-serif !important;
+}
+
 .vs__dropdown-menu {
   max-width: 9rem !important;
   min-width: 9rem !important;
@@ -131,6 +144,11 @@ export default {
       // eslint-disable-next-line
       console.log(this.$i18n)
       this.$store.commit('setplatform', value)
+    },
+    setSelectedtheme(value) {
+      // eslint-disable-next-line
+      console.log(this.$i18n)
+      this.$store.commit('themeswitch', value)
     }
   }
 }

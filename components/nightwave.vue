@@ -22,7 +22,7 @@
           <div class="w-3/5 h-auto ">
             Season {{ nightwave.Season }} {{ $t('test.endsin2') }}
           </div>
-          <span class="w-2/5 h-auto text-right">
+          <span class="w-2/5 h-auto text-right number-col">
             {{ timediff(nightwave.Ends) }}
           </span>
         </div>
@@ -38,7 +38,7 @@
               <p class="w-3/5">
                 {{ job.Title }}
               </p>
-              <span class="w-2/5 p-2 text-right">
+              <span class="w-2/5 p-2 text-right number-col">
                 {{ timediff(job.Ends) }}
               </span>
             </div>
@@ -58,7 +58,7 @@
               <p class="w-3/5">
                 {{ job.Title }}
               </p>
-              <span class="w-2/5 p-2 text-right">
+              <span class="w-2/5 p-2 text-right number-col">
                 {{ timediff(job.Ends) }}
               </span>
             </div>
@@ -78,7 +78,7 @@
               <p class="w-3/5">
                 {{ job.Title }}
               </p>
-              <span class="w-2/5 p-2 text-right">
+              <span class="w-2/5 p-2 text-right number-col">
                 {{ timediff(job.Ends) }}
               </span>
             </div>
@@ -101,33 +101,47 @@
   @apply bg-box;
   @apply border-gray-600;
   @apply border-b;
+
   display: block !important;
+
   &:hover,
   &.-ba-is-active {
     @apply bg-blue-600;
   }
 }
+
+.number-col {
+  font-family: 'Roboto', sans-serif !important;
+}
+
 .dd {
-  margin-inline-start: 0em !important;
-  margin-inline-end: 0em !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 0 !important;
 }
+
 .dl {
-  margin-block-start: 0em !important;
+  margin-block-start: 0 !important;
 }
+
 .js-badger-accordion-panel-inner {
   cursor: text;
+
   @apply bg-gray-400;
 }
+
 .badger-accordion-toggle {
   padding: 0%;
 }
+
 .badger-accordion__panel {
   max-height: 75vh !important;
   transition: max-height ease-in-out 0.5s;
   overflow: hidden;
+
   &.-ba-is-hidden {
     max-height: 0 !important;
   }
+
   .badger-accordion--initalised & {
     transition: max-height ease-in-out 0.2s;
   }

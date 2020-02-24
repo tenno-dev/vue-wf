@@ -17,6 +17,7 @@
       <div v-else class="flex pt-3 pb-1  mb-4">
         <div class="w-1/3 text-center">
           <svg-progress-bar
+            class="number-col"
             :value="progess['P1']"
             :options="options"
           ></svg-progress-bar>
@@ -24,6 +25,7 @@
         </div>
         <div class="w-1/3 text-center">
           <svg-progress-bar
+            class="number-col"
             :value="progess['P2']"
             :options="options"
           ></svg-progress-bar>
@@ -31,6 +33,7 @@
         </div>
         <div class="w-1/3 text-center">
           <svg-progress-bar
+            class="number-col"
             :value="progess['P3']"
             :options="options"
           ></svg-progress-bar>
@@ -42,12 +45,17 @@
 </template>
 
 <style scoped>
+.number-col {
+  font-family: 'Roboto' !important;
+}
+
 table.table div,
 table.table th,
 table.table > thead > tr {
   border: 0;
 }
-circles-text[style] {
+
+.circles-text[style] {
   line-height: 90px !important;
 }
 </style>

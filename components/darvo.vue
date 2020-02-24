@@ -36,7 +36,9 @@
           <div v-else class="w-2/12 h-auto text-red-600 font-black">
             Sold Out
           </div>
-          {{ timediff(item.Ends) }}
+          <div class="number-col">
+            {{ timediff(item.Ends) }}
+          </div>
         </div>
       </div>
     </div>
@@ -44,10 +46,8 @@
 </template>
 
 <style scoped>
-table.table div,
-table.table th,
-table.table > thead > tr {
-  border: 0;
+.number-col {
+  font-family: 'Roboto' !important;
 }
 </style>
 

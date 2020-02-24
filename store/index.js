@@ -1,5 +1,4 @@
 export const state = () => ({
-  darkmode: true,
   platform: [
     { short: 'pc', label: 'PC', icon: ['fas', 'desktop'] },
     { short: 'ps4', label: 'PS4', icon: ['fab', 'playstation'] },
@@ -18,12 +17,20 @@ export const state = () => ({
     { short: 'ru', label: 'Russian' },
     { short: 'zh', label: 'Chinese' }
   ],
+  theme: [
+    { short: '', label: 'Default' },
+    { short: 'theme-dark', label: 'Dark normal' },
+    { short: 'theme-dark-test', label: 'Dark Corpus' },
+    { short: 'theme-dark-test2', label: 'Dark Grineer' },
+    { short: 'theme-dark-test3', label: 'Dark Solaris' }
+  ],
   activeplatform: { short: 'pc', label: 'PC', icon: ['fas', 'desktop'] },
-  activelang: { short: 'en', label: 'English' }
+  activelang: { short: 'en', label: 'English' },
+  activetheme: { short: '', label: 'Default' }
 })
 export const mutations = {
-  darkmodeswitch(state, dark) {
-    state.darkmode = dark
+  themeswitch(state, theme) {
+    state.activetheme = theme
   },
   setplatform(state, platform) {
     state.activeplatform = platform

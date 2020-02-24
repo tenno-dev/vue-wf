@@ -27,7 +27,7 @@
           <div class="w-full h-auto">
             {{ $t('test.endsin') }}
           </div>
-          <div class="w-full h-auto">
+          <div class="w-full h-auto number-col">
             {{ timediff(sortie.Ends) }}
           </div>
         </div>
@@ -87,6 +87,10 @@ table.table div,
 table.table th,
 table.table > thead > tr {
   border: 0;
+}
+
+.number-col {
+  font-family: 'Roboto' !important;
 }
 </style>
 

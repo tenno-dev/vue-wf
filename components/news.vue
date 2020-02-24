@@ -29,11 +29,12 @@
             <div
               class="vueperslide__content-wrapper bg-transparent absolute bottom-0 mb-2 inset-x-0"
             >
-              <div class="vueperslide__title -mt-8">
+              <div class="vueperslide__title -mt-8 text-xl">
                 {{ slide.Message }}
               </div>
               <a class="text-primary" target="_blank" :href="slide.URL"
-                >Posted: {{ formattime2(slide.Date) }}</a
+                >Posted:
+                <span class="number-col">{{ formattime2(slide.Date) }}</span></a
               >
             </div>
           </template>
@@ -43,6 +44,10 @@
   </div>
 </template>
 <style>
+.number-col {
+  font-family: 'Roboto' !important;
+}
+
 .vueperslides--fixed-height {
   @apply bg-transparent;
 
@@ -95,9 +100,9 @@
     @apply bg-newsbox;
     @apply my-0;
 
-    height: 27% !important;
+    height: 35% !important;
     width: 100%;
-    top: 76% !important;
+    top: 67% !important;
     bottom: 0 !important;
   }
 }
