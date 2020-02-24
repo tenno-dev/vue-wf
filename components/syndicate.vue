@@ -28,8 +28,8 @@
           v-for="job in syndicateitems.Jobs"
           :key="job.Jobtype"
         >
-          <div slot="header" class="pl-2  -pr-2 flex   row items-center">
-            <p class="w-4/5">
+          <div slot="header" class="px-2 grid grid-cols-4 gap-1">
+            <p class="col-span-3">
               {{ job.Jobtype.split('/').slice(-1)[0] }}
             </p>
             <span class="w-1/5 p-2 text-center number-col"
@@ -37,18 +37,19 @@
             >
           </div>
           <div slot="content" class="break-all bg-box">
-            <div class="px-2 grid grid-cols-2 gap-2">
-              <div class="w-full">
+            <div class="px-2 grid grid-cols-4 gap-1">
+              <div class="w-full col-span-3">
                 {{ $tc('test.rewards', 2) }}
               </div>
               <div class="w-full  text-center ">
                 {{ $t('test.standing') }}
               </div>
-              <div class="w-full break-all h-auto">
+              <div class="w-full break-all h-auto col-span-3">
                 <span
                   v-for="(reward, index) in job.Rewards"
                   :key="index"
                   :index="index"
+                  class="border-b"
                 >
                   {{ reward }}<br
                 /></span>
