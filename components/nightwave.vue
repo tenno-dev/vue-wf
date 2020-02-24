@@ -50,7 +50,7 @@
             </div>
             <div slot="content" class="break-all">
               <div class="flex  items-center border-b border-gray-600">
-                <div class="w-full bg-box h-auto pl-2">
+                <div class="w-full bg-box h-auto pl-2 py-2">
                   {{ job.Description }}
                 </div>
               </div>
@@ -74,7 +74,7 @@
             </div>
             <div slot="content" class="break-all">
               <div class="flex  items-center border-b border-gray-600">
-                <div class="w-full bg-box h-auto pl-2">
+                <div class="w-full bg-box h-auto pl-2 py-2">
                   {{ job.Description }}
                 </div>
               </div>
@@ -94,7 +94,7 @@
             </div>
             <div slot="content" class="break-all">
               <div class="flex  items-center border-b border-gray-600">
-                <div class="w-full bg-box h-auto pl-2">
+                <div class="w-full bg-box h-auto pl-2 py-2">
                   {{ job.Description }}
                 </div>
               </div>

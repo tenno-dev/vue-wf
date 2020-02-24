@@ -69,7 +69,7 @@
   @apply bg-newsbox;
   @apply my-0;
 
-  height: 23% !important;
+  height: 33% !important;
   width: 100%;
   top: 80% !important;
   bottom: 0 !important;
@@ -79,7 +79,7 @@
   .vueperslides--fixed-height {
     @apply bg-transparent;
 
-    height: 27vh;
+    height: 26vh;
   }
 
   .vueperslide__content-wrapper {
@@ -87,9 +87,9 @@
     @apply my-0;
 
     margin-bottom: 0% !important;
-    height: 33% !important;
+    height: 35% !important;
     width: 100%;
-    top: 68% !important;
+    top: 66% !important;
     bottom: 0% !important;
   }
 }

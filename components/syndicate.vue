@@ -30,22 +30,22 @@
           :key="job.Jobtype"
         >
           <div slot="header" class="px-2 grid grid-cols-4 gap-1">
-            <p class="col-span-3">
+            <div class="col-span-3 py-2">
               {{ job.Jobtype.split('/').slice(-1)[0] }}
-            </p>
-            <span class="w-1/5 p-2 text-center number-col"
-              >{{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}</span
-            >
+            </div>
+            <div class="w-1/5 p-2 text-center number-col">
+              {{ job.MinEnemyLevel }}-{{ job.MaxEnemyLevel }}
+            </div>
           </div>
           <div slot="content" class="break-all bg-box">
-            <div class="px-2 grid grid-cols-4 gap-1">
-              <div class="w-full col-span-3">
+            <div class="px-2 grid grid-cols-4 gap-0">
+              <div class="w-full col-span-3 py-2 border-b">
                 {{ $tc('test.rewards', 2) }}
               </div>
-              <div class="w-full  text-center ">
+              <div class="w-full  text-center py-2 border-b">
                 {{ $t('test.standing') }}
               </div>
-              <div class="w-full break-all h-auto col-span-3">
+              <div class="w-full break-all h-auto col-span-3 py-1">
                 <span
                   v-for="(reward, index) in job.Rewards"
                   :key="index"
@@ -55,7 +55,7 @@
                   {{ reward }}<br
                 /></span>
               </div>
-              <div class="w-full self-stretch content-center text-center ">
+              <div class="w-full self-stretch content-center text-center py-1">
                 <span
                   v-for="(stand, index) in job.StandingReward"
                   :key="index"

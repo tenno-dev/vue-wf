@@ -33,7 +33,7 @@
               slot="content"
               class=" bg-box break-all border-b border-gray-600"
             >
-              <div class="px-2 grid grid-cols-2 gap-2">
+              <div class="px-2 grid grid-cols-2 gap-0 py-1">
                 <div class="w-full">
                   {{ $t('test.complete') }}
                 </div>

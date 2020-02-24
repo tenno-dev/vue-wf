@@ -27,7 +27,7 @@
         <div
           v-for="(mission, id) in kuva"
           :key="id"
-          class="grid grid-cols-6 items-center  pl-2 pr-3 border-b border-gray-600"
+          class="grid grid-cols-6 items-center  pl-2 pr-3 border-b border-gray-600 py-1"
         >
           <div class="col-span-3">
             {{ mission.Node }} ({{ mission.Planet }})

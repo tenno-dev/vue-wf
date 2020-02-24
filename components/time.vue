@@ -16,7 +16,7 @@
       </div>
       <div v-else>
         <div
-          class="grid grid-cols-4 items-center  px-1 border-b border-gray-600"
+          class="grid grid-cols-4 items-center  p-1 border-b border-gray-600"
         >
           <div class="w-1/4 h-auto col-span-1">Earth</div>
           <div class="w-full text-right h-auto col-span-1">
