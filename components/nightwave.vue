@@ -173,8 +173,6 @@ export default {
       var1 = var1 * 1
       // eslint-disable-next-line
       var ms = moment.duration(moment.unix(var1).diff(moment()))
-      // eslint-disable-next-line
-      console.log(ms)
       let days = ''
       let hours = ''
       let minutes = ' '
