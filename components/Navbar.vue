@@ -133,8 +133,6 @@ export default {
       this.open = !this.open
     },
     setSelectedlang(value) {
-      // eslint-disable-next-line
-      console.log(this.$i18n)
       this.$i18n.locale = value.short
       this.$store.commit('setlang', value)
     },
@@ -143,13 +141,9 @@ export default {
       this.$store.commit('darkmodeswitch', value)
     },
     setSelectedplatform(value) {
-      // eslint-disable-next-line
-      console.log(this.$i18n)
       this.$store.commit('setplatform', value)
     },
     setSelectedtheme(value) {
-      // eslint-disable-next-line
-      console.log(this.$i18n)
       this.$store.commit('themeswitch', value)
     }
   }

@@ -122,12 +122,9 @@ export default {
     alerts(newVal, oldVal) {
       // watch it
       // eslint-disable-next-line
-      console.log('Prop changed: ', newVal, ' | was: ', oldVal)
     },
     activeplat(newVal, oldVal) {
       // watch platform switch & subscribe to new channels
-      // eslint-disable-next-line
-      console.log('Prop changed: ', newVal, ' | was: ', oldVal)
       this.$mqtt.unsubscribe(
         'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/alerts'
       )
@@ -244,8 +241,6 @@ export default {
     },
     activelang1(newVal, oldVal) {
       // watch platform switch & subscribe to new channels
-      // eslint-disable-next-line
-      console.log('Prop changed: ', newVal, ' | was: ', oldVal)
       this.$mqtt.unsubscribe(
         'wf/' +
           oldVal +
@@ -427,8 +422,6 @@ export default {
     }
   },
   mounted() {
-    // eslint-disable-next-line
-    console.log(this.$i18n)
     this.$i18n.locale = this.$store.state.activelang.short
     this.$mqtt.subscribe(
       'wf/' +

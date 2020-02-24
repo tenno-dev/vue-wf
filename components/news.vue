@@ -49,7 +49,7 @@
 </template>
 <style>
 .number-col {
-  font-family: 'Roboto' !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 .vueperslides--fixed-height {

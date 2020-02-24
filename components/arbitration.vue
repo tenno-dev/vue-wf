@@ -51,7 +51,7 @@ table.table > thead > tr {
 }
 
 .number-col {
-  font-family: 'Roboto' !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 </style>
 <script>
