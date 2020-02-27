@@ -31,16 +31,18 @@
             <div
               class="vueperslide__content-wrapper bg-transparent absolute bottom-0 inset-x-0"
             >
-              <div class="vueperslide__title -mt-8 text-xl">
+              <div class="vueperslide__title -mt-6 text-xl">
                 {{ slide.Message }}
               </div>
               <a
-                class="text-primary"
+                class="vueperslide__title text-primary"
                 rel="noreferrer"
                 target="_blank"
                 :href="slide.URL"
                 >Posted:
-                <span class="number-col">{{ formattime2(slide.Date) }}</span></a
+                <span class="vueperslide__title2 number-col">{{
+                  formattime2(slide.Date)
+                }}</span></a
               >
             </div>
           </template>
@@ -78,6 +80,19 @@
 }
 
 @media (min-width: 120px) {
+  .vueperslide__title {
+    @apply text-primary;
+
+    font-size: 16px !important;
+    font-weight: 700;
+  }
+
+  .vueperslide__title2 {
+    @apply text-primary;
+
+    font-size: 16px !important;
+  }
+
   .vueperslides--fixed-height {
     @apply bg-transparent;
 
@@ -101,10 +116,10 @@
     @apply bg-newsbox;
     @apply my-0;
 
-    height: 22% !important;
+    height: 36% !important;
     width: 100%;
     top: 55% !important;
-    bottom: 0% !important;
+    bottom: 0 !important;
   }
 }
 
@@ -119,19 +134,19 @@
     @apply bg-newsbox;
     @apply my-0;
 
-    height: 21% !important;
+    height: 28% !important;
     width: 100%;
     top: 75% !important;
     bottom: 0 !important;
   }
 }
 
-@media (min-width: 1224px) {
+@media (min-width: 1280px) {
   .vueperslide__content-wrapper {
     @apply bg-newsbox;
     @apply my-0;
 
-    height: 36% !important;
+    height: 32% !important;
     width: 100%;
     top: 85% !important;
     bottom: 0 !important;

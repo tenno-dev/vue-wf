@@ -18,10 +18,10 @@
       </div>
       <div v-else>
         <div class="px-2 grid grid-cols-4 gap-0">
-          <div class="w-full h-auto col-span-3">
+          <div class="w-full h-auto sm:col-span-3 col-span-1">
             Boss:
           </div>
-          <div class="w-full h-auto col-span-1 text-left">
+          <div class="w-full h-auto  sm:col-span-1 col-span-3 text-right">
             <span :class="getcolourfaction(sortie.Faction)"
               >{{ sortie.Boss }} ({{ sortie.Faction }})</span
             >

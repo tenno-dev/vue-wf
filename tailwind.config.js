@@ -41,6 +41,10 @@ module.exports = {
       }
     }
   },
-  variants: {},
+  variants: {
+    gridColumn: ['responsive'],
+    gridColumnStart: ['responsive'],
+    gridColumnStartEnd: ['responsive']
+  },
   plugins: [require('@tailwindcss/ui')]
 }

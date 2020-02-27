@@ -32,7 +32,9 @@
         class="text-primary grid  grid-cols-8 items-center py-2 px-2"
       >
         <div class="col-span-2 h-auto text-md">{{ item.Item }}</div>
-        <div class="col-span-2 h-auto text-green-800 font-black number-col">
+        <div
+          class="col-span-2 h-auto text-green-800 font-black number-col text-left"
+        >
           {{ item.DealPrice }}
         </div>
         <div
