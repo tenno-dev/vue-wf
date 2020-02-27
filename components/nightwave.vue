@@ -4,7 +4,7 @@
   >
     <div
       v-if="nightwave && nightwave.DailyChallenges"
-      class="font-bold text-primary text-4xl mt-1"
+      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
     >
       Nightwave S{{ nightwave.Season - 1 }}
     </div>

@@ -2,7 +2,9 @@
   <div
     class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
   >
-    <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
+    <div
+      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+    >
       {{ headertext }}
     </div>
     <div class="bg-box  py-0">
@@ -39,7 +41,7 @@
         >
           {{ (((item.Stock - item.Sold) / item.Stock) * 100).toFixed(2) }}%
         </div>
-        <div v-else class="col-span-2 h-auto text-red-600 font-black">
+        <div v-else class="col-span-2 h-auto font-black">
           Sold Out
         </div>
         <div class="number-col col-span-2">

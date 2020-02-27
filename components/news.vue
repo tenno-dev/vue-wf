@@ -1,6 +1,8 @@
 <template>
   <div class="w-full h-auto  rounded border-transparent">
-    <div class="font-bold text-primary text-4xl text-center mt-1">
+    <div
+      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+    >
       News
     </div>
     <div class="border-transparent text-default">

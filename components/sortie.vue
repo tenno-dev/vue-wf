@@ -2,7 +2,9 @@
   <div
     class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
   >
-    <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
+    <div
+      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+    >
       Sortie
     </div>
     <div class="bg-box text-primary pt-0 ">
@@ -15,67 +17,40 @@
         </div>
       </div>
       <div v-else>
-        <div class="px-2 grid grid-cols-3 gap-0">
-          <div class="w-full h-auto">
+        <div class="px-2 grid grid-cols-4 gap-0">
+          <div class="w-full h-auto col-span-3">
             Boss:
           </div>
-          <div class="w-full h-auto col-span-2">
+          <div class="w-full h-auto col-span-1 text-left">
             <span :class="getcolourfaction(sortie.Faction)"
               >{{ sortie.Boss }} ({{ sortie.Faction }})</span
             >
           </div>
-          <div class="w-full h-auto">
+          <div class="w-full h-auto col-span-3">
             {{ $t('test.endsin') }}
           </div>
-          <div class="w-full h-auto number-col col-span-2">
+          <div class="w-full h-auto col-span-1 text-left">
             {{ timediff(sortie.Ends) }}
           </div>
         </div>
-        <div class="px-2 grid grid-cols-2 gap-0 border-t-4 border-gray-600 ">
-          <div
-            v-if="typeof sortie !== 'undefined' && sortie.Variants[0]"
-            class="pt-1 w-full h-auto"
-          >
-            {{ sortie.Variants[0].MissionType }}
+        <div v-for="(guess, i) in 3" :key="i">
+          <div class="px-2 grid grid-cols-2 gap-0 border-t-4 border-gray-600 ">
+            <div
+              v-if="typeof sortie !== 'undefined' && sortie.Variants[i]"
+              class="pt-1 w-full h-auto"
+            >
+              {{ sortie.Variants[i].MissionType }}
+            </div>
+            <div
+              v-if="typeof sortie !== 'undefined' && sortie.Variants[i]"
+              class="w-full h-auto text-center"
+            >
+              {{ sortie.Variants[i].MissionLocation }}
+            </div>
           </div>
-          <div
-            v-if="typeof sortie !== 'undefined' && sortie.Variants[0]"
-            class="w-full h-auto"
-          >
-            {{ sortie.Variants[0].MissionLocation }}
+          <div class="px-2 pb-1 grid grid-cols-1 border-b border-gray-600 ">
+            Mod: {{ sortie.Variants[i].MissionMod }}
           </div>
-        </div>
-        <div class="px-2 pb-1 grid grid-cols-1 border-b border-gray-600 ">
-          Mod: {{ sortie.Variants[0].MissionMod }}
-        </div>
-
-        <div class="px-2 pt-1 grid grid-cols-2 gap-0">
-          <div
-            v-if="typeof sortie !== 'undefined'"
-            class="flex items-center  w-full h-auto"
-          >
-            {{ sortie.Variants[1].MissionType }}
-          </div>
-          <div class="grid grid-cols-1">
-            {{ sortie.Variants[1].MissionLocation }}
-          </div>
-        </div>
-        <div class="pb-1 px-2 grid grid-cols-1 border-b border-gray-600 ">
-          Mod: {{ sortie.Variants[1].MissionMod }}
-        </div>
-        <div class="px-2 pt-1 grid grid-cols-2 gap-0">
-          <div
-            v-if="typeof sortie !== 'undefined'"
-            class="flex items-center  w-full h-auto"
-          >
-            {{ sortie.Variants[2].MissionType }}
-          </div>
-          <div v-if="typeof sortie !== 'undefined'" class="w-full h-auto">
-            {{ sortie.Variants[2].MissionLocation }}
-          </div>
-        </div>
-        <div class="px-2 pb-1 grid grid-cols-1">
-          Mod: {{ sortie.Variants[2].MissionMod }}
         </div>
       </div>
     </div>

@@ -3,7 +3,10 @@
     id="root"
     class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto   overflow-hidden border-transparent"
   >
-    <div v-if="syndicateitems" class="font-bold text-primary text-4xl mt-1">
+    <div
+      v-if="syndicateitems"
+      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+    >
       {{ headertext(syndicateitems.Syndicate) }}{{ $t('test.syndicate') }}
     </div>
     <div class="bg-box text-primary pt-0 ">

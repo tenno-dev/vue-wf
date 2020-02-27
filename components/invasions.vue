@@ -2,7 +2,9 @@
   <div
     class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
   >
-    <div class="font-bold text-primary text-4xl mt-1 bg-transparent">
+    <div
+      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+    >
       {{ $tc('test.invasions', 2) }}
     </div>
     <div class="bg-box text-primary pt-0 ">
