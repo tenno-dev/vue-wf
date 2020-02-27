@@ -1,8 +1,9 @@
+/*! purgecss start ignore */
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/*! purgecss start ignore */
 @font-face {
   font-family: 'Corpus';
   font-style: normal;
