@@ -93,7 +93,8 @@ export default {
 
   pwa: {
     manifest: {
-      name: 'Warframe Info hub'
+      name: 'Warframe Info Hub',
+      short_name: 'Warframe Info Hub'
     }
   },
 
