@@ -41,6 +41,6 @@ module.exports = {
       }
     }
   },
-  variants: {}
-  // plugins: [require('@tailwindcss/ui')]
+  variants: {},
+  plugins: [require('@tailwindcss/ui')]
 }

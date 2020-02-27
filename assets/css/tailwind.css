@@ -1,8 +1,13 @@
-/*! purgecss start ignore */
+/* purgecss start ignore */
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+
+/* purgecss end ignore */
+
 @import 'tailwindcss/utilities';
+
+/* purgecss start ignore */
 
 @font-face {
   font-family: 'Corpus';
@@ -133,3 +138,5 @@
 
   font-family: 'Solaris', 'roboto', sans-serif;
 }
+
+/* purgecss end ignore */
