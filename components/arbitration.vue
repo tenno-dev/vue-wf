@@ -14,7 +14,7 @@
           class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
           role="alert"
         >
-          <strong class="font-bold">No Time info</strong>
+          <strong class="font-bold">No Arbitration Missions info</strong>
         </div>
       </div>
       <div v-else>
@@ -39,7 +39,9 @@
             {{ mission.Node2 }}
           </div>
           <div class="col-span-2">{{ mission.Missiontype }}</div>
-          <div class="number-col sm:text-xs">{{ timediff(mission.Ends) }}</div>
+          <div class="number-col ">
+            {{ timediff(mission.Ends) }}
+          </div>
         </div>
       </div>
     </div>
