@@ -122,6 +122,20 @@
     top: 55% !important;
     bottom: 0 !important;
   }
+
+  .vueperslide__title {
+    @apply text-primary;
+    @apply text-left;
+
+    font-size: 14px !important;
+    font-weight: 700;
+  }
+
+  .vueperslide__title2 {
+    @apply text-primary;
+
+    font-size: 14px !important;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -129,6 +143,20 @@
     @apply bg-transparent;
 
     height: 35vh;
+  }
+
+  .vueperslide__title {
+    @apply text-primary;
+    @apply text-left;
+
+    font-size: 18px !important;
+    font-weight: 700;
+  }
+
+  .vueperslide__title2 {
+    @apply text-primary;
+
+    font-size: 18px !important;
   }
 
   .vueperslide__content-wrapper {
