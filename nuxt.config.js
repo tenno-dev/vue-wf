@@ -61,7 +61,8 @@ export default {
               'faMoon',
               'faBars',
               'faGamepad',
-              'faSnowflake'
+              'faSnowflake',
+              'faPalette'
             ]
           },
           {

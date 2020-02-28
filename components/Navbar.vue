@@ -91,9 +91,15 @@
                 @input="setSelectedtheme"
               >
                 <template slot="option" slot-scope="option">
+                  <span class="-ml-2 mr-1"
+                    ><fa :icon="['fas', 'palette']" fixed-width
+                  /></span>
                   {{ option.label }}
                 </template>
                 <template slot="selected-option" slot-scope="option">
+                  <span class=" mr-1"
+                    ><fa :icon="['fas', 'palette']" fixed-width
+                  /></span>
                   {{ option.label }}
                 </template>
               </v-select>
@@ -115,7 +121,7 @@
                   {{ option.label }}
                 </template>
                 <template slot="selected-option" slot-scope="option">
-                  <span class=" mr-1 px-2"
+                  <span class=" mr-1"
                     ><fa :icon="option.icon" fixed-width
                   /></span>
                   {{ option.label }}
@@ -183,9 +189,7 @@
               {{ option.label }}
             </template>
             <template slot="selected-option" slot-scope="option">
-              <span class=" mr-1 px-2"
-                ><fa :icon="option.icon" fixed-width
-              /></span>
+              <span class=" mr-1"><fa :icon="option.icon" fixed-width/></span>
               {{ option.label }}
             </template></v-select
           >
@@ -200,9 +204,15 @@
             @input="setSelectedtheme"
           >
             <template slot="option" slot-scope="option">
+              <span class="-ml-2 mr-1"
+                ><fa :icon="['fas', 'palette']" fixed-width
+              /></span>
               {{ option.label }}
             </template>
             <template slot="selected-option" slot-scope="option">
+              <span class=" mr-1"
+                ><fa :icon="['fas', 'palette']" fixed-width
+              /></span>
               {{ option.label }}
             </template>
           </v-select>
