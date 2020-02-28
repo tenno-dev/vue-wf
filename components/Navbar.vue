@@ -36,10 +36,31 @@
           class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
         >
           <div
-            class="pr-2 py-2 rounded-md text-md font-medium leading-5 text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+            class="hidden sm:block pr-2 py-2 rounded-md text-md font-medium leading-5 text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
           >
             Warframe Info Hub
           </div>
+          <div
+            class="block sm:hidden pr-2 py-2 rounded-md text-md font-medium leading-5 text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+          >
+            Warframe Info Hub for
+          </div>
+          <span class="block sm:hidden flex pr-2 py-2">
+            <fa
+              :icon="$store.state.activeplatform.icon"
+              fixed-width
+              :style="{
+                color: 'white'
+              }"
+          /></span>
+          <div
+            class="block sm:hidden pr-2 py-2 rounded-md text-md font-medium leading-5 text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+          >
+            in
+          </div>
+          <span class="block sm:hidden flex pr-2 py-2"
+            ><lang-flag :iso="$store.state.activelang.short" :squared="false"
+          /></span>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex">
               <a
@@ -278,16 +299,15 @@ export default {
     setSelectedlang(value) {
       this.$i18n.locale = value.short
       this.$store.commit('setlang', value)
-    },
-    setDarkmode(value) {
-      value = !value
-      this.$store.commit('darkmodeswitch', value)
+      this.opennav = false
     },
     setSelectedplatform(value) {
       this.$store.commit('setplatform', value)
+      this.opennav = false
     },
     setSelectedtheme(value) {
       this.$store.commit('settheme', value)
+      this.opennav = false
     }
   }
 }
