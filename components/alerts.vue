@@ -69,6 +69,12 @@
                 {{ alert.RewardItem }}
               </span>
             </div>
+            <div v-if="alert.RewardItemMany" class="px-3 flex items-center">
+              <p class="w-full ml-4">Item {{ $tc('test.rewards', 1) }}:</p>
+              <span class="flex-shrink-0 p-2 ml-4 mr-2">
+                {{ alert.RewardItemMany }}
+              </span>
+            </div>
           </div>
         </badger-accordion-item>
       </badger-accordion>
