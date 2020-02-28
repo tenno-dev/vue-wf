@@ -82,21 +82,22 @@
 @media (min-width: 120px) {
   .vueperslide__title {
     @apply text-primary;
+    @apply text-left;
 
-    font-size: 16px !important;
+    font-size: 13px !important;
     font-weight: 700;
   }
 
   .vueperslide__title2 {
     @apply text-primary;
 
-    font-size: 16px !important;
+    font-size: 13px !important;
   }
 
   .vueperslides--fixed-height {
     @apply bg-transparent;
 
-    height: 26vh;
+    height: 24vh;
   }
 
   .vueperslide__content-wrapper {
@@ -104,7 +105,7 @@
     @apply my-0;
 
     margin-bottom: 0% !important;
-    height: 35% !important;
+    height: 40% !important;
     width: 100%;
     top: 66% !important;
     bottom: 0% !important;
