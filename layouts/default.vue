@@ -25,6 +25,12 @@ export default {
     activetheme() {
       return this.$store.state.activetheme
     }
+  },
+  mounted() {
+    this.$warehouse.each(function(value, key) {
+      // eslint-disable-next-line no-console
+      console.log(key, '==', value)
+    })
   }
 }
 </script>

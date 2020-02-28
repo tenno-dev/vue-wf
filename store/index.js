@@ -32,13 +32,18 @@ export const state = () => ({
   activetheme: { short: 'theme-normal', label: 'Default' }
 })
 export const mutations = {
-  themeswitch(state, theme) {
+  settheme(state, theme) {
     state.activetheme = theme
+    this.$warehouse.set('theme', theme)
   },
   setplatform(state, platform) {
     state.activeplatform = platform
+    this.$warehouse.set('platform', platform)
+    // eslint-disable-next-line no-console
+    console.log(platform)
   },
   setlang(state, lang) {
     state.activelang = lang
+    this.$warehouse.set('lang', lang)
   }
 }

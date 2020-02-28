@@ -84,6 +84,9 @@ export default {
   data() {
     return {
       tstamp: '0',
+      defaultplatform: { short: 'pc', label: 'PC', icon: ['fas', 'desktop'] },
+      defaultlang: { short: 'en', label: 'English' },
+      defaulttheme: { short: 'theme-normal', label: 'Default' },
       platform: this.$store.state.activeplatform.short,
       Alerts: '',
       News: '',
@@ -422,6 +425,10 @@ export default {
     }
   },
   mounted() {
+    this.checkplatform()
+    this.checklang()
+    this.checktheme()
+    // eslint-disable-next-line no-console
     this.$i18n.locale = this.$store.state.activelang.short
     this.$mqtt.subscribe(
       'wf/' +
@@ -528,6 +535,60 @@ export default {
       const x = moment(prop).format('DD[.]MM[.]YYYY')
       // const x = moment(prop).fromNow()
       return x
+    },
+    checkplatform() {
+      let x = this.$warehouse.get('platform')
+      try {
+        x = x.short
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(this.defaultplatform)
+        this.$warehouse.set('platform', this.defaultplatform)
+      }
+      x = this.$warehouse.get('platform')
+      // eslint-disable-next-line no-console
+      console.log(x)
+      this.$store.commit('setplatform', x)
+    },
+    checklang() {
+      // eslint-disable-next-line no-console
+      let y = this.$warehouse.get('lang')
+      try {
+        // eslint-disable-next-line no-console
+        console.log(y)
+
+        y = y.short
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log('default2')
+        // eslint-disable-next-line no-console
+        console.log(this.defaultlang)
+        this.$warehouse.set('lang', this.defaultlang)
+      }
+      y = this.$warehouse.get('lang')
+      // eslint-disable-next-line no-console
+      console.log(y)
+      this.$store.commit('setlang', y)
+    },
+    checktheme() {
+      // eslint-disable-next-line no-console
+      let y = this.$warehouse.get('theme')
+      try {
+        // eslint-disable-next-line no-console
+        console.log(y)
+
+        y = y.short
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log('default2')
+        // eslint-disable-next-line no-console
+        console.log(this.defaulttheme)
+        this.$warehouse.set('theme', this.defaulttheme)
+      }
+      y = this.$warehouse.get('theme')
+      // eslint-disable-next-line no-console
+      console.log(y)
+      this.$store.commit('settheme', y)
     }
   },
   mqtt: {

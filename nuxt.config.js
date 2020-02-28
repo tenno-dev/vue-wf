@@ -46,6 +46,17 @@ export default {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/tailwindcss',
+    [
+      'vue-warehouse/nuxt',
+      {
+        vuex: true,
+        plugins: ['store/plugins/expire', 'store/plugins/defaults'],
+        storages: [
+          'store/storages/localStorage',
+          'store/storages/cookieStorage'
+        ]
+      }
+    ],
     '@nuxtjs/eslint-module',
     [
       'nuxt-fontawesome',

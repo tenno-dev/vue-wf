@@ -287,7 +287,7 @@ export default {
       this.$store.commit('setplatform', value)
     },
     setSelectedtheme(value) {
-      this.$store.commit('themeswitch', value)
+      this.$store.commit('settheme', value)
     }
   }
 }

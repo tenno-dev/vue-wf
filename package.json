@@ -25,6 +25,7 @@
     "moment": "^2.24.0",
     "nuxt": "^2.11.0",
     "nuxt-fontawesome": "^0.4.0",
+    "store": "^2.0.12",
     "svg-progress-bar": "^0.1.17",
     "tailwindcss-elevation": "^0.3.3",
     "vue-awesome-swiper": "^3.1.3",
@@ -34,6 +35,7 @@
     "vue-mqtt-topics": "github:Bitti09/Vue-Mqtt#master",
     "vue-select": "^3.4.0",
     "vue-slick-carousel": "^1.0.2",
+    "vue-warehouse": "^2.0.0",
     "vueperslides": "^2.8.2"
   },
   "devDependencies": {
