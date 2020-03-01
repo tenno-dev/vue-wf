@@ -14,6 +14,10 @@
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
         :arbitration="Arbitration"
       />
+      <Anomaly
+        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        :anomaly="Anomaly[0]"
+      />
       <Alerts
         class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
         :alerts="Alerts"
@@ -62,6 +66,7 @@ import BuildP from '@/components/buildprogress.vue'
 import Sortie from '@/components/sortie.vue'
 import Kuva from '@/components/kuva.vue'
 import Arbitration from '@/components/arbitration.vue'
+import Anomaly from '@/components/anomaly.vue'
 
 // eslint-disable-next-line import/order
 import moment from 'moment'
@@ -79,7 +84,8 @@ export default {
     Sortie,
     Time,
     Kuva,
-    Arbitration
+    Arbitration,
+    Anomaly
   },
   data() {
     return {
@@ -89,6 +95,7 @@ export default {
       defaulttheme: { short: 'theme-normal', label: 'Default' },
       platform: this.$store.state.activeplatform.short,
       Alerts: '',
+      Anomaly: '',
       News: '',
       Syndicates: '',
       Invasion: '',
@@ -179,6 +186,9 @@ export default {
           oldVal +
           '/arbitration'
       )
+      this.$mqtt.unsubscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/anomaly'
+      )
       this.Alerts = ''
       this.News = ''
       this.Syndicates = ''
@@ -190,6 +200,7 @@ export default {
       this.Events = ''
       this.Kuva = ''
       this.Arbitration = ''
+      this.Anomaly = ''
       this.$mqtt.subscribe(
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/alerts'
       )
@@ -240,6 +251,9 @@ export default {
           '/' +
           newVal +
           '/arbitration'
+      )
+      this.$mqtt.subscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/anomaly'
       )
     },
     activelang1(newVal, oldVal) {
@@ -327,6 +341,13 @@ export default {
           this.$store.state.activeplatform.short +
           '/arbitration'
       )
+      this.$mqtt.unsubscribe(
+        'wf/' +
+          oldVal +
+          '/' +
+          this.$store.state.activeplatform.short +
+          '/anomaly'
+      )
       this.Alerts = ''
       this.News = ''
       this.Syndicates = ''
@@ -339,6 +360,7 @@ export default {
       this.Events = ''
       this.Kuva = ''
       this.Arbitration = ''
+      this.Anomaly = ''
       this.$mqtt.subscribe(
         'wf/' +
           newVal +
@@ -421,6 +443,13 @@ export default {
           '/' +
           this.$store.state.activeplatform.short +
           '/arbitration'
+      )
+      this.$mqtt.subscribe(
+        'wf/' +
+          newVal +
+          '/' +
+          this.$store.state.activeplatform.short +
+          '/anomaly'
       )
     }
   },
@@ -527,6 +556,13 @@ export default {
         '/' +
         this.$store.state.activeplatform.short +
         '/arbitration'
+    )
+    this.$mqtt.subscribe(
+      'wf/' +
+        this.$store.state.activelang.short +
+        '/' +
+        this.$store.state.activeplatform.short +
+        '/anomaly'
     )
   },
   methods: {
@@ -635,6 +671,9 @@ export default {
     },
     'wf/#/#/arbitration'(data) {
       this.Arbitration = JSON.parse(data.toString())
+    },
+    'wf/#/#/anomaly'(data) {
+      this.Anomaly = JSON.parse(data.toString())
     }
   }
 }
