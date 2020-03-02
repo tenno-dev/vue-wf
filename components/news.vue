@@ -28,7 +28,7 @@
         <vueper-slide
           v-for="(slide, i) in news"
           :key="i"
-          :image="imgproxy + slide.Image"
+          :image="getPathFromUrl(imgproxy + slide.Image)"
         >
           <template v-slot:content>
             <div
@@ -222,7 +222,7 @@ export default {
   props: ['news'],
   data() {
     return {
-      imgproxy: 'https://cdn.warframestat.us/o_webp/'
+      imgproxy: 'https://img.tenno.dev/o_webp/'
     }
   },
   methods: {
@@ -231,6 +231,17 @@ export default {
       const x = moment(prop).format('DD[.]MM[.]YYYY  HH:mm')
       // const x = moment(prop).fromNow()
       return x
+    },
+    getPathFromUrl(url) {
+      // eslint-disable-next-line no-unused-vars
+      const url1 = url.split(/[?#]/)[0]
+      const url2 = url.split(/[?#]/)[1]
+      if (url2) {
+        url = url1 + '%3F' + escape(url2)
+      }
+      // eslint-disable-next-line no-console
+      console.log(url1)
+      return url
     }
   }
 }
