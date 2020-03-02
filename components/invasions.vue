@@ -1,16 +1,16 @@
 <template>
   <div
-    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
+    class="h-auto max-w-lg overflow-hidden border-transparent rounded md:max-w-md sm:max-w-sm xl:max-w-xl"
   >
     <div
-      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
       {{ $tc('test.invasions', 2) }}
     </div>
-    <div class="bg-box text-primary pt-0 ">
+    <div class="pt-0 bg-box text-primary ">
       <div v-if="invasions.length < 1" class="text-primary ">
         <div
-          class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
         >
           <strong class="font-bold">No Invasions today</strong>
@@ -19,7 +19,7 @@
       <template v-else>
         <badger-accordion ref="myAccordion" :icons="false">
           <badger-accordion-item v-for="inva in invasions" :key="inva.id">
-            <div slot="header" class="px-2 flex items-center">
+            <div slot="header" class="flex items-center px-2">
               <p class="w-full">
                 <span :class="getcolourfaction(inva.AttackerMissionInfo)">
                   {{ inva.AttackerMissionInfo }}</span
@@ -29,13 +29,13 @@
                   inva.DefenderMissionInfo
                 }}</span>
               </p>
-              <span class="w-3/4 text-right p-2 pr-0">{{ inva.Location }}</span>
+              <span class="w-3/4 p-2 pr-0 text-right">{{ inva.Location }}</span>
             </div>
             <div
               slot="content"
-              class=" bg-box break-all border-b border-gray-600"
+              class="break-all border-b border-gray-600 bg-box"
             >
-              <div class="px-2 grid grid-cols-2 gap-0 py-1">
+              <div class="grid grid-cols-2 gap-0 px-2 py-1">
                 <div class="w-full">
                   {{ $t('test.complete') }}
                 </div>

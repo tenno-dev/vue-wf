@@ -1,27 +1,27 @@
 <template>
   <div
-    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
+    class="h-auto max-w-lg overflow-hidden border-transparent rounded md:max-w-md sm:max-w-sm xl:max-w-xl"
   >
     <div
-      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
       Sortie
     </div>
-    <div class="bg-box text-primary pt-0 ">
+    <div class="pt-0 bg-box text-primary ">
       <div v-if="!sortie" class="text-primary ">
         <div
-          class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
         >
           <strong class="font-bold">No Sortie today</strong>
         </div>
       </div>
       <div v-else>
-        <div class="px-2 grid grid-cols-4 gap-0">
-          <div class="w-full h-auto sm:col-span-3 col-span-1">
+        <div class="grid grid-cols-4 gap-0 px-2">
+          <div class="w-full h-auto col-span-1 sm:col-span-3">
             Boss:
           </div>
-          <div class="w-full h-auto  sm:col-span-1 col-span-3 text-right">
+          <div class="w-full h-auto col-span-3 text-right sm:col-span-1">
             <span :class="getcolourfaction(sortie.Faction)"
               >{{ sortie.Boss }} ({{ sortie.Faction }})</span
             >
@@ -34,10 +34,10 @@
           </div>
         </div>
         <div v-for="(guess, i) in 3" :key="i">
-          <div class="px-2 grid grid-cols-2 gap-0 border-t-4 border-gray-600 ">
+          <div class="grid grid-cols-2 gap-0 px-2 border-t-4 border-gray-600 ">
             <div
               v-if="typeof sortie !== 'undefined' && sortie.Variants[i]"
-              class="pt-1 w-full h-auto"
+              class="w-full h-auto pt-1"
             >
               {{ sortie.Variants[i].MissionType }}
             </div>
@@ -48,7 +48,7 @@
               {{ sortie.Variants[i].MissionLocation }}
             </div>
           </div>
-          <div class="px-2 pb-1 grid grid-cols-1 border-b border-gray-600 ">
+          <div class="grid grid-cols-1 px-2 pb-1 border-b border-gray-600 ">
             Mod: {{ sortie.Variants[i].MissionMod }}
           </div>
         </div>

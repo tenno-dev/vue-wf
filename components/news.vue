@@ -1,14 +1,14 @@
 <template>
-  <div class="w-full h-auto  rounded border-transparent">
+  <div class="w-full h-auto border-transparent rounded">
     <div
-      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
       News
     </div>
     <div class="border-transparent text-default">
       <div v-if="!news[0]" class="text-primary ">
         <div
-          class="border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          class="relative px-4 py-3 text-red-700 border border-red-400 rounded"
           role="alert"
         >
           <strong class="font-bold">No News today</strong>
@@ -29,9 +29,9 @@
         >
           <template v-slot:content>
             <div
-              class="vueperslide__content-wrapper bg-transparent absolute bottom-0 inset-x-0"
+              class="absolute inset-x-0 bottom-0 bg-transparent vueperslide__content-wrapper"
             >
-              <div class="vueperslide__title -mt-6 text-xl">
+              <div class="-mt-6 text-xl vueperslide__title">
                 {{ slide.Message }}
               </div>
               <a

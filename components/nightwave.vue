@@ -1,17 +1,17 @@
 <template>
   <div
-    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto   overflow-hidden border-transparent"
+    class="h-auto max-w-lg overflow-hidden border-transparent md:max-w-md sm:max-w-sm xl:max-w-xl"
   >
     <div
       v-if="nightwave && nightwave.DailyChallenges"
-      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
       Nightwave S{{ nightwave.Season - 1 }}
     </div>
-    <div class="bg-box text-primary pt-0 ">
+    <div class="pt-0 bg-box text-primary ">
       <div v-if="!nightwave" class="text-primary ">
         <div
-          class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
         >
           <strong class="font-bold">No Nightwave active</strong>
@@ -19,7 +19,7 @@
       </div>
       <template v-if="nightwave && nightwave.DailyChallenges">
         <div
-          class="grid grid-cols-2 items-center pl-2 pr-4 py-2 border-b-4 border-gray-600"
+          class="grid items-center grid-cols-2 py-2 pl-2 pr-4 border-b-4 border-gray-600"
         >
           <div class="w-full h-auto ">
             Season {{ nightwave.Season }} {{ $t('test.endsin2') }}
@@ -38,7 +38,7 @@
           >
             <div
               slot="header"
-              class="pl-2 -pr-4 grid grid-cols-2 items-center"
+              class="grid items-center grid-cols-2 pl-2 -pr-4"
               style="padding-right: -0, 75rem;"
             >
               <div class="w-full">
@@ -49,8 +49,8 @@
               </div>
             </div>
             <div slot="content" class="break-all">
-              <div class="flex  items-center border-b border-gray-600">
-                <div class="w-full bg-box h-auto pl-2 py-2">
+              <div class="flex items-center border-b border-gray-600">
+                <div class="w-full h-auto py-2 pl-2 bg-box">
                   {{ job.Description }}
                 </div>
               </div>
@@ -62,7 +62,7 @@
           >
             <div
               slot="header"
-              class="pl-2 -pr-2 grid grid-cols-2 items-center"
+              class="grid items-center grid-cols-2 pl-2 -pr-2"
               style="padding-right: -0, 75rem;"
             >
               <div class="w-full">
@@ -73,8 +73,8 @@
               </div>
             </div>
             <div slot="content" class="break-all">
-              <div class="flex  items-center border-b border-gray-600">
-                <div class="w-full bg-box h-auto pl-2 py-2">
+              <div class="flex items-center border-b border-gray-600">
+                <div class="w-full h-auto py-2 pl-2 bg-box">
                   {{ job.Description }}
                 </div>
               </div>
@@ -84,7 +84,7 @@
             v-for="job in nightwave.WeeklyEliteChallenges"
             :key="job.ID"
           >
-            <div slot="header" class="pl-2 -pr-2 grid grid-cols-2 items-center">
+            <div slot="header" class="grid items-center grid-cols-2 pl-2 -pr-2">
               <div class="w-full">
                 {{ job.Title }}
               </div>
@@ -93,8 +93,8 @@
               </div>
             </div>
             <div slot="content" class="break-all">
-              <div class="flex  items-center border-b border-gray-600">
-                <div class="w-full bg-box h-auto pl-2 py-2">
+              <div class="flex items-center border-b border-gray-600">
+                <div class="w-full h-auto py-2 pl-2 bg-box">
                   {{ job.Description }}
                 </div>
               </div>

@@ -2,21 +2,13 @@
   <div
     class="h-auto max-w-lg overflow-hidden border-transparent rounded md:max-w-md sm:max-w-sm xl:max-w-xl"
   >
-    <div
-      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
-    >
-      Warframe Clocks
-    </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!timer" class="text-primary ">
-        <div
-          class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
-          role="alert"
-        >
-          <strong class="font-bold">No Time info</strong>
-        </div>
+    <div class="grid grid-cols-4">
+      <div
+        class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
+      >
+        Warframe Clocks
       </div>
-      <div v-else>
+      <div>
         <div class="grid items-center grid-cols-4 p-1 border-b border-gray-600">
           <div class="w-1/4 h-auto col-span-1">Earth</div>
           <div class="w-full h-auto col-span-1 text-right">

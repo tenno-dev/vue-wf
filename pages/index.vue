@@ -1,53 +1,53 @@
 <template>
   <div>
-    <News v-if="News" class="w-full xl:px-2 px-1 h-64" :news="News" />
+    <News v-if="News" class="w-full h-64 px-1 xl:px-2" :news="News" />
     <div class="flex flex-wrap xl:px-1">
       <Time
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :timer="Time1[0]"
       />
       <Kuva
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :kuva="Kuva"
       />
       <Arbitration
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :arbitration="Arbitration"
       />
       <Anomaly
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :anomaly="Anomaly[0]"
       />
       <Alerts
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :alerts="Alerts"
       />
       <Nightwave
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :nightwave="Nightwave[0]"
       />
       <Syndicate
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :syndicateitems="Syndicates[0]"
       />
       <Syndicate
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :syndicateitems="Syndicates[1]"
       />
       <Invasions
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :invasions="Invasion"
       />
       <BuildP
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :progess="Progress1[0]"
       />
       <Sortie
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :sortie="Sortie[0]"
       />
       <Darvo
-        class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-1 h-64"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :deals="Deals"
       />
     </div>

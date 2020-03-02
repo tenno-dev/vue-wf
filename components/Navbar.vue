@@ -1,14 +1,14 @@
 <template>
   <nav x-data="{ open: true }" class="bg-gray-800">
-    <div class=" mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="px-2 mx-auto sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <button
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+            class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
             @click="opennav = !opennav"
           >
             <svg
-              class="h-6 w-6"
+              class="w-6 h-6"
               stroke="currentColor"
               fill="none"
               viewBox="0 0 24 24"
@@ -33,19 +33,19 @@
           </button>
         </div>
         <div
-          class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+          class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start"
         >
           <div
-            class="hidden sm:block pr-2 py-2 rounded-md text-md font-medium leading-5 text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+            class="hidden py-2 pr-2 font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md sm:block text-md focus:outline-none focus:text-white focus:bg-gray-700"
           >
             Warframe Info Hub
           </div>
           <div
-            class="block sm:hidden pr-2 py-2 rounded-md text-md font-medium leading-5 text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+            class="block py-2 pr-2 font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md sm:hidden text-md focus:outline-none focus:text-white focus:bg-gray-700"
           >
             Warframe Info Hub for
           </div>
-          <span class="block sm:hidden flex pr-2 py-2">
+          <span class="flex block py-2 pr-2 sm:hidden">
             <fa
               :icon="$store.state.activeplatform.icon"
               fixed-width
@@ -54,18 +54,18 @@
               }"
           /></span>
           <div
-            class="block sm:hidden pr-2 py-2 rounded-md text-md font-medium leading-5 text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+            class="block py-2 pr-2 font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md sm:hidden text-md focus:outline-none focus:text-white focus:bg-gray-700"
           >
             in
           </div>
-          <span class="block sm:hidden flex pr-2 py-2"
+          <span class="flex block py-2 pr-2 sm:hidden"
             ><lang-flag :iso="$store.state.activelang.short" :squared="false"
           /></span>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex">
               <a
                 href="#"
-                class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+                class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-gray-900 rounded-md focus:outline-none focus:text-white focus:bg-gray-700"
                 >Home</a
               >
             </div>
@@ -75,7 +75,7 @@
           class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
           <div class="relative flex">
-            <div class="hidden sm:block py-3">
+            <div class="hidden py-3 sm:block">
               <v-select
                 class="w-auto number-col"
                 :value="$store.state.activelang"
@@ -87,20 +87,20 @@
                 @input="setSelectedlang"
               >
                 <template slot="option" slot-scope="option">
-                  <span class="-ml-2 mr-1"
+                  <span class="mr-1 -ml-2"
                     ><lang-flag :iso="option.short" :squared="false"
                   /></span>
                   {{ option.label }}
                 </template>
                 <template slot="selected-option" slot-scope="option">
-                  <span class=" mr-1"
+                  <span class="mr-1 "
                     ><lang-flag :iso="option.short" :squared="false"
                   /></span>
                   {{ option.label }}
                 </template>
               </v-select>
             </div>
-            <div class="hidden sm:block py-3">
+            <div class="hidden py-3 sm:block">
               <v-select
                 class="w-auto number-col"
                 :value="$store.state.activetheme"
@@ -112,20 +112,20 @@
                 @input="setSelectedtheme"
               >
                 <template slot="option" slot-scope="option">
-                  <span class="-ml-2 mr-1"
+                  <span class="mr-1 -ml-2"
                     ><fa :icon="['fas', 'palette']" fixed-width
                   /></span>
                   {{ option.label }}
                 </template>
                 <template slot="selected-option" slot-scope="option">
-                  <span class=" mr-1"
+                  <span class="mr-1 "
                     ><fa :icon="['fas', 'palette']" fixed-width
                   /></span>
                   {{ option.label }}
                 </template>
               </v-select>
             </div>
-            <div class=" py-3 hidden sm:block">
+            <div class="hidden py-3 sm:block">
               <v-select
                 :value="$store.state.activeplatform"
                 class="w-auto number-col"
@@ -136,13 +136,13 @@
                 @input="setSelectedplatform"
               >
                 <template slot="option" slot-scope="option">
-                  <span class="-ml-2 mr-1"
+                  <span class="mr-1 -ml-2"
                     ><fa :icon="option.icon" fixed-width class="fill-current"
                   /></span>
                   {{ option.label }}
                 </template>
                 <template slot="selected-option" slot-scope="option">
-                  <span class=" mr-1"
+                  <span class="mr-1 "
                     ><fa :icon="option.icon" fixed-width
                   /></span>
                   {{ option.label }}
@@ -154,21 +154,21 @@
       </div>
     </div>
     <transition
-      enter-active-class="transform duration-150 ease-out"
-      enter-class="opacity-0 scale-95"
-      enter-to-class="opacity-100 scale-100"
-      leave-active-class="transform duration-100 ease-in"
-      leave-class="opacity-100 scale-100"
-      leave-to-class="opacity-0 scale-95"
+      enter-active-class="duration-150 ease-out transform"
+      enter-class="scale-95 opacity-0"
+      enter-to-class="scale-100 opacity-100"
+      leave-active-class="duration-100 ease-in transform"
+      leave-class="scale-100 opacity-100"
+      leave-to-class="scale-95 opacity-0"
     >
       <div
         v-show="opennav"
-        class="origin-top-left left-0 w-full rounded-md shadow-lg z-40"
+        class="left-0 z-40 w-full origin-top-left rounded-md shadow-lg"
       >
         <div class="px-2 pt-2 pb-3">
           <a
             href="#"
-            class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+            class="block px-3 py-2 text-base font-medium text-white transition duration-150 ease-in-out bg-gray-900 rounded-md focus:outline-none focus:text-white focus:bg-gray-700"
             >Home</a
           >
           <v-select
@@ -182,13 +182,13 @@
             @input="setSelectedlang"
           >
             <template slot="option" slot-scope="option">
-              <span class="-ml-2 mr-1"
+              <span class="mr-1 -ml-2"
                 ><lang-flag :iso="option.short" :squared="false"
               /></span>
               {{ option.label }}
             </template>
             <template slot="selected-option" slot-scope="option">
-              <span class=" mr-1"
+              <span class="mr-1 "
                 ><lang-flag :iso="option.short" :squared="false"
               /></span>
               {{ option.label }}
@@ -204,13 +204,13 @@
             @input="setSelectedplatform"
           >
             <template slot="option" slot-scope="option">
-              <span class="-ml-2 mr-1"
+              <span class="mr-1 -ml-2"
                 ><fa :icon="option.icon" fixed-width class="fill-current"
               /></span>
               {{ option.label }}
             </template>
             <template slot="selected-option" slot-scope="option">
-              <span class=" mr-1"><fa :icon="option.icon" fixed-width/></span>
+              <span class="mr-1 "><fa :icon="option.icon" fixed-width/></span>
               {{ option.label }}
             </template></v-select
           >
@@ -225,13 +225,13 @@
             @input="setSelectedtheme"
           >
             <template slot="option" slot-scope="option">
-              <span class="-ml-2 mr-1"
+              <span class="mr-1 -ml-2"
                 ><fa :icon="['fas', 'palette']" fixed-width
               /></span>
               {{ option.label }}
             </template>
             <template slot="selected-option" slot-scope="option">
-              <span class=" mr-1"
+              <span class="mr-1 "
                 ><fa :icon="['fas', 'palette']" fixed-width
               /></span>
               {{ option.label }}

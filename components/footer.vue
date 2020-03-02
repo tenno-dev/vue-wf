@@ -1,5 +1,5 @@
 <template>
-  <div class="px-8 bg-gray-800 text-white">
+  <div class="px-8 text-white bg-gray-800">
     &copy; Bitti09 |
     <a
       name="Warframe Info Hub Github"

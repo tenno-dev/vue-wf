@@ -1,8 +1,8 @@
 <template>
   <div :class="activetheme.short + ' bg-primary min-h-screen '">
-    <Navbar class="py-0 w-full fixed pin-t z-10" role="navigation" />
-    <nuxt class="py-16 pt-12  min-h-screen" role="main" />
-    <Footer class="elevation-24 py-2 fixed w-full z-10 bottom-0 pin-b" />
+    <Navbar class="fixed z-10 w-full py-0 pin-t" role="navigation" />
+    <nuxt class="min-h-screen py-16 pt-12" role="main" />
+    <Footer class="fixed bottom-0 z-10 w-full py-2 elevation-24 pin-b" />
   </div>
 </template>
 <style>

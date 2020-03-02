@@ -1,22 +1,22 @@
 <template>
   <div
-    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
+    class="h-auto max-w-lg overflow-hidden border-transparent rounded md:max-w-md sm:max-w-sm xl:max-w-xl"
   >
     <div
-      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
       Build Progress
     </div>
-    <div class="bg-box text-primary pt-0 ">
+    <div class="pt-0 bg-box text-primary ">
       <div v-if="!progess" class="text-primary ">
         <div
-          class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
         >
           <strong class="font-bold">No Progress today</strong>
         </div>
       </div>
-      <div v-else class="flex pt-3 pb-1  mb-4">
+      <div v-else class="flex pt-3 pb-1 mb-4">
         <div class="w-1/3 text-center">
           <svg-progress-bar
             class="number-col"

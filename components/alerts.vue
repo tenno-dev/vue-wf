@@ -1,16 +1,16 @@
 <template>
   <div
-    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
+    class="h-auto max-w-lg overflow-hidden border-transparent rounded md:max-w-md sm:max-w-sm xl:max-w-xl"
   >
     <div
-      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
       {{ $t('test.alerts') }}
     </div>
-    <div class="bg-box text-primary pt-0 ">
+    <div class="pt-0 bg-box text-primary ">
       <div v-if="!alerts" class="text-primary ">
         <div
-          class="bg-transparent border border-red-400 text-alert px-4 py-3 relative antialiased"
+          class="relative px-4 py-3 antialiased bg-transparent border border-red-400 text-alert"
           role="alert"
         >
           <strong class="font-bold">No Alerts today</strong>
@@ -18,7 +18,7 @@
       </div>
       <badger-accordion v-else ref="myAccordion" :icons="false">
         <badger-accordion-item v-for="alert in alerts" :key="alert.id">
-          <div slot="header" class="px-3 flex items-center">
+          <div slot="header" class="flex items-center px-3">
             <p class="w-full">
               <span>
                 {{ alert.MissionType }}<br />{{ $t('test.on') }}
@@ -36,18 +36,15 @@
             </span>
           </div>
 
-          <div
-            slot="content"
-            class=" bg-box break-all border-b border-gray-600"
-          >
-            <div class="px-3 flex items-center">
+          <div slot="content" class="break-all border-b border-gray-600 bg-box">
+            <div class="flex items-center px-3">
               <p class="w-full ml-4">{{ $t('test.enemylevel') }}</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 {{ alert.MinEnemyLevel }}
                 - {{ alert.MaxEnemyLevel }}</span
               >
             </div>
-            <div class="px-3 flex items-center">
+            <div class="flex items-center px-3">
               <p class="w-full ml-4">
                 {{ $t('test.enemyfaction') }}
               </p>
@@ -57,13 +54,13 @@
                 }}</span>
               </span>
             </div>
-            <div class="px-3 flex items-center">
+            <div class="flex items-center px-3">
               <p class="w-full ml-4">Credits {{ $tc('test.rewards', 1) }}:</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 {{ alert.RewardCredits }}
               </span>
             </div>
-            <div v-if="alert.RewardItem" class="px-3 flex items-center">
+            <div v-if="alert.RewardItem" class="flex items-center px-3">
               <p class="w-full ml-4">Item {{ $tc('test.rewards', 1) }}:</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 <span v-if="alert.RewardItemManyCount"
@@ -72,7 +69,7 @@
                 {{ alert.RewardItem }}
               </span>
             </div>
-            <div v-if="alert.RewardItemMany" class="px-3 flex items-center">
+            <div v-if="alert.RewardItemMany" class="flex items-center px-3">
               <p class="w-full ml-4">Item {{ $tc('test.rewards', 1) }}:</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 <span v-if="alert.RewardItemManyCount"

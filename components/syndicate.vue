@@ -1,18 +1,18 @@
 <template>
   <div
     id="root"
-    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto   overflow-hidden border-transparent"
+    class="h-auto max-w-lg overflow-hidden border-transparent md:max-w-md sm:max-w-sm xl:max-w-xl"
   >
     <div
       v-if="syndicateitems"
-      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
       {{ headertext(syndicateitems.Syndicate) }}{{ $t('test.syndicate') }}
     </div>
-    <div class="bg-box text-primary pt-0 ">
+    <div class="pt-0 bg-box text-primary ">
       <div v-if="!syndicateitems" class="text-primary ">
         <div
-          class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
         >
           <strong class="font-bold">No Jobs today</strong>
@@ -20,7 +20,7 @@
       </div>
       <div
         v-if="syndicateitems"
-        class="flex items-center pl-2 pr-4 py-2 border-b-4 border-gray-600"
+        class="flex items-center py-2 pl-2 pr-4 border-b-4 border-gray-600"
       >
         <div class="w-3/5 h-auto ">{{ $t('test.endsin') }}</div>
         <div class="w-2/5 h-auto text-center number-col">
@@ -32,7 +32,7 @@
           v-for="job in syndicateitems.Jobs"
           :key="job.Jobtype"
         >
-          <div slot="header" class="px-2 grid grid-cols-4 gap-1">
+          <div slot="header" class="grid grid-cols-4 gap-1 px-2">
             <div class="col-span-3 py-2">
               {{ job.Jobtype.split('/').slice(-1)[0] }}
             </div>
@@ -41,14 +41,14 @@
             </div>
           </div>
           <div slot="content" class="break-all bg-box">
-            <div class="px-2 grid grid-cols-4 gap-0">
+            <div class="grid grid-cols-4 gap-0 px-2">
               <div class="w-full col-span-3 py-2 border-b">
                 {{ $tc('test.rewards', 2) }}
               </div>
-              <div class="w-full  text-center py-2 border-b">
+              <div class="w-full py-2 text-center border-b">
                 {{ $t('test.standing') }}
               </div>
-              <div class="w-full break-all h-auto col-span-3 py-1">
+              <div class="w-full h-auto col-span-3 py-1 break-all">
                 <span
                   v-for="(reward, index) in job.Rewards"
                   :key="index"
@@ -58,7 +58,7 @@
                   {{ reward }}<br
                 /></span>
               </div>
-              <div class="w-full self-stretch content-center text-center py-1">
+              <div class="content-center self-stretch w-full py-1 text-center">
                 <span
                   v-for="(stand, index) in job.StandingReward"
                   :key="index"

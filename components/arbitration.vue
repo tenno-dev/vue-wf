@@ -1,17 +1,17 @@
 <template>
   <div
     id="root"
-    class="max-w-lg md:max-w-md sm:max-w-sm xl:max-w-xl h-auto rounded overflow-hidden border-transparent"
+    class="h-auto max-w-lg overflow-hidden border-transparent rounded md:max-w-md sm:max-w-sm xl:max-w-xl"
   >
     <div
-      class="font-bold text-primary text-4xl px-4 pt-4 bg-transparent sm:px-6"
+      class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
       Arbitration Missions
     </div>
-    <div class="bg-box text-primary pt-0 ">
+    <div class="pt-0 bg-box text-primary ">
       <div v-if="!arbitration" class="text-primary ">
         <div
-          class="bg-transparent border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
         >
           <strong class="font-bold">No Arbitration Missions info</strong>
@@ -19,7 +19,7 @@
       </div>
       <div v-else>
         <div
-          class="grid grid-cols-6 items-center pl-2 pr-3  border-b-4 border-gray-600"
+          class="grid items-center grid-cols-6 pl-2 pr-3 border-b-4 border-gray-600"
         >
           <div class="col-span-3">
             Node (Planet)
@@ -30,7 +30,7 @@
         <div
           v-for="(mission, id) in arbitration"
           :key="id"
-          class="grid grid-cols-6 items-center pl-2 pr-3 border-b border-gray-600"
+          class="grid items-center grid-cols-6 pl-2 pr-3 border-b border-gray-600"
         >
           <div v-if="mission.Node" class="col-span-3">
             {{ mission.Node }} ({{ mission.Planet }})
