@@ -28,7 +28,7 @@
         <vueper-slide
           v-for="(slide, i) in news"
           :key="i"
-          :image="'https://cdn.warframestat.us/o_webp/' + slide.Image"
+          :image="imgproxy + slide.Image"
         >
           <template v-slot:content>
             <div
@@ -220,6 +220,11 @@ export default {
   components: { VueperSlides, VueperSlide },
   // eslint-disable-next-line
   props: ['news'],
+  data() {
+    return {
+      imgproxy: 'https://cdn.warframestat.us/o_webp/'
+    }
+  },
   methods: {
     formattime2(prop) {
       prop = prop / 1

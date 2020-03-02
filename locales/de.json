@@ -2,25 +2,6 @@
     "home": {
         "introduction": "This is an introduction in German."
     },
-    "test": {
-        "complete": "Status:",
-        "complete2": "abgeschlossen",
-        "missiontype": "Missions Typ:",
-        "endsin": "Endet in:",
-        "endsin2": "Endet in:",
-        "rewards": "Belohnung | Belohnungen",
-        "attacker": "Angreifer",
-        "defender": "Verteidiger",
-        "standing": "Ansehen",
-        "price": "Preis",
-        "stock": "Bestand",
-        "syndicate": "Syndikat",
-        "invasions": "Invasion | Invasionen",
-        "alerts": "Alamierungen",
-        "on": "auf",
-        "enemylevel": "Gegner Level:",
-        "enemyfaction": "Gegner Fraktion:"
-    },
     "tracker": {
         "complete": "Status:",
         "complete2": "abgeschlossen",
