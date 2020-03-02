@@ -22,7 +22,7 @@
           class="grid items-center grid-cols-2 py-2 pl-2 pr-4 border-b-4 border-gray-600"
         >
           <div class="w-full h-auto ">
-            Season {{ nightwave.Season }} {{ $t('test.endsin2') }}
+            Season {{ nightwave.Season }} {{ $t('tracker.endsin2') }}
           </div>
           <span class="w-full h-auto text-right number-col">
             {{ timediff(nightwave.Ends) }}

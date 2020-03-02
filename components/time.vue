@@ -154,7 +154,7 @@ export default {
   data() {
     return {
       platinum: 'platinum',
-      vallis: 'test.missiontype'
+      vallis: 'tracker.missiontype'
     }
   },
   computed: {
@@ -199,8 +199,11 @@ export default {
       if (ms.hours() > 0) {
         hours = ms.hours() + 'h:'
       }
-      if (ms.minutes() > 0) {
+      if (ms.minutes() > 0 && ms.seconds() > 0) {
         minutes = ms.minutes() + 'm:'
+      }
+      if (ms.minutes() > 0 && ms.seconds() < 0) {
+        minutes = ms.minutes() + 'm'
       }
       if (ms.seconds() > 0) {
         seconds = ms.seconds() + 's'

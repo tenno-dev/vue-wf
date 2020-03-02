@@ -21,9 +21,9 @@
         class="grid items-center grid-cols-8 px-2 py-2 border-b-4 border-gray-600 text-primary"
       >
         <div class="h-auto col-span-2">Item</div>
-        <div class="h-auto col-span-2">{{ $t('test.price') }}</div>
-        <div class="h-auto col-span-2">{{ $t('test.stock') }}</div>
-        <div class="h-auto col-span-2">{{ $t('test.endsin') }}</div>
+        <div class="h-auto col-span-2">{{ $t('tracker.price') }}</div>
+        <div class="h-auto col-span-2">{{ $t('tracker.stock') }}</div>
+        <div class="h-auto col-span-2">{{ $t('tracker.endsin') }}</div>
       </div>
 
       <div

@@ -5,7 +5,7 @@
     <div
       class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
-      {{ $tc('test.invasions', 2) }}
+      {{ $tc('tracker.invasions', 2) }}
     </div>
     <div class="pt-0 bg-box text-primary ">
       <div v-if="invasions.length < 1" class="text-primary ">
@@ -37,24 +37,24 @@
             >
               <div class="grid grid-cols-2 gap-0 px-2 py-1">
                 <div class="w-full">
-                  {{ $t('test.complete') }}
+                  {{ $t('tracker.complete') }}
                 </div>
                 <div class="w-full">
                   {{ parseFloat(complete(inva.Completion)).toFixed(2) }} %
-                  {{ $t('test.complete2') }}
+                  {{ $t('tracker.complete2') }}
                 </div>
                 <div class="w-full">
-                  {{ $t('test.missiontype') }}
+                  {{ $t('tracker.missiontype') }}
                 </div>
                 <div class="w-full break-normal">{{ inva.MissionType }}</div>
                 <div v-if="inva.AttackerRewardItem" class="w-full">
-                  {{ $t('test.attacker') }} {{ $tc('test.rewards', 1) }}:
+                  {{ $t('tracker.attacker') }} {{ $tc('tracker.rewards', 1) }}:
                 </div>
                 <div v-if="inva.AttackerRewardItem" class="w-full break-normal">
                   {{ inva.AttackerRewardItem }}
                 </div>
                 <div v-if="inva.DefenderRewardItem" class="w-full">
-                  {{ $t('test.defender') }} {{ $tc('test.rewards', 1) }}:
+                  {{ $t('tracker.defender') }} {{ $tc('tracker.rewards', 1) }}:
                 </div>
                 <div v-if="inva.DefenderRewardItem" class="w-full break-normal">
                   {{ inva.DefenderRewardItem }}

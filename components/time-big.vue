@@ -1,125 +1,82 @@
 <template>
-  <div
-    class="h-auto max-w-lg overflow-hidden border-transparent rounded md:max-w-md sm:max-w-sm xl:max-w-xl"
-  >
-    <div class="grid grid-cols-4">
+  <div class="h-auto mt-4 overflow-hidden border-transparent rounded ">
+    <div v-if="timer" class="flex grid grid-cols-12">
       <div
-        class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
+        class="col-span-2 px-2 text-4xl font-bold bg-transparent text-primary sm:px-6"
       >
-        Warframe Clocks
+        Timer
       </div>
-      <div>
-        <div class="grid items-center grid-cols-4 p-1 border-b border-gray-600">
-          <div class="w-1/4 h-auto col-span-1">Earth</div>
-          <div class="w-full h-auto col-span-1 text-right">
-            <fa
-              v-if="timer.Earth[0].State == 'day'"
-              icon="sun"
-              fixed-width
-              :style="{
-                color: 'yellow'
-              }"
-            /><fa
-              v-else
-              icon="moon"
-              fixed-width
-              :style="{
-                color: 'white'
-              }"
-            />
-            {{ timer.Earth[0].State }}
-          </div>
-          <div class="w-full h-auto col-span-2 text-right">
-            <span class="number-col"> {{ timediff(timer.Earth[0].End) }}</span>
-            left till
-            <fa
-              v-if="timer.Earth[0].State == 'day'"
-              icon="moon"
-              fixed-width
-            /><fa
-              v-else
-              icon="sun"
-              fixed-width
-              :style="{
-                color: 'yellow'
-              }"
-            />
-          </div>
-          <div class="w-full h-auto">Cetus</div>
-          <div class="w-full h-auto text-right">
-            <fa
-              v-if="timer.Cetus[0].State == 'day'"
-              icon="sun"
-              fixed-width
-              :style="{
-                color: 'yellow'
-              }"
-            /><fa
-              v-else
-              icon="moon"
-              fixed-width
-              :style="{
-                color: 'white'
-              }"
-            />
-            {{ timer.Cetus[0].State }}
-          </div>
-          <div class="w-full h-auto col-span-2 text-right">
-            <span class="number-col"> {{ timediff(timer.Cetus[0].End) }}</span>
-            left till
-            <fa
-              v-if="timer.Cetus[0].State == 'day'"
-              icon="moon"
-              fixed-width
-            /><fa
-              v-else
-              icon="sun"
-              fixed-width
-              :style="{
-                color: 'yellow'
-              }"
-            />
-          </div>
-          <div class="w-full h-auto">Valis</div>
-          <div class="w-full h-auto text-right">
-            <fa
-              v-if="timer.Vallis[0].State == 'cold'"
-              icon="snowflake"
-              fixed-width
-              :style="{
-                color: 'cyan'
-              }"
-            /><fa
-              v-else
-              icon="sun"
-              fixed-width
-              :style="{
-                color: 'yellow'
-              }"
-            />
-
-            {{ timer.Vallis[0].State }}
-          </div>
-          <div class="w-full h-auto col-span-2 text-right">
-            <span class="number-col"> {{ timediff(timer.Vallis[0].End) }}</span>
-            left till
-            <fa
-              v-if="timer.Vallis[0].State == 'cold'"
-              icon="sun"
-              fixed-width
-              :style="{
-                color: 'yellow'
-              }"
-            /><fa
-              v-else
-              icon="snowflake"
-              fixed-width
-              :style="{
-                color: 'cyan'
-              }"
-            />
-          </div>
-        </div>
+      <div
+        class="self-center col-span-3 px-2 text-2xl font-bold bg-transparent text-primary"
+      >
+        Earth:
+        <fa
+          v-if="timer.Earth[0].State == 'day'"
+          class="text-xl "
+          icon="sun"
+          fixed-width
+          :style="{
+            color: 'yellow'
+          }"
+        /><fa
+          v-else
+          class="items-center text-xl"
+          icon="moon"
+          fixed-width
+          :style="{
+            color: 'white'
+          }"
+        />
+        <span class="number-col"> {{ timediff(timer.Earth[0].End) }}</span>
+        left
+      </div>
+      <div
+        class="self-center col-span-3 px-2 text-2xl font-bold bg-transparent text-primary"
+      >
+        Cetus:
+        <fa
+          v-if="timer.Cetus[0].State == 'day'"
+          class="text-xl "
+          icon="sun"
+          fixed-width
+          :style="{
+            color: 'yellow'
+          }"
+        /><fa
+          v-else
+          class="items-center text-xl"
+          icon="moon"
+          fixed-width
+          :style="{
+            color: 'white'
+          }"
+        />
+        <span class="number-col"> {{ timediff(timer.Cetus[0].End) }}</span>
+        left
+      </div>
+      <div
+        class="self-center col-span-3 px-2 text-2xl font-bold bg-transparent text-primary"
+      >
+        Vallis:
+        <fa
+          v-if="timer.Vallis[0].State == 'cold'"
+          class="text-xl "
+          icon="snowflake"
+          fixed-width
+          :style="{
+            color: 'cyan'
+          }"
+        /><fa
+          v-else
+          class="items-center text-2xl "
+          icon="sun"
+          fixed-width
+          :style="{
+            color: 'yellow'
+          }"
+        />
+        <span class="number-col"> {{ timediff(timer.Vallis[0].End) }}</span>
+        left
       </div>
     </div>
   </div>
@@ -128,11 +85,6 @@
 <style scoped>
 .number-col {
   font-family: 'Roboto', sans-serif !important;
-}
-
-table.table div,
-table.table > thead > tr {
-  border: 0;
 }
 </style>
 
@@ -191,8 +143,11 @@ export default {
       if (ms.hours() > 0) {
         hours = ms.hours() + 'h:'
       }
-      if (ms.minutes() > 0) {
+      if (ms.minutes() > 0 && ms.seconds() > 0) {
         minutes = ms.minutes() + 'm:'
+      }
+      if (ms.minutes() > 0 && ms.seconds() < 0) {
+        minutes = ms.minutes() + 'm'
       }
       if (ms.seconds() > 0) {
         seconds = ms.seconds() + 's'

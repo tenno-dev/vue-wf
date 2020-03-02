@@ -1,9 +1,10 @@
 <template>
   <div>
+    <TimeBig class="hidden w-full h-64 px-1 xl:block" :timer="Time1[0]" />
     <News v-if="News" class="w-full h-64 px-1 xl:px-2" :news="News" />
     <div class="flex flex-wrap xl:px-1">
       <Time
-        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
+        class="block w-full h-64 px-1 xl:hidden sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :timer="Time1[0]"
       />
       <Kuva
@@ -67,6 +68,7 @@ import Sortie from '@/components/sortie.vue'
 import Kuva from '@/components/kuva.vue'
 import Arbitration from '@/components/arbitration.vue'
 import Anomaly from '@/components/anomaly.vue'
+import TimeBig from '@/components/time-big.vue'
 
 // eslint-disable-next-line import/order
 import moment from 'moment'
@@ -85,7 +87,8 @@ export default {
     Time,
     Kuva,
     Arbitration,
-    Anomaly
+    Anomaly,
+    TimeBig
   },
   data() {
     return {

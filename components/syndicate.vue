@@ -7,7 +7,7 @@
       v-if="syndicateitems"
       class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
-      {{ headertext(syndicateitems.Syndicate) }}{{ $t('test.syndicate') }}
+      {{ headertext(syndicateitems.Syndicate) }}{{ $t('tracker.syndicate') }}
     </div>
     <div class="pt-0 bg-box text-primary ">
       <div v-if="!syndicateitems" class="text-primary ">
@@ -22,7 +22,7 @@
         v-if="syndicateitems"
         class="flex items-center py-2 pl-2 pr-4 border-b-4 border-gray-600"
       >
-        <div class="w-3/5 h-auto ">{{ $t('test.endsin') }}</div>
+        <div class="w-3/5 h-auto ">{{ $t('tracker.endsin') }}</div>
         <div class="w-2/5 h-auto text-center number-col">
           {{ timediff(syndicateitems.End) }}
         </div>
@@ -43,10 +43,10 @@
           <div slot="content" class="break-all bg-box">
             <div class="grid grid-cols-4 gap-0 px-2">
               <div class="w-full col-span-3 py-2 border-b">
-                {{ $tc('test.rewards', 2) }}
+                {{ $tc('tracker.rewards', 2) }}
               </div>
               <div class="w-full py-2 text-center border-b">
-                {{ $t('test.standing') }}
+                {{ $t('tracker.standing') }}
               </div>
               <div class="w-full h-auto col-span-3 py-1 break-all">
                 <span

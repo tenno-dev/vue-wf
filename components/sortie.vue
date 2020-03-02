@@ -27,7 +27,7 @@
             >
           </div>
           <div class="w-full h-auto col-span-3">
-            {{ $t('test.endsin') }}
+            {{ $t('tracker.endsin') }}
           </div>
           <div class="w-full h-auto col-span-1 text-left">
             {{ timediff(sortie.Ends) }}

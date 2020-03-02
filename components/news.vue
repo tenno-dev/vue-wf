@@ -19,7 +19,10 @@
         :fixed-height="true"
         fade
         infinite
+        lazy
+        lazy-load-on-drag
         :touchable="true"
+        slide-image-inside
         :slide-ratio="0.3"
       >
         <vueper-slide
@@ -52,6 +55,11 @@
   </div>
 </template>
 <style>
+.vueperslide__image {
+  @apply bg-contain;
+  @apply bg-no-repeat;
+}
+
 .number-col {
   font-family: 'Roboto', sans-serif !important;
 }

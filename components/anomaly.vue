@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       platinum: 'platinum',
-      vallis: 'test.missiontype'
+      vallis: 'tracker.missiontype'
     }
   },
   computed: {

@@ -5,7 +5,7 @@
     <div
       class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
-      {{ $t('test.alerts') }}
+      {{ $t('tracker.alerts') }}
     </div>
     <div class="pt-0 bg-box text-primary ">
       <div v-if="!alerts" class="text-primary ">
@@ -21,7 +21,7 @@
           <div slot="header" class="flex items-center px-3">
             <p class="w-full">
               <span>
-                {{ alert.MissionType }}<br />{{ $t('test.on') }}
+                {{ alert.MissionType }}<br />{{ $t('tracker.on') }}
                 {{ alert.MissionLocation }}</span
               >
             </p>
@@ -38,7 +38,7 @@
 
           <div slot="content" class="break-all border-b border-gray-600 bg-box">
             <div class="flex items-center px-3">
-              <p class="w-full ml-4">{{ $t('test.enemylevel') }}</p>
+              <p class="w-full ml-4">{{ $t('tracker.enemylevel') }}</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 {{ alert.MinEnemyLevel }}
                 - {{ alert.MaxEnemyLevel }}</span
@@ -46,7 +46,7 @@
             </div>
             <div class="flex items-center px-3">
               <p class="w-full ml-4">
-                {{ $t('test.enemyfaction') }}
+                {{ $t('tracker.enemyfaction') }}
               </p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 <span :class="getcolourfaction(alert.MissionFaction)">{{
@@ -55,13 +55,15 @@
               </span>
             </div>
             <div class="flex items-center px-3">
-              <p class="w-full ml-4">Credits {{ $tc('test.rewards', 1) }}:</p>
+              <p class="w-full ml-4">
+                Credits {{ $tc('tracker.rewards', 1) }}:
+              </p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 {{ alert.RewardCredits }}
               </span>
             </div>
             <div v-if="alert.RewardItem" class="flex items-center px-3">
-              <p class="w-full ml-4">Item {{ $tc('test.rewards', 1) }}:</p>
+              <p class="w-full ml-4">Item {{ $tc('tracker.rewards', 1) }}:</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 <span v-if="alert.RewardItemManyCount"
                   >{{ alert.RewardItemManyCount }}x </span
@@ -70,7 +72,7 @@
               </span>
             </div>
             <div v-if="alert.RewardItemMany" class="flex items-center px-3">
-              <p class="w-full ml-4">Item {{ $tc('test.rewards', 1) }}:</p>
+              <p class="w-full ml-4">Item {{ $tc('tracker.rewards', 1) }}:</p>
               <span class="flex-shrink-0 p-2 ml-4 mr-2">
                 <span v-if="alert.RewardItemManyCount"
                   >{{ alert.RewardItemManyCount }}x </span
