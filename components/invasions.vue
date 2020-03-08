@@ -24,7 +24,7 @@
             Factions
           </div>
           <span class="w-full h-auto text-right pr-9 number-col">
-            Locaation
+            Location
           </span>
         </div>
         <badger-accordion ref="myAccordion" :icons="false">
