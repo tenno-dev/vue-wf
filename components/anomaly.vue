@@ -18,21 +18,35 @@
         </div>
       </div>
       <div v-else>
-        <div class="grid items-center grid-cols-6 pl-2 pr-1 ">
-          <div class="col-span-2 border-b-4 border-gray-600">
+        <div
+          class="grid items-center grid-cols-6 py-2 pl-2 pr-4 border-b-4 border-gray-600"
+        >
+          <div class="col-span-2">
             Node (Planet)
           </div>
-          <div class="col-span-4 border-b-4 border-gray-600">
+          <div class="col-span-4">
             {{ anomaly.Node }}
           </div>
+        </div>
+        <div
+          class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-3 border-b border-gray-600"
+        >
           <div class="col-span-2 number-col">Started</div>
           <div class="col-span-4 ">
             {{ anomaly.Startstring }}
           </div>
+        </div>
+        <div
+          class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-3 border-b border-gray-600"
+        >
           <div class="col-span-2 number-col">Ended</div>
           <div class="col-span-4 ">
             {{ anomaly.EndString }}
           </div>
+        </div>
+        <div
+          class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-3 border-b border-gray-600"
+        >
           <div class="col-span-2 number-col">Next expected</div>
           <div class="col-span-4 ">
             {{ anomaly.Projectionstring }}

@@ -16,30 +16,32 @@
           <strong class="font-bold">No Progress today</strong>
         </div>
       </div>
-      <div v-else class="flex pt-3 pb-1 mb-4">
-        <div class="w-1/3 text-center">
-          <svg-progress-bar
-            class="number-col"
-            :value="progess['P1']"
-            :options="options"
-          ></svg-progress-bar>
-          Fomorian
+      <div v-else class="pt-0 bg-box text-primary ">
+        <div
+          class="grid items-center h-10 grid-cols-4 py-1 border-b-4 border-gray-600 bg-grey-light"
+        >
+          <div class="col-span-1">Fomorian</div>
+          <div
+            :style="'width: ' + progess['P1'] + '%'"
+            class="col-span-3 bg-red-700"
+          >
+            <span class="text=white">{{ progess['P1'].toFixed(2) }} %</span>
+            &nbsp;
+          </div>
         </div>
-        <div class="w-1/3 text-center">
-          <svg-progress-bar
-            class="number-col"
-            :value="progess['P2']"
-            :options="options"
-          ></svg-progress-bar>
-          Razorback
-        </div>
-        <div class="w-1/3 text-center">
-          <svg-progress-bar
-            class="number-col"
-            :value="progess['P3']"
-            :options="options"
-          ></svg-progress-bar>
-          Unknown
+        <div
+          class="grid items-center h-10 grid-cols-4 py-1 border-b-4 border-gray-600 bg-grey-light"
+        >
+          <div class="col-span-1">Razorback</div>
+
+          <div
+            :style="'width: ' + progess['P2'].toFixed(2) + '%'"
+            class="col-span-3 bg-red-700"
+          >
+            <span class="text=white w-auto bg-red-700"
+              >{{ progess['P2'].toFixed(2) }} %</span
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -92,6 +94,10 @@ export default {
     }
   },
   methods: {
+    roundprogress(percents) {
+      const x = 'width: ' + percents.toFixed(2) + '%'
+      return x
+    },
     complete(prop) {
       let x = prop
       if (prop < 0) {

@@ -17,6 +17,16 @@
         </div>
       </div>
       <template v-else>
+        <div
+          class="grid items-center grid-cols-2 px-2 py-2 pl-2 pr-4 border-b-4 border-gray-600"
+        >
+          <div class="w-full h-auto ">
+            Factions
+          </div>
+          <span class="w-full h-auto text-right pr-9 number-col">
+            Locaation
+          </span>
+        </div>
         <badger-accordion ref="myAccordion" :icons="false">
           <badger-accordion-item v-for="inva in invasions" :key="inva.id">
             <div slot="header" class="flex items-center px-2">

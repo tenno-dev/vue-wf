@@ -17,19 +17,24 @@
         </div>
       </div>
       <div v-else>
-        <div class="grid grid-cols-4 gap-0 px-2">
-          <div class="w-full h-auto col-span-1 sm:col-span-3">
+        <div
+          class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-4 border-b border-gray-600"
+        >
+          <div class="w-full col-span-4 ">
             Boss:
           </div>
-          <div class="w-full h-auto col-span-3 text-right sm:col-span-1">
-            <span :class="getcolourfaction(sortie.Faction)"
-              >{{ sortie.Boss }} ({{ sortie.Faction }})</span
-            >
-          </div>
-          <div class="w-full h-auto col-span-3">
+          <div class="w-full col-span-2">
             {{ $t('tracker.endsin') }}
           </div>
-          <div class="w-full h-auto col-span-1 text-left">
+        </div>
+        <div class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-4 ">
+          <div
+            :class="getcolourfaction(sortie.Faction) + ' col-span-4 text-left '"
+          >
+            {{ sortie.Boss }} ({{ sortie.Faction }})
+          </div>
+
+          <div class="w-full h-auto col-span-1 text-right">
             {{ timediff(sortie.Ends) }}
           </div>
         </div>
