@@ -72,9 +72,9 @@
                   <div class="col-span-1">
                     at {{ event.InterimGoalsteps[indexr] }}
                   </div>
-                  <div class="col-span-3 ">{{ reward.Item }}</div>
-                  <div class="col-span-3 ">
-                    + {{ reward.Credits }} Credits & {{ reward.XP }} XP
+                  <div class="col-span-4 ">{{ reward.Item }}</div>
+                  <div class="col-span-2 ">
+                    + {{ reward.Credits }}C & {{ reward.XP }}XP
                   </div>
                 </div>
               </div>
