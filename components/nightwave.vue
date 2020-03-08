@@ -107,6 +107,10 @@
 </template>
 
 <style lang="postcss">
+.badger-accordion-title {
+  flex: 0 0 100% !important;
+}
+
 .js-badger-accordion-header {
   @apply bg-box;
   @apply border-gray-600;

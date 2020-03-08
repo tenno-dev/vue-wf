@@ -33,32 +33,32 @@
               <div
                 class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
-                <div class="col-span-2">Ends in</div>
-                <div class="col-span-2 ">
+                <div class="col-span-2 xl:col-span-3">Ends in</div>
+                <div class="col-span-2 xl:col-span-1">
                   {{ timediff(event.Ends) }}
                 </div>
               </div>
               <div
                 class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
-                <div class="col-span-2">Main Reward</div>
-                <div class="col-span-2 ">
+                <div class="col-span-2 xl:col-span-3">Main Reward</div>
+                <div class="col-span-2 xl:col-span-1">
                   {{ event.Mainreward }}
                 </div>
               </div>
               <div
                 class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
-                <div class="col-span-2">Credits Reward</div>
-                <div class="col-span-2 ">
+                <div class="col-span-2 xl:col-span-3">Credits Reward</div>
+                <div class="col-span-2 xl:col-span-1">
                   {{ event.Mainrewardcredits }}
                 </div>
               </div>
               <div
                 class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
-                <div class="col-span-2">Reward XP</div>
-                <div class="col-span-2 ">
+                <div class="col-span-2 xl:col-span-3">Reward XP</div>
+                <div class="col-span-2 xl:col-span-1">
                   {{ event.Mainrewardxp }}
                 </div>
               </div>
@@ -72,8 +72,8 @@
                   <div class="col-span-1">
                     at {{ event.InterimGoalsteps[indexr] }}
                   </div>
-                  <div class="col-span-4 ">{{ reward.Item }}</div>
-                  <div class="col-span-2 ">
+                  <div class="col-span-4 xl:col-span-3">{{ reward.Item }}</div>
+                  <div class="col-span-2 xl:col-span-3">
                     + {{ reward.Credits }}C & {{ reward.XP }}XP
                   </div>
                 </div>
@@ -87,10 +87,8 @@
 </template>
 
 <style scoped>
-table.table div,
-table.table th,
-table.table > thead > tr {
-  border: 0;
+.badger-accordion__header.js-badger-accordion-head.badger-accordion-togg.badger-accordion-title {
+  flex: 0 0 100%;
 }
 </style>
 

@@ -20,12 +20,14 @@
       </div>
       <div
         v-if="syndicateitems"
-        class="flex items-center py-2 pl-2 pr-4 border-b-4 border-gray-600"
+        class="grid items-center grid-cols-3 py-2 pl-2 pr-4 border-b-4 border-gray-600"
       >
-        <div class="w-3/5 h-auto ">{{ $t('tracker.endsin') }}</div>
-        <div class="w-2/5 h-auto text-center number-col">
-          {{ timediff(syndicateitems.End) }}
+        <div class="h-auto col-span-2 text-left number-col">
+          {{ $t('tracker.endsin') }}
         </div>
+        <span class="h-auto col-span-1 text-right number-col">
+          {{ timediff(syndicateitems.End) }}
+        </span>
       </div>
       <badger-accordion v-if="syndicateitems" :icons="false">
         <badger-accordion-item
@@ -76,6 +78,10 @@
 </template>
 
 <style lang="postcss">
+.badger-accordion-title {
+  flex: 0 0 100% !important;
+}
+
 .js-badger-accordion-header {
   @apply bg-box;
   @apply border-gray-600;
