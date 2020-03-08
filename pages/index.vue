@@ -1,8 +1,29 @@
 <template>
   <div>
     <TimeBig class="hidden w-full h-64 px-1 xl:block" :timer="Time1[0]" />
-    <News v-if="News" class="w-full h-64 px-1 xl:px-2" :news="News" />
     <div class="flex flex-wrap xl:px-1">
+      <News
+        v-if="News && Events.length < 0"
+        class="w-full h-64 px-1 xl:px-2"
+        :news="News"
+      />
+      <News
+        v-else
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2"
+        :news="News"
+      />
+      <Events
+        v-if="News && Events.length > 0"
+        class="w-full h-64 px-1 sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2"
+        :events="Events"
+      />
+    </div>
+    <div class="flex flex-wrap xl:px-1">
+      <Events
+        v-if="News && Events.length < 0"
+        class="block w-full h-64 px-1 xl:hidden sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
+        :events="Events"
+      />
       <Time
         class="block w-full h-64 px-1 xl:hidden sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4"
         :timer="Time1[0]"
@@ -69,6 +90,7 @@ import Kuva from '@/components/kuva.vue'
 import Arbitration from '@/components/arbitration.vue'
 import Anomaly from '@/components/anomaly.vue'
 import TimeBig from '@/components/time-big.vue'
+import Events from '@/components/events.vue'
 
 // eslint-disable-next-line import/order
 import moment from 'moment'
@@ -88,7 +110,8 @@ export default {
     Kuva,
     Arbitration,
     Anomaly,
-    TimeBig
+    TimeBig,
+    Events
   },
   data() {
     return {
@@ -98,6 +121,7 @@ export default {
       defaulttheme: { short: 'theme-normal', label: 'Default' },
       platform: this.$store.state.activeplatform.short,
       Alerts: '',
+      Events: '',
       Anomaly: '',
       News: '',
       Syndicates: '',
@@ -109,7 +133,6 @@ export default {
       Progress1: '',
       Deals: '',
       Time1: '',
-      Events: '',
       Kuva: '',
       Arbitration: '',
       syndics: ['Solaris United', 'Ostron'],
@@ -174,7 +197,7 @@ export default {
           '/darvodeals'
       )
       this.$mqtt.unsubscribe(
-        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/events'
+        'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/goals'
       )
       this.$mqtt.unsubscribe(
         'wf/' + this.$store.state.activelang.short + '/' + oldVal + '/progress'
@@ -200,10 +223,10 @@ export default {
       this.Cycles = ''
       this.Fissures = ''
       this.Deals = ''
-      this.Events = ''
       this.Kuva = ''
       this.Arbitration = ''
       this.Anomaly = ''
+      this.Events = ''
       this.$mqtt.subscribe(
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/alerts'
       )
@@ -240,9 +263,6 @@ export default {
           '/darvodeals'
       )
       this.$mqtt.subscribe(
-        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/events'
-      )
-      this.$mqtt.subscribe(
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/progress'
       )
       this.$mqtt.subscribe(
@@ -257,6 +277,9 @@ export default {
       )
       this.$mqtt.subscribe(
         'wf/' + this.$store.state.activelang.short + '/' + newVal + '/anomaly'
+      )
+      this.$mqtt.subscribe(
+        'wf/' + this.$store.state.activelang.short + '/' + newVal + '/goals'
       )
     },
     activelang1(newVal, oldVal) {
@@ -325,13 +348,6 @@ export default {
           oldVal +
           '/' +
           this.$store.state.activeplatform.short +
-          '/events'
-      )
-      this.$mqtt.unsubscribe(
-        'wf/' +
-          oldVal +
-          '/' +
-          this.$store.state.activeplatform.short +
           '/progress'
       )
       this.$mqtt.unsubscribe(
@@ -351,6 +367,9 @@ export default {
           this.$store.state.activeplatform.short +
           '/anomaly'
       )
+      this.$mqtt.unsubscribe(
+        'wf/' + oldVal + '/' + this.$store.state.activeplatform.short + '/goals'
+      )
       this.Alerts = ''
       this.News = ''
       this.Syndicates = ''
@@ -360,10 +379,10 @@ export default {
       this.Fissures = ''
       this.Nightwave = ''
       this.Deals = ''
-      this.Events = ''
       this.Kuva = ''
       this.Arbitration = ''
       this.Anomaly = ''
+      this.Events = ''
       this.$mqtt.subscribe(
         'wf/' +
           newVal +
@@ -428,13 +447,6 @@ export default {
           newVal +
           '/' +
           this.$store.state.activeplatform.short +
-          '/events'
-      )
-      this.$mqtt.subscribe(
-        'wf/' +
-          newVal +
-          '/' +
-          this.$store.state.activeplatform.short +
           '/progress'
       )
       this.$mqtt.subscribe(
@@ -453,6 +465,9 @@ export default {
           '/' +
           this.$store.state.activeplatform.short +
           '/anomaly'
+      )
+      this.$mqtt.subscribe(
+        'wf/' + newVal + '/' + this.$store.state.activeplatform.short + '/goals'
       )
     }
   },
@@ -530,13 +545,6 @@ export default {
         this.$store.state.activelang.short +
         '/' +
         this.$store.state.activeplatform.short +
-        '/events'
-    )
-    this.$mqtt.subscribe(
-      'wf/' +
-        this.$store.state.activelang.short +
-        '/' +
-        this.$store.state.activeplatform.short +
         '/progress'
     )
     this.$mqtt.subscribe(
@@ -566,6 +574,13 @@ export default {
         '/' +
         this.$store.state.activeplatform.short +
         '/anomaly'
+    )
+    this.$mqtt.subscribe(
+      'wf/' +
+        this.$store.state.activelang.short +
+        '/' +
+        this.$store.state.activeplatform.short +
+        '/goals'
     )
   },
   methods: {
@@ -660,9 +675,6 @@ export default {
     'wf/#/#/darvodeals'(data) {
       this.Deals = JSON.parse(data.toString())
     },
-    'wf/#/#/events'(data) {
-      this.Events = JSON.parse(data.toString())
-    },
     'wf/#/#/progress'(data) {
       this.Progress1 = JSON.parse(data.toString())
     },
@@ -677,6 +689,9 @@ export default {
     },
     'wf/#/#/anomaly'(data) {
       this.Anomaly = JSON.parse(data.toString())
+    },
+    'wf/#/#/goals'(data) {
+      this.Events = JSON.parse(data.toString())
     }
   }
 }

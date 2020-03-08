@@ -6,7 +6,7 @@
     <div
       class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
-      Arbitration Missions
+      Arbitrations
     </div>
     <div class="pt-0 bg-box text-primary ">
       <div v-if="!arbitration" class="text-primary ">

@@ -179,22 +179,24 @@ export default {
     },
     timediff(var1) {
       var1 = var1 * 1
+      const start = moment.unix(var1)
+      const now = moment(new Date()) // todays date
       // eslint-disable-next-line
-      var ms = moment.duration(moment.unix(var1).diff(moment()))
-
+      var ms = moment.duration(start.diff(now))
+      // eslint-disable-next-line
       let days = ''
       let hours = ''
       let minutes = ' '
-      if (ms.days() * 1 > 0) {
-        days = ms.days() * 1 + 'd '
-      }
-      if (ms.hours() > 0) {
-        hours = ms.hours() + 'h:'
-      }
-      if (ms.minutes() > 0) {
-        minutes = ms.minutes() + 'm'
-      }
-      const t = days + hours + minutes
+      let seconds = ' '
+      // eslint-disable-next-line no-console
+      console.log(ms)
+      // eslint-disable-next-line no-console
+      console.log(var1)
+      days = ms.days().toFixed(0)
+      hours = ms.hours().toFixed(0)
+      minutes = ms.minutes()
+      seconds = ms.seconds()
+      const t = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's'
       return t
     }
   }

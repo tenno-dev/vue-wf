@@ -6,7 +6,7 @@
     <div
       class="px-4 pt-4 text-4xl font-bold bg-transparent text-primary sm:px-6"
     >
-      Anomaly Location
+      Anomaly
     </div>
     <div class="pt-0 bg-box text-primary ">
       <div v-if="!anomaly" class="text-primary ">
