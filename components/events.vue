@@ -31,7 +31,7 @@
               class="break-all border-b border-gray-600 bg-box"
             >
               <div
-                class="grid items-center h-10 grid-cols-4 py-1 bg-grey-light"
+                class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
                 <div class="col-span-2">Ends in</div>
                 <div class="col-span-2 ">
@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div
-                class="grid items-center h-10 grid-cols-4 py-1 bg-grey-light"
+                class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
                 <div class="col-span-2">Main Reward</div>
                 <div class="col-span-2 ">
@@ -47,7 +47,7 @@
                 </div>
               </div>
               <div
-                class="grid items-center h-10 grid-cols-4 py-1 bg-grey-light"
+                class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
                 <div class="col-span-2">Credits Reward</div>
                 <div class="col-span-2 ">
@@ -55,14 +55,14 @@
                 </div>
               </div>
               <div
-                class="grid items-center h-10 grid-cols-4 py-1 bg-grey-light"
+                class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
                 <div class="col-span-2">Reward XP</div>
                 <div class="col-span-2 ">
                   {{ event.Mainrewardxp }}
                 </div>
               </div>
-              <div v-if="event.InterimRewards">
+              <div v-if="event.InterimRewards" class="px-2 py-1 bg-grey-light">
                 Personal Interim Rewards:
                 <div
                   v-for="(reward, indexr) in event.InterimRewards"
