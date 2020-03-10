@@ -43,16 +43,6 @@
               class="value"
               :style="roundprogress(progess['P2'].toFixed(0))"
             ></span>
-            <!--
-            <div
-              :style="widthprop(progess['P2'])"
-              class="absolute -mt-3 bg-red-700 item1 z-13"
-            >
-              &#160;
-            </div>
-            <span class="absolute z-0 -mt-3 text-primary ">
-              {{ progess['P2'].toFixed(2) }} %
-            </span>-->
           </div>
         </div>
       </div>
