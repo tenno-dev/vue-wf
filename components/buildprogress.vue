@@ -18,33 +18,33 @@
       </div>
       <div v-else class="pt-0 bg-box text-primary ">
         <div
-          class="grid items-center h-10 grid-cols-3 px-2 py-1 border-b-4 border-gray-600 bg-grey-light"
+          class="grid items-center h-10 grid-cols-2 px-2 py-1 border-b-4 border-gray-600 bg-grey-light"
         >
           <div class="col-span-1">Fomorian</div>
-          <div class="col-span-2 ">
+          <div class="col-span-1 ">
             <div
               :style="widthprop(progess['P1'] / 10)"
               class="absolute -mt-3 bg-red-700 item1 z-13"
             >
               &#160;
             </div>
-            <div class="absolute z-10 -mt-3 text-white ">
+            <div class="absolute z-10 -mt-3 text-primary ">
               {{ progess['P1'].toFixed(2) }} %
             </div>
           </div>
         </div>
         <div
-          class="grid items-center h-10 grid-cols-3 px-2 py-1 border-b-4 border-gray-600 bg-grey-light"
+          class="grid items-center h-10 grid-cols-2 px-2 py-1 border-b-4 border-gray-600 bg-grey-light"
         >
           <div class="col-span-1">Razorback</div>
-          <div class="col-span-2 ">
+          <div class="col-span-1 ">
             <div
               :style="widthprop(progess['P2'] / 10)"
               class="absolute -mt-3 bg-red-700 item1 z-13"
             >
               &#160;
             </div>
-            <div class="absolute z-0 -mt-3 text-white ">
+            <div class="absolute z-0 -mt-3 text-primary ">
               {{ progess['P2'].toFixed(2) }} %
             </div>
           </div>
@@ -109,7 +109,7 @@ export default {
       return x
     },
     widthprop(prop) {
-      const x = 'width: ' + prop.toFixed(0) + '%  !important'
+      const x = 'width: ' + prop.toFixed(2) + '%  !important'
       return x
     },
     complete(prop) {
