@@ -18,35 +18,41 @@
       </div>
       <div v-else class="pt-0 bg-box text-primary ">
         <div
-          class="grid items-center h-10 grid-cols-2 px-2 py-1 border-b-4 border-gray-600 bg-grey-light"
+          class="grid items-center h-10 grid-cols-2 px-2 border-b-4 border-gray-600 bg-grey-light"
         >
           <div class="col-span-1">Fomorian</div>
-          <div class="col-span-1 ">
-            <div
-              :style="widthprop(progess['P1'] / 10)"
-              class="absolute -mt-3 bg-red-700 item1 z-13"
-            >
-              &#160;
-            </div>
-            <div class="absolute z-10 -mt-3 text-primary ">
-              {{ progess['P1'].toFixed(2) }} %
-            </div>
+          <div
+            class="col-span-1 text-primary progress"
+            :data-label="progess['P1'].toFixed(0) + '%  Complete'"
+          >
+            <span
+              class="value"
+              :style="roundprogress(progess['P1'].toFixed(0))"
+            ></span>
           </div>
         </div>
         <div
           class="grid items-center h-10 grid-cols-2 px-2 py-1 border-b-4 border-gray-600 bg-grey-light"
         >
           <div class="col-span-1">Razorback</div>
-          <div class="col-span-1 ">
+          <div
+            class="col-span-1 text-primary progress"
+            :data-label="progess['P2'].toFixed(0) + '%  Complete'"
+          >
+            <span
+              class="value"
+              :style="roundprogress(progess['P2'].toFixed(0))"
+            ></span>
+            <!--
             <div
-              :style="widthprop(progess['P2'] / 10)"
+              :style="widthprop(progess['P2'])"
               class="absolute -mt-3 bg-red-700 item1 z-13"
             >
               &#160;
             </div>
-            <div class="absolute z-0 -mt-3 text-primary ">
+            <span class="absolute z-0 -mt-3 text-primary ">
               {{ progess['P2'].toFixed(2) }} %
-            </div>
+            </span>-->
           </div>
         </div>
       </div>
@@ -55,6 +61,30 @@
 </template>
 
 <style scoped>
+.progress {
+  height: 1.5em;
+  width: 100%;
+  background-color: transparent;
+  position: relative;
+}
+
+.progress::before {
+  content: attr(data-label);
+  font-size: 0.8em;
+  position: absolute;
+  text-align: center;
+  top: 2px;
+  left: 0;
+  right: 0;
+}
+
+.progress .value {
+  @apply bg-red-700;
+
+  display: inline-block;
+  height: 100%;
+}
+
 .item1 {
   grid-area: 1 / 2 / span 1 / span 3;
 }
@@ -105,11 +135,11 @@ export default {
   },
   methods: {
     roundprogress(percents) {
-      const x = 'width: ' + percents.toFixed(0) + '%'
+      const x = 'width: ' + percents + '%'
       return x
     },
     widthprop(prop) {
-      const x = 'width: ' + prop.toFixed(2) + '%  !important'
+      const x = 'width: ' + prop.toFixed(2) + '%; max-width: auto'
       return x
     },
     complete(prop) {

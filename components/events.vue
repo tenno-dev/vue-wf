@@ -30,7 +30,7 @@
             </div>
             <div
               slot="content"
-              class="break-all border-b border-gray-600 bg-box"
+              class="break-words border-b border-gray-600 bg-box"
             >
               <div
                 class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
@@ -85,48 +85,62 @@
               </div>
               <div v-if="event.Jobs" class="px-2 py-1 bg-grey-light">
                 Event Jobs:
-
-                <div v-for="(job, indexr) in event.Jobs" :key="indexr" class="">
-                  <div
-                    class="grid items-center h-auto grid-cols-2 py-1 border-b-4 border-gray-600 bg-grey-light"
+                <badger-accordion ref="myAccordion2" :icons="false">
+                  <badger-accordion-item
+                    v-for="(job, indexr) in event.Jobs"
+                    :key="indexr"
                   >
-                    <div class="col-span-1 text-left">
-                      {{ job.Type }}
+                    <div slot="header" class="">
+                      <div
+                        class="grid items-center h-full grid-cols-2 py-1 bg-grey-light"
+                      >
+                        <div class="col-span-1 text-left">
+                          {{ job.Type }}
+                        </div>
+                        <div class="col-span-1 text-left">
+                          Level: {{ job.Minenemylvl }}-{{ job.Maxenemylvl }}
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-span-1 text-left">
-                      Level: {{ job.Minenemylvl }}-{{ job.Maxenemylvl }}
-                    </div>
+                    <div
+                      slot="content"
+                      class="break-words border-b-4 lg:break-none bg-box"
+                    >
+                      <div
+                        class="grid items-center h-full grid-cols-2 py-1 bg-grey-light"
+                      >
+                        <div class="w-full h-10 py-2 text-center border-b">
+                          {{ $tc('tracker.rewards', 2) }}
+                        </div>
+                        <div class="w-full h-10 py-2 text-center border-b">
+                          {{ $t('tracker.standing') }}
+                        </div>
 
-                    <div class="w-full h-10 py-2 text-center border-b">
-                      {{ $tc('tracker.rewards', 2) }}
-                    </div>
-                    <div class="w-full py-2 text-center border-b">
-                      {{ $t('tracker.standing') }}
-                    </div>
-                    <div
-                      class="content-center w-full col-span-1 py-1 text-center"
-                    >
-                      <span
-                        v-for="(reward1, index) in job.ItemRewards"
-                        :key="index"
-                        :index="index"
-                      >
-                        {{ reward1 }}<br
-                      /></span>
-                    </div>
-                    <div
-                      class="content-center w-full col-span-1 py-1 text-center"
-                    >
-                      <span
-                        v-for="(stand, index) in job.XPreward"
-                        :key="index"
-                        :index="index"
-                      >
-                        {{ stand }}<br
-                      /></span>
-                    </div>
-                  </div>
-                </div>
+                        <div
+                          class="content-center w-full col-span-1 py-1 text-left h-30"
+                        >
+                          <span
+                            v-for="(reward1, index) in job.ItemRewards"
+                            :key="index"
+                            :index="index"
+                          >
+                            {{ reward1 }},<br />
+                          </span>
+                        </div>
+                        <div
+                          class="content-center w-full col-span-1 py-1 text-left"
+                        >
+                          <p
+                            v-for="(stand, index) in job.XPreward"
+                            :key="index"
+                            :index="index"
+                          >
+                            {{ stand }}<br />
+                          </p>
+                        </div>
+                      </div></div
+                  ></badger-accordion-item>
+                </badger-accordion>
               </div>
             </div>
           </badger-accordion-item> </badger-accordion
