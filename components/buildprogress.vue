@@ -18,29 +18,35 @@
       </div>
       <div v-else class="pt-0 bg-box text-primary ">
         <div
-          class="grid items-center h-10 grid-cols-4 py-1 border-b-4 border-gray-600 bg-grey-light"
+          class="grid items-center h-10 grid-cols-3 px-2 py-1 border-b-4 border-gray-600 bg-grey-light"
         >
           <div class="col-span-1">Fomorian</div>
-          <div
-            :style="'width: ' + progess['P1'] + '%'"
-            class="col-span-3 bg-red-700"
-          >
-            <span class="text=white">{{ progess['P1'].toFixed(2) }} %</span>
-            &nbsp;
+          <div class="col-span-2 ">
+            <div
+              :style="widthprop(progess['P1'] / 10)"
+              class="absolute -mt-3 bg-red-700 item1 z-13"
+            >
+              &#160;
+            </div>
+            <div class="absolute z-10 -mt-3 text-white ">
+              {{ progess['P1'].toFixed(2) }} %
+            </div>
           </div>
         </div>
         <div
-          class="grid items-center h-10 grid-cols-4 py-1 border-b-4 border-gray-600 bg-grey-light"
+          class="grid items-center h-10 grid-cols-3 px-2 py-1 border-b-4 border-gray-600 bg-grey-light"
         >
           <div class="col-span-1">Razorback</div>
-
-          <div
-            :style="'width: ' + progess['P2'].toFixed(2) + '%'"
-            class="col-span-3 bg-red-700"
-          >
-            <span class="text=white w-auto bg-red-700"
-              >{{ progess['P2'].toFixed(2) }} %</span
+          <div class="col-span-2 ">
+            <div
+              :style="widthprop(progess['P2'] / 10)"
+              class="absolute -mt-3 bg-red-700 item1 z-13"
             >
+              &#160;
+            </div>
+            <div class="absolute z-0 -mt-3 text-white ">
+              {{ progess['P2'].toFixed(2) }} %
+            </div>
           </div>
         </div>
       </div>
@@ -49,6 +55,10 @@
 </template>
 
 <style scoped>
+.item1 {
+  grid-area: 1 / 2 / span 1 / span 3;
+}
+
 .number-col {
   font-family: 'Roboto', sans-serif !important;
 }
@@ -95,7 +105,11 @@ export default {
   },
   methods: {
     roundprogress(percents) {
-      const x = 'width: ' + percents.toFixed(2) + '%'
+      const x = 'width: ' + percents.toFixed(0) + '%'
+      return x
+    },
+    widthprop(prop) {
+      const x = 'width: ' + prop.toFixed(0) + '%  !important'
       return x
     },
     complete(prop) {

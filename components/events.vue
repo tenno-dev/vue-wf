@@ -23,7 +23,9 @@
                 class="grid items-center h-10 grid-cols-4 py-1 bg-grey-light"
               >
                 <div class="col-span-3">{{ event.Name }}</div>
-                <div class="col-span-1 ">{{ event.HealthPct }} %</div>
+                <div class="col-span-1 ">
+                  {{ event.HealthPct.toFixed(2) }} %
+                </div>
               </div>
             </div>
             <div
@@ -39,6 +41,7 @@
                 </div>
               </div>
               <div
+                v-if="event.Mainreward"
                 class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
                 <div class="col-span-2 xl:col-span-3">Main Reward</div>
@@ -47,6 +50,7 @@
                 </div>
               </div>
               <div
+                v-if="event.Mainrewardcredits > 0"
                 class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
                 <div class="col-span-2 xl:col-span-3">Credits Reward</div>
@@ -55,6 +59,7 @@
                 </div>
               </div>
               <div
+                v-if="event.Mainrewardxp > 0"
                 class="grid items-center h-10 grid-cols-4 px-2 py-1 bg-grey-light"
               >
                 <div class="col-span-2 xl:col-span-3">Reward XP</div>
@@ -75,6 +80,51 @@
                   <div class="col-span-4 xl:col-span-3">{{ reward.Item }}</div>
                   <div class="col-span-2 xl:col-span-3">
                     + {{ reward.Credits }}C & {{ reward.XP }}XP
+                  </div>
+                </div>
+              </div>
+              <div v-if="event.Jobs" class="px-2 py-1 bg-grey-light">
+                Event Jobs:
+
+                <div v-for="(job, indexr) in event.Jobs" :key="indexr" class="">
+                  <div
+                    class="grid items-center h-auto grid-cols-2 py-1 border-b-4 border-gray-600 bg-grey-light"
+                  >
+                    <div class="col-span-1 text-left">
+                      {{ job.Type }}
+                    </div>
+                    <div class="col-span-1 text-left">
+                      Level: {{ job.Minenemylvl }}-{{ job.Maxenemylvl }}
+                    </div>
+
+                    <div class="w-full h-10 py-2 text-center border-b">
+                      {{ $tc('tracker.rewards', 2) }}
+                    </div>
+                    <div class="w-full py-2 text-center border-b">
+                      {{ $t('tracker.standing') }}
+                    </div>
+                    <div
+                      class="content-center w-full col-span-1 py-1 text-center"
+                    >
+                      <span
+                        v-for="(reward1, index) in job.ItemRewards"
+                        :key="index"
+                        :index="index"
+                      >
+                        {{ reward1 }}<br
+                      /></span>
+                    </div>
+                    <div
+                      class="content-center w-full col-span-1 py-1 text-center"
+                    >
+                      <span
+                        v-for="(stand, index) in job.XPreward"
+                        :key="index"
+                        :index="index"
+                      >
+                        {{ stand }}<br
+                      /></span>
+                    </div>
                   </div>
                 </div>
               </div>
