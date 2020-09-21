@@ -19,17 +19,17 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     happy: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      active: false
+      active: false,
     }
-  }
+  },
 }
 </script>

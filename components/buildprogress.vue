@@ -7,8 +7,8 @@
     >
       Build Progress
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!progess" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="!progess" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
@@ -16,7 +16,7 @@
           <strong class="font-bold">No Progress today</strong>
         </div>
       </div>
-      <div v-else class="pt-0 bg-box text-primary ">
+      <div v-else class="pt-0 bg-box text-primary">
         <div
           class="grid items-center h-10 grid-cols-2 px-2 border-b-4 border-gray-600 bg-grey-light"
         >

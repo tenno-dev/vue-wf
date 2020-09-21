@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted() {
-    this.$warehouse.each(function(value, key) {
+    this.$warehouse.each(function (value, key) {
       // eslint-disable-next-line no-console
       console.log(key, '==', value)
     })

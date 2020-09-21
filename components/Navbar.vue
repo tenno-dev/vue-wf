@@ -93,7 +93,7 @@
                   {{ option.label }}
                 </template>
                 <template slot="selected-option" slot-scope="option">
-                  <span class="mr-1 "
+                  <span class="mr-1"
                     ><lang-flag :iso="option.short" :squared="false"
                   /></span>
                   {{ option.label }}
@@ -118,7 +118,7 @@
                   {{ option.label }}
                 </template>
                 <template slot="selected-option" slot-scope="option">
-                  <span class="mr-1 "
+                  <span class="mr-1"
                     ><fa :icon="['fas', 'palette']" fixed-width
                   /></span>
                   {{ option.label }}
@@ -142,7 +142,7 @@
                   {{ option.label }}
                 </template>
                 <template slot="selected-option" slot-scope="option">
-                  <span class="mr-1 "
+                  <span class="mr-1"
                     ><fa :icon="option.icon" fixed-width
                   /></span>
                   {{ option.label }}
@@ -172,7 +172,7 @@
             >Home</a
           >
           <v-select
-            class="text-primary "
+            class="text-primary"
             :value="$store.state.activelang"
             :searchable="false"
             :clearable="false"
@@ -188,7 +188,7 @@
               {{ option.label }}
             </template>
             <template slot="selected-option" slot-scope="option">
-              <span class="mr-1 "
+              <span class="mr-1"
                 ><lang-flag :iso="option.short" :squared="false"
               /></span>
               {{ option.label }}
@@ -210,7 +210,7 @@
               {{ option.label }}
             </template>
             <template slot="selected-option" slot-scope="option">
-              <span class="mr-1 "><fa :icon="option.icon" fixed-width/></span>
+              <span class="mr-1"><fa :icon="option.icon" fixed-width /></span>
               {{ option.label }}
             </template></v-select
           >
@@ -231,7 +231,7 @@
               {{ option.label }}
             </template>
             <template slot="selected-option" slot-scope="option">
-              <span class="mr-1 "
+              <span class="mr-1"
                 ><fa :icon="['fas', 'palette']" fixed-width
               /></span>
               {{ option.label }}
@@ -285,7 +285,7 @@ export default {
     }
   },
   mounted() {
-    document.addEventListener('click', evt => {
+    document.addEventListener('click', (evt) => {
       evt.stopPropagation()
       if (!this.$el.contains(evt.target)) {
         this.opennav = false

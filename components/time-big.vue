@@ -1,5 +1,5 @@
 <template>
-  <div class="h-auto mt-4 overflow-hidden border-transparent rounded ">
+  <div class="h-auto mt-4 overflow-hidden border-transparent rounded">
     <div v-if="timer" class="flex grid grid-cols-12">
       <div
         class="col-span-2 px-2 text-4xl font-bold bg-transparent text-primary sm:px-6"
@@ -12,7 +12,7 @@
         Earth:
         <fa
           v-if="timer.Earth[0].State == 'day'"
-          class="text-xl "
+          class="text-xl"
           icon="sun"
           fixed-width
           :style="{
@@ -36,7 +36,7 @@
         Cetus:
         <fa
           v-if="timer.Cetus[0].State == 'day'"
-          class="text-xl "
+          class="text-xl"
           icon="sun"
           fixed-width
           :style="{
@@ -60,7 +60,7 @@
         Vallis:
         <fa
           v-if="timer.Vallis[0].State == 'cold'"
-          class="text-xl "
+          class="text-xl"
           icon="snowflake"
           fixed-width
           :style="{
@@ -68,7 +68,7 @@
           }"
         /><fa
           v-else
-          class="items-center text-2xl "
+          class="items-center text-2xl"
           icon="sun"
           fixed-width
           :style="{

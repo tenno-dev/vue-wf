@@ -1,3 +1,3 @@
 import VueMqtt from '@lurow/vue-mqtt'
 import Vue from 'vue'
-Vue.use(VueMqtt, 'wss://api-wf.mybitti.de:8084/mqtt')
+Vue.use(VueMqtt, 'ws://127.0.0.7:8083/mqtt')

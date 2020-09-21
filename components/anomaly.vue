@@ -8,8 +8,8 @@
     >
       Anomaly
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!anomaly" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="!anomaly" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
@@ -21,9 +21,7 @@
         <div
           class="grid items-center grid-cols-6 py-2 pl-2 pr-4 border-b-4 border-gray-600"
         >
-          <div class="col-span-2">
-            Node (Planet)
-          </div>
+          <div class="col-span-2">Node (Planet)</div>
           <div class="col-span-4">
             {{ anomaly.Node }}
           </div>
@@ -32,7 +30,7 @@
           class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-3 border-b border-gray-600"
         >
           <div class="col-span-2 number-col">Started</div>
-          <div class="col-span-4 ">
+          <div class="col-span-4">
             {{ anomaly.Startstring }}
           </div>
         </div>
@@ -40,7 +38,7 @@
           class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-3 border-b border-gray-600"
         >
           <div class="col-span-2 number-col">Ended</div>
-          <div class="col-span-4 ">
+          <div class="col-span-4">
             {{ anomaly.EndString }}
           </div>
         </div>
@@ -48,7 +46,7 @@
           class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-3 border-b border-gray-600"
         >
           <div class="col-span-2 number-col">Next expected</div>
-          <div class="col-span-4 ">
+          <div class="col-span-4">
             {{ anomaly.Projectionstring }}
           </div>
         </div>

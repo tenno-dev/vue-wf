@@ -8,8 +8,8 @@
     >
       Nightwave S{{ nightwave.Season - 1 }}
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!nightwave" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="!nightwave" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
@@ -21,7 +21,7 @@
         <div
           class="grid items-center grid-cols-2 py-2 pl-2 pr-4 border-b-4 border-gray-600"
         >
-          <div class="w-full h-auto ">
+          <div class="w-full h-auto">
             Season {{ nightwave.Season }} {{ $t('tracker.endsin2') }}
           </div>
           <span class="w-full h-auto text-right number-col">
@@ -39,7 +39,7 @@
             <div
               slot="header"
               class="grid items-center grid-cols-2 pl-2 -pr-4"
-              style="padding-right: -0, 75rem;"
+              style="padding-right: -0, 75rem"
             >
               <div class="w-full">
                 {{ job.Title }}
@@ -63,7 +63,7 @@
             <div
               slot="header"
               class="grid items-center grid-cols-2 pl-2 -pr-2"
-              style="padding-right: -0, 75rem;"
+              style="padding-right: -0, 75rem"
             >
               <div class="w-full">
                 {{ job.Title }}

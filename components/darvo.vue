@@ -8,7 +8,7 @@
       {{ headertext }}
     </div>
     <div class="py-0 bg-box">
-      <div v-if="!deals" class="text-primary ">
+      <div v-if="!deals" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
@@ -43,9 +43,7 @@
         >
           {{ (((item.Stock - item.Sold) / item.Stock) * 100).toFixed(2) }}%
         </div>
-        <div v-else class="h-auto col-span-2 font-black">
-          Sold Out
-        </div>
+        <div v-else class="h-auto col-span-2 font-black">Sold Out</div>
         <div class="col-span-2 number-col">
           {{ timediff(item.Ends) }}
         </div>

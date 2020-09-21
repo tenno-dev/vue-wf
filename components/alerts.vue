@@ -7,8 +7,8 @@
     >
       {{ $t('tracker.alerts') }}
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!alerts" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="!alerts" class="text-primary">
         <div
           class="relative px-4 py-3 antialiased bg-transparent border border-red-400 text-alert"
           role="alert"

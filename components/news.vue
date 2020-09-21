@@ -6,7 +6,7 @@
       News
     </div>
     <div class="border-transparent text-default">
-      <div v-if="!news[0]" class="text-primary ">
+      <div v-if="!news[0]" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 border border-red-400 rounded"
           role="alert"

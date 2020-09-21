@@ -1,6 +1,6 @@
 <template>
   <div>
-    <News v-if="News" class="w-full xl:px-2 px-1 min-h-full" :news="News" />
+    <News v-if="News" class="w-full min-h-full px-1 xl:px-2" :news="News" />
   </div>
 </template>
 

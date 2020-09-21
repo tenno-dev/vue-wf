@@ -7,8 +7,8 @@
     >
       Sortie
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!sortie" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="!sortie" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
@@ -20,14 +20,12 @@
         <div
           class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-4 border-b border-gray-600"
         >
-          <div class="w-full col-span-4 ">
-            Boss:
-          </div>
+          <div class="w-full col-span-4">Boss:</div>
           <div class="w-full col-span-2">
             {{ $t('tracker.endsin') }}
           </div>
         </div>
-        <div class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-4 ">
+        <div class="grid items-center grid-cols-6 px-2 py-2 pl-2 pr-4">
           <div
             :class="getcolourfaction(sortie.Faction) + ' col-span-4 text-left '"
           >
@@ -39,7 +37,7 @@
           </div>
         </div>
         <div v-for="(guess, i) in 3" :key="i">
-          <div class="grid grid-cols-2 gap-0 px-2 border-t-4 border-gray-600 ">
+          <div class="grid grid-cols-2 gap-0 px-2 border-t-4 border-gray-600">
             <div
               v-if="typeof sortie !== 'undefined' && sortie.Variants[i]"
               class="w-full h-auto pt-1"
@@ -53,7 +51,7 @@
               {{ sortie.Variants[i].MissionLocation }}
             </div>
           </div>
-          <div class="grid grid-cols-1 px-2 pb-1 border-b border-gray-600 ">
+          <div class="grid grid-cols-1 px-2 pb-1 border-b border-gray-600">
             Mod: {{ sortie.Variants[i].MissionMod }}
           </div>
         </div>

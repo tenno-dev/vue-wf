@@ -6,8 +6,8 @@
     >
       Events
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!events" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="!events" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
@@ -23,9 +23,7 @@
                 class="grid items-center h-10 grid-cols-4 py-1 bg-grey-light"
               >
                 <div class="col-span-3">{{ event.Name }}</div>
-                <div class="col-span-1 ">
-                  {{ event.HealthPct.toFixed(2) }} %
-                </div>
+                <div class="col-span-1">{{ event.HealthPct.toFixed(2) }} %</div>
               </div>
             </div>
             <div

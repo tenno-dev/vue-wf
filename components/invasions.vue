@@ -7,8 +7,8 @@
     >
       {{ $tc('tracker.invasions', 2) }}
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="invasions.length < 1" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="invasions.length < 1" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
@@ -20,9 +20,7 @@
         <div
           class="grid items-center grid-cols-2 px-2 py-2 pl-2 pr-4 border-b-4 border-gray-600"
         >
-          <div class="w-full h-auto ">
-            Factions
-          </div>
+          <div class="w-full h-auto">Factions</div>
           <span class="w-full h-auto text-right pr-9 number-col">
             Location
           </span>

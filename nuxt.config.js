@@ -12,10 +12,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   /*
@@ -37,7 +37,7 @@ export default {
     { src: '~/plugins/accordion.js', ssr: false },
     { src: '~/plugins/vselect.js', ssr: false },
     { src: '~/plugins/vcircle.js' },
-    { src: '@/plugins/i18n.js' }
+    { src: '@/plugins/i18n.js' },
   ],
 
   /*
@@ -53,9 +53,9 @@ export default {
         plugins: ['store/plugins/expire', 'store/plugins/defaults'],
         storages: [
           'store/storages/localStorage',
-          'store/storages/cookieStorage'
-        ]
-      }
+          'store/storages/cookieStorage',
+        ],
+      },
     ],
     '@nuxtjs/eslint-module',
     [
@@ -73,16 +73,16 @@ export default {
               'faBars',
               'faGamepad',
               'faSnowflake',
-              'faPalette'
-            ]
+              'faPalette',
+            ],
           },
           {
             set: '@fortawesome/free-brands-svg-icons',
-            icons: ['faXbox', 'faPlaystation']
-          }
-        ]
-      }
-    ]
+            icons: ['faXbox', 'faPlaystation'],
+          },
+        ],
+      },
+    ],
   ],
 
   /*
@@ -99,15 +99,15 @@ export default {
       /^flag/,
       /-(leave|enter|appear)(|-(to|from|active))$/,
       /^(?!(|.*?:)cursor-move).+-move$/,
-      /^nuxt-link(|-exact)-active$/
-    ]
+      /^nuxt-link(|-exact)-active$/,
+    ],
   },
 
   pwa: {
     manifest: {
       name: 'Warframe Info Hub',
-      short_name: 'Warframe Info Hub'
-    }
+      short_name: 'Warframe Info Hub',
+    },
   },
 
   /*
@@ -117,6 +117,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
+    extend(config, ctx) {},
+  },
 }

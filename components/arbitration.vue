@@ -8,8 +8,8 @@
     >
       Arbitrations
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!arbitration" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="!arbitration" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
@@ -21,9 +21,7 @@
         <div
           class="grid items-center grid-cols-6 py-2 pl-2 pr-4 border-b-4 border-gray-600"
         >
-          <div class="col-span-2">
-            Node (Planet)
-          </div>
+          <div class="col-span-2">Node (Planet)</div>
           <div class="col-span-3">Mission</div>
           <div class="number-col">Time</div>
         </div>
@@ -39,7 +37,7 @@
             {{ mission.Node2 }}
           </div>
           <div class="col-span-3">{{ mission.Missiontype }}</div>
-          <div class="number-col ">
+          <div class="number-col">
             {{ timediff(mission.Ends) }}
           </div>
         </div>

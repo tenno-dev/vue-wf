@@ -7,8 +7,8 @@
     >
       Timers
     </div>
-    <div class="pt-0 bg-box text-primary ">
-      <div v-if="!timer" class="text-primary ">
+    <div class="pt-0 bg-box text-primary">
+      <div v-if="!timer" class="text-primary">
         <div
           class="relative px-4 py-3 text-red-700 bg-transparent border border-red-400 rounded"
           role="alert"
